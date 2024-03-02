@@ -1,0 +1,2 @@
+class CoupleChallenge < ApplicationRecord
+end

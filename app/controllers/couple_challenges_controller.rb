@@ -1,0 +1,2 @@
+class CoupleChallengesController < ApplicationController
+end

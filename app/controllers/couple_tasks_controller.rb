@@ -1,0 +1,2 @@
+class CoupleTasksController < ApplicationController
+end

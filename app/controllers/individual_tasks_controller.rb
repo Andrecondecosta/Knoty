@@ -1,0 +1,2 @@
+class IndividualTasksController < ApplicationController
+end

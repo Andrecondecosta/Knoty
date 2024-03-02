@@ -1,0 +1,2 @@
+class IndividualChallenge < ApplicationRecord
+end
