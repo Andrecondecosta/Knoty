@@ -5,7 +5,7 @@
   width: 434px;
 
   .sub-content-box {
-    height: 766px;
+    height: calc(100% - 166px);
     overflow-y: auto;
   }
 }
