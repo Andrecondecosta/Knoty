@@ -1,10 +1,11 @@
 .content-box {
   background-color: #fff;
   border: 1px solid #e5e5e5;
-  width: 570px;
+  height: 932px;
+  width: 434px;
 
   .sub-content-box {
-    height: calc(100vh - 166px);
+    height: 766px;
     overflow-y: auto;
   }
 }
