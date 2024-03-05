@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_182244) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_212750) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,14 +42,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_182244) do
   end
 
   create_table "couples", force: :cascade do |t|
-    t.bigint "partner_1_id", null: false
-    t.bigint "partner_2_id", null: false
+    t.bigint "partner1_id", null: false
+    t.bigint "partner2_id", null: false
     t.date "relation_since"
     t.integer "total_exp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["partner_1_id"], name: "index_couples_on_partner_1_id"
-    t.index ["partner_2_id"], name: "index_couples_on_partner_2_id"
+    t.index ["partner1_id"], name: "index_couples_on_partner1_id"
+    t.index ["partner2_id"], name: "index_couples_on_partner2_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -154,8 +154,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_182244) do
 
   add_foreign_key "couple_tasks", "couple_challenges"
   add_foreign_key "couple_tasks", "couples"
-  add_foreign_key "couples", "users", column: "partner_1_id"
-  add_foreign_key "couples", "users", column: "partner_2_id"
+  add_foreign_key "couples", "users", column: "partner1_id"
+  add_foreign_key "couples", "users", column: "partner2_id"
   add_foreign_key "events", "couples"
   add_foreign_key "individual_tasks", "individual_challenges"
   add_foreign_key "individual_tasks", "users"

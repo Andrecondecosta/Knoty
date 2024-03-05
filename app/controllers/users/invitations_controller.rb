@@ -26,12 +26,12 @@ class Users::InvitationsController < Devise::InvitationsController
 
   def create_couple
     # Assuming current_inviter is the other partner
-    potential_couple = Couple.find_by(partner_1: current_inviter, partner_2: resource)
-    potential_couple2 = Couple.find_by(partner_1: resource, partner_2: current_inviter)
+    potential_couple = Couple.find_by(partner1: current_inviter, partner2: resource)
+    potential_couple2 = Couple.find_by(partner1: resource, partner2: current_inviter)
 
     @existing_couple = potential_couple || potential_couple2
     if @existing_couple.nil?
-      couple = Couple.new(partner_1: current_inviter, partner_2: resource)
+      couple = Couple.new(partner1: current_inviter, partner2: resource)
       couple.save!
     end
   end
