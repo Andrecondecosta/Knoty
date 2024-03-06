@@ -1,12 +1,22 @@
-<div class="container mt-4">
+<div class="container mt-4 ps-3 pe-3 d-flex flex-column">
   <div class="p-2">
     <div class="d-flex align-items-center">
       <i class="fa-solid fa-file-lines fa-2x me-2 pb-3"></i>
-      <h2>Mission Board</h2>
+      <h2><b>Mission Board</b></h2>
     </div>
   </div>
 
-  <button class="btn btn-primary rounded-circle position-absolute bottom-0 end-0 m-3" style="width: 60px; height: 60px;">
-    <i class="fas fa-plus"></i>
-  </button>
+  <div class="mb-auto">
+    <% @missions.each do |mission| %>
+      <div class="mb-3">
+        <%= render 'mission_show', mission: mission %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-auto text-end">
+    <%= link_to new_mission_path, class: "btn btn-primary rounded-circle", style: "width: 50px; height: 50px;" do %>
+      <i class="fas fa-plus"style="font-size: 24px; padding-left: 1px; padding-top: 6px;"></i>
+    <% end %>
+  </div>
 </div>
