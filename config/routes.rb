@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { invitations: "users/invitations" }
+  devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions', invitations: "users/invitations" }
   root to: "pages#home"
+
+  get "edit_profile" => "users#edit_profile"
+  patch "users/update_profile" => "users#update_profile", as: :update_profile
 
   resources :missions, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
