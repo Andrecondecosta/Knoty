@@ -5,9 +5,5 @@ class PagesController < ApplicationController
   end
 
   def quests
-
-  end
-
-    def briefing
   end
 end
