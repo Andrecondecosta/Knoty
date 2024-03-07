@@ -1,0 +1,54 @@
+
+.my-card {
+  background-color: white;
+  height: 250px;
+  width: 300px;
+  display: block;
+  margin: auto;
+  border-radius: 50px;
+  border: none;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: grey;
+}
+
+
+.carousel-indicators {
+  margin-bottom: -2rem;}
+.carousel-indicators li {
+  background-color: grey;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.tab {
+  flex: 1;
+  cursor: pointer;
+  padding: 22px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background-color: #fff;
+  margin-bottom: -1px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 30px;
+
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+.tab.active {
+  background-color: #ddd;
+    border-bottom: none;
+}
+hr {
+  display: none;
+}
