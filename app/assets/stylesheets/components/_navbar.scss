@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(207, 207, 207, 0.5);
+  padding-top: 5px;
+  padding-bottom: 8px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +10,17 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 160px;
+  height: 30px;
+}
+
+.footer-login {
+  border: 1px solid #8d8d8d;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.footer-login:hover {
+  background-color: #838383;
+  color: #ffffff;
 }

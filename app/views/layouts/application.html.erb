@@ -13,15 +13,22 @@
   <body class="d-flex justify-content-center align-items-center">
     <!-- App container -->
     <div class="content-box border border-dark">
-      <%= render "shared/navbar" %>
+      <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) %>
+      <!-- header -->
+      <% if !clear_pages %>
+        <%= render "shared/navbar" %>
+      <% end %>
+
       <%= render "shared/flashes" %>
 
       <!-- Inner App container -->
       <div class="sub-content-box" >
         <%= yield %>
       </div>
-
-      <%= render 'shared/footer' %>
+      <!-- footer -->
+      <% if !clear_pages %>
+        <%= render 'shared/footer' %>
+      <% end %>
     </div>
 
   </body>

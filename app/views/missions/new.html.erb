@@ -1,0 +1,20 @@
+<div class="container mt-4 ps-3 pe-3 d-flex flex-column">
+  <%= link_to missions_path, class: "text-dark" do %>
+    <i class="fa-solid fa-arrow-left" style="font-size: 24px;"></i>
+  <% end %>
+  <div class="p-2">
+    <h3><b>Add a mission to your board</b></h3>
+  </div>
+  <%= form_with(model: @mission, local: true) do |form| %>
+    <%= form.label :icon %>
+    <%= form.select :icon, ['icon1', 'icon2', 'icon3', 'icon4'] %>
+
+    <%= form.label :title %>
+    <%= form.text_field :title, maxlength: 19 %>
+
+    <%= form.label :details %>
+    <%= form.text_area :details, maxlength: 27 %>
+
+    <%= form.submit %>
+  <% end %>
+</div>
