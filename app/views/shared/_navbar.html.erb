@@ -13,7 +13,14 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+
+            <% unless current_user.avatar_url.nil? %>
+              <%= image_tag current_user.avatar_url, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+            <% end %>
+
+
             <i class="fa-solid fa-gear" style="position: absolute; bottom: -5px; right: -5px; color: black;"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

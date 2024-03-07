@@ -1,5 +1,13 @@
 class Users::InvitationsController < Devise::InvitationsController
 
+  # GET /resource/invitation/new
+  def new
+    return redirect_to root_path if current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+
+    self.resource = resource_class.new
+    render :new
+  end
+
   # POST /resource/invitation
   def create
     self.resource = invite_resource
