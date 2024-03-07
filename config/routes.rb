@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions', invitations: "users/invitations" }
   root to: "pages#home"
 
+
   get "edit_profile" => "users#edit_profile"
   patch "users/update_profile" => "users#update_profile", as: :update_profile
 
-  resources :missions, only: [:index]
+  resources :missions, only: [:index, :new, :create] do
+    member do
+      get :complete
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

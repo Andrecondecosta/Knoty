@@ -1,0 +1,15 @@
+<div class="mission d-flex align-items-center">
+  <div class="icon p-2">
+    <%= image_tag("#{mission.icon}.png", size: "50x50") %>
+  </div>
+  <div class="details flex-grow-1 p-2">
+    <h4 class="mission-title"><%= mission.title %></h4>
+    <p class="mission-details"><%= mission.details %></p>
+  </div>
+  <div class="complete p-2 text-center">
+    <%= link_to complete_mission_path(mission), method: :patch, class: "icon-link" do %>
+      <i class="fas fa-thumbs-up icon-class"></i>
+    <% end %>
+    <p class="date"><%= format_date(mission.created_at) %></p>
+  </div>
+</div>
