@@ -3,4 +3,11 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def quests
+
+  end
+
+    def briefing
+  end
 end
