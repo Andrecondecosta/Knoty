@@ -2,7 +2,7 @@ class Users::InvitationsController < Devise::InvitationsController
 
   # GET /resource/invitation/new
   def new
-    return redirect_to root_path if current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+    return redirect_to root_path if current_user.couple_as_partner_1 || current_user.couple_as_partner_2 # ==========> Set in PUNDIT
 
     self.resource = resource_class.new
     render :new
