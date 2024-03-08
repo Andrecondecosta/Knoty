@@ -1,4 +1,4 @@
-<div class="footer position-sticky bottom-0">
+<!-- <div class="footer position-sticky bottom-0">
   <div class="footer-links">
     <a href="#"><i class="fa-solid fa-gamepad"></i></a>
     <a href="<%= missions_path %>"><i class="fa-solid fa-file-lines"></i></a>
@@ -6,4 +6,42 @@
     <a href="#"><i class="fa-solid fa-calendar"></i></a>
     <a href="#"><i class="fa-solid fa-comment-dots"></i></a>
   </div>
-</div>
+</div> -->
+<nav class="mobile-footer light" role="menulist">
+	<a href="#!" role="menuitem">
+		<svg aria-hidden="true"><use xlink:href="#Quests"></use></svg> Quests
+	</a>
+	<a href="<%= missions_path %>" role="menuitem">
+		<svg><use xlink:href="#Missions"></use></svg> Missions
+	</a>
+	<a href="<%= root_path %>" role="menuitem">
+		<svg aria-hidden="true"><use xlink:href="#Hub/Map"></use></svg> Hub/Map
+	</a>
+	<a href="#!" role="menuitem">
+		<svg aria-hidden="true"><use xlink:href="#Calendar"></use></svg> Calendar
+	</a>
+	<a href="#!"  role="menuitem" role="menuItem">
+		<svg aria-hidden="true"><use xlink:href="#Chat"></use></svg> Chat
+	</a>
+	<i class="line"></i>
+</nav>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+	<symbol id="Quests" viewBox="0 0 640 512">
+		<path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z"/>
+	</symbol>
+	<symbol id="Missions" viewBox="0 0 384 512">
+		<path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+	</symbol>
+	<symbol id="Hub/Map" viewBox="0 0 576 512">
+		<path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+	</symbol>
+	<symbol id="Calendar" viewBox="0 0 448 512">
+		<path d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/>
+	</symbol>
+	<symbol id="Chat" viewBox="0 0 512 512">
+		<path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+	</symbol>
+</svg>
+
+<%= javascript_include_tag 'footer' %>
