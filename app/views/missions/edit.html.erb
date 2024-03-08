@@ -3,7 +3,7 @@
     <i class="fa-solid fa-arrow-left" style="font-size: 24px;"></i>
   <% end %>
   <div class="p-1 ps-0">
-    <h3 style="padding-left: 3px;"><b>Add a mission to your board</b></h3>
+    <h3 style="padding-left: 3px;"><b>Edit your mission</b></h3>
   </div>
 
   <div class="row justify-content-center">
@@ -32,13 +32,13 @@
   </div>
 
   <div class="form-group mt-3">
-    <label for="title" class="mb-0" style="font-size: 18px;"><b>Add a mission name</b></label>
+    <label for="title" class="mb-0" style="font-size: 18px;"><b>Edit the mission name</b></label>
     <p class="text-muted mb-1">Make it fun!</p>
     <%= form.input :title, label: false, maxlength: 13, placeholder: 'e.g: Garbage!', input_html: { id: 'title' } %>
   </div>
 
   <div class="form-group mt-3">
-    <label for="details" class="mb-0" style="font-size: 18px;"><b>Add a description</b></label>
+    <label for="details" class="mb-0" style="font-size: 18px;"><b>Edit the description</b></label>
     <p class="text-muted mb-1">Optional</p>
     <%= form.input :details, label: false, maxlength: 36, placeholder: 'e.g: Throw away the garbage later!', input_html: { style: 'resize: none;', id: 'details' } %>
   </div>

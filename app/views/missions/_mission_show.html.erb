@@ -1,15 +1,22 @@
-<div class="mission d-flex align-items-center">
-  <div class="icon p-2">
-    <%= image_tag("#{mission.icon}.png", size: "50x50") %>
+<div class="mission d-flex align-items-center mission-background" style="min-height: 110px;">
+  <div class="icon ps-3">
+    <%= image_tag(mission.icon, size: "50x50") %>
   </div>
-  <div class="details flex-grow-1 p-2">
-    <h4 class="mission-title"><%= mission.title %></h4>
-    <p class="mission-details"><%= mission.details %></p>
+  <div class="details p-2" style="flex-basis: 70%; max-width: 65%; word-wrap: break-word;">
+    <h4 class="mission-title ps-0" style="align-self: flex-start;"><%= mission.title %></h4>
+    <div class="mission-details" style="word-wrap: break-word; padding-right: 10px;">
+      <p><%= mission.details %></p>
+    </div>
   </div>
-  <div class="complete p-2 text-center">
-    <%= link_to complete_mission_path(mission), method: :patch, class: "icon-link" do %>
+  <div class="complete p-2 text-center pb-4">
+    <div class="ps-4 pb-6">
+      <%= link_to edit_mission_path(mission), class: "icon-link" do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+    </div>
+    <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission accomplished?"}, class: "icon-link" do %>
       <i class="fas fa-thumbs-up icon-class"></i>
     <% end %>
-    <p class="date"><%= format_date(mission.created_at) %></p>
+    <p class="date mb-4"><%= format_date(mission.created_at) %></p>
   </div>
 </div>
