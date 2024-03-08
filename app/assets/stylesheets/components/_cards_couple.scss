@@ -1,18 +1,25 @@
-h4 {
+h5 {
   padding-left: 30px;
-  padding-top: 5px;
+  padding-top: 9px;
   margin: 0;
 }
 .card-2 {
   border-radius: 50px;
-  background-color: #ddd;
   border: none;
-
+  height: 249px;
+  width: 315px;
+  background-color:#ddd;
+  margin-left: -17px;
+  margin-top: -17px;
 }
+
 .card-img-top {
   padding: 10px;
-  border-radius: 27%;
-  margin-top: -12px;
+  border-radius: 10%;
+  height: 171px;
+  width: 292px;
+  padding-left: 33px;
+
 }
 
 .fa-user-friends {
@@ -26,5 +33,8 @@ h4 {
 }
 .card-footer {
 border: none;
-margin-top: -12px;
+margin: 0px;
+margin-left: 27px;
+margin-right: 29px;
+background-color:#ddd;
 }
