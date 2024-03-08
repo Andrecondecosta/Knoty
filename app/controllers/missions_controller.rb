@@ -20,7 +20,26 @@ class MissionsController < ApplicationController
     end
   end
 
-  def complete
+  def edit
+    @mission = Mission.find(params[:id])
+  end
+
+  def update
+    @mission = Mission.find(params[:id])
+    if @mission.update(mission_params)
+      redirect_to missions_path, notice: 'Mission was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if current_user.mission_count.to_i < 4
+      current_user.mission_count += 1
+    else
+      current_user.mission_count = 0
+    end
+    current_user.save
     @mission = Mission.find(params[:id])
     @mission.destroy
     redirect_to missions_path, notice: 'Mission was successfully completed.'
