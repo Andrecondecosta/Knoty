@@ -15,7 +15,7 @@
     <div class="content-box border border-dark">
       <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) %>
       <!-- header -->
-      <% if !clear_pages %>
+      <% unless clear_pages %>
         <%= render "shared/navbar" %>
       <% end %>
 
@@ -25,8 +25,9 @@
       <div class="sub-content-box" >
         <%= yield %>
       </div>
+
       <!-- footer -->
-      <% if !clear_pages %>
+      <% unless clear_pages %>
         <%= render 'shared/footer' %>
       <% end %>
     </div>
