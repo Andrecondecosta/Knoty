@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center align-items-center h-100">
+  <% @love_language_questionnaire.each_with_index do |pair, i| %>
+
+
+    <% unless i == 0 %>
+      <div class="d-flex flex-column w-100 px-3 gap-3 d-none">
+        <h4 class="ps-2">What's more like me?</h4>
+        <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="">
+        <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
+
+        <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="">
+        <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
+      </div>
+    <% else %>
+      <div class="d-flex flex-column w-100 px-3 gap-3">
+        <h4 class="ps-2">What's more like me?</h4>
+        <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="">
+        <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
+
+        <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="">
+        <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
+      </div>
+
+    <% end %>
+
+  <% end %>
+</div>
+
+
+<%= simple_form_for @love_language do |f| %>
+  <%= f.input :acts_of_service, wrapper_html: {class:"d-none"} %>
+  <%= f.input :words_of_affirmation, wrapper_html: {class:"d-none"} %>
+  <%= f.input :receiving_gifts, wrapper_html: {class:"d-none"} %>
+  <%= f.input :quality_time, wrapper_html: {class:"d-none"} %>
+  <%= f.input :physical_touch, wrapper_html: {class:"d-none"} %>
+
+  <%= f.button :submit, class: "d-none"%>
+<% end %>

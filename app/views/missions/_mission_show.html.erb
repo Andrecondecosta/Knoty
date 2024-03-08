@@ -17,6 +17,6 @@
     <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission accomplished?"}, class: "icon-link" do %>
       <i class="fas fa-thumbs-up icon-class"></i>
     <% end %>
-    <p class="date mb-4"><%= format_date(mission.created_at) %></p>
+    <p class="mission-date"><%= format_date(mission.created_at) %></p>
   </div>
 </div>

@@ -107,6 +107,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_222420) do
     t.integer "physical_touch"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_love_languages_on_user_id"
   end
 
   create_table "missions", force: :cascade do |t|
@@ -134,7 +136,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_222420) do
     t.string "nickname"
     t.string "gender"
     t.date "date_of_birth"
-    t.bigint "love_language_id"
     t.string "avatar_url"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
@@ -149,7 +150,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_222420) do
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
-    t.index ["love_language_id"], name: "index_users_on_love_language_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -160,6 +160,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_222420) do
   add_foreign_key "events", "couples"
   add_foreign_key "individual_tasks", "individual_challenges"
   add_foreign_key "individual_tasks", "users"
+  add_foreign_key "love_languages", "users"
   add_foreign_key "missions", "users"
-  add_foreign_key "users", "love_languages"
 end
