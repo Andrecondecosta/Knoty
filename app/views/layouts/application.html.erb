@@ -12,29 +12,38 @@
 
   <body class="d-flex justify-content-center align-items-center bg-dark">
     <!-- App container -->
-    <div class="content-box border border-dark">
-      <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) || current_page?(new_love_language_path) %>
-      <!-- header -->
-      <% unless clear_pages %>
-        <%= render "shared/navbar" %>
-      <% end %>
+    <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) || current_page?(new_love_language_path) %>
 
-      <%= render "shared/flashes" %>
 
-      <!-- Inner App container -->
-      <% unless clear_pages %>
-      <div class="sub-content-box" >
+    <% if clear_pages %> <!-- Clear pages -->
+      <div class="content-box border border-dark">
         <%= yield %>
       </div>
-      <% else %>
-        <%= yield %>
-      <% end %>
 
-      <!-- footer -->
-      <% unless clear_pages %>
+    <% elsif current_page?(root_path) %>  <!-- Home page -->
+      <div class="content-box border border-dark">
+        <%= render "shared/navbar" %>
+        <%= render "shared/flashes" %>
+        <div class="sub-content-box" >
+          <%= yield %>
+        </div>
         <%= render 'shared/footer' %>
-      <% end %>
-    </div>
+      </div>
+
+    <% else %>  <!-- Other pages -->
+      <div class="content-box border border-dark" style="background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710000877/app-bg2_1_klbkms.png');">
+        <%= render "shared/navbar" %>
+        <%= render "shared/flashes" %>
+        <div class="sub-content-box" >
+
+          <%= yield %>
+        </div>
+
+        <%= render 'shared/footer' %>
+      </div>
+
+    <% end %>
+
 
   </body>
 </html>
