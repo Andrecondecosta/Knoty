@@ -13,7 +13,7 @@
   <body class="d-flex justify-content-center align-items-center bg-dark">
     <!-- App container -->
     <div class="content-box border border-dark">
-      <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) %>
+      <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) || current_page?(new_love_language_path) %>
       <!-- header -->
       <% unless clear_pages %>
         <%= render "shared/navbar" %>
@@ -22,9 +22,13 @@
       <%= render "shared/flashes" %>
 
       <!-- Inner App container -->
+      <% unless clear_pages %>
       <div class="sub-content-box" >
         <%= yield %>
       </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
 
       <!-- footer -->
       <% unless clear_pages %>
