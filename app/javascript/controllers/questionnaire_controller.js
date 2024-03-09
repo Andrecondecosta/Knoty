@@ -2,9 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="questionnaire"
 export default class extends Controller {
-  static targets = ["optionsElem", "formElem"]
+  static targets = ["optionsElem", "formElem", "questionNumber"]
 
   currentOptionIndex = 0
+  hasChecked = false
   actsOfService = 0
   wordsOfAffirmation = 0
   receivingGifts = 0
@@ -13,20 +14,26 @@ export default class extends Controller {
 
   next(event) {
     event.preventDefault()
-
-    this.currentOptionIndex++
-    this.optionsElemTargets.forEach((element) => {
-      if (Number(element.id) === this.currentOptionIndex) {
-        element.classList.remove('d-none')
-      } else {
-        element.classList.add('d-none')
-      }
-    })
+    this.#checkForCheckedOptions()
+    if (this.hasChecked === true) {
+      this.currentOptionIndex++
+      this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/30`
+      this.optionsElemTargets.forEach((element) => {
+        if (Number(element.id) === this.currentOptionIndex) {
+          element.classList.remove('d-none')
+        } else {
+          element.classList.add('d-none')
+        }
+      })
+    } else {
+      alert('Please select an option')
+    }
   }
 
   back(event) {
     event.preventDefault()
     this.currentOptionIndex--
+    this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/30`
     this.optionsElemTargets.forEach((element) => {
       if (Number(element.id) === this.currentOptionIndex) {
         element.classList.remove('d-none')
@@ -81,5 +88,9 @@ export default class extends Controller {
       }
     })
     this.formElemTarget.submit()
+  }
+
+  #checkForCheckedOptions() {
+    this.hasChecked = Array.from(document.getElementById(this.currentOptionIndex).querySelectorAll('input')).some(input => input.checked);
   }
 }
