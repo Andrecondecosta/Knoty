@@ -26,26 +26,10 @@
   position: relative;
   top: -10px;
 }*/
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-html { font-size: 14.5px;}
-body {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-  flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background: #cecece;
-	overflow: hidden;
-}
-nav {
+
+.footer-nav {
 	box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.12), 0 22.3px 17.9px rgba(0, 0, 0, 0.08), 0 100px 80px rgba(0, 0, 0, 0.04);
 	border-radius:  0 0 10px 10px;
-  margin-bottom: 3em;
 }
 
 // Traversing Magic Line Mobile Footer
@@ -53,22 +37,21 @@ nav {
 $magic-line-font-stack:  -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
 $magic-line-height: 5px !default;
 $magic-line-items: 5 !default;
-$magic-line-bg: rgb(0,0,0) !default;
-$magic-line-color: #FFF !default;
 $magic-line-light-bg: rgb(210,210,210) !default;
 $magic-line-light-color: gray !default;
 $magic-line-primary-bg: magenta !default;
 $magic-line-primary-color: #FFF !default;
 
 .mobile-footer {
-	position: relative;
+	position: sticky;
+  bottom: 0;
   width: 100%;
 	height: 5rem;
-  color: $magic-line-color;
+  color: $magic-line-light-color;
   font-size: 1rem;
   font-family: $magic-line-font-stack ;
 	padding:0;
-	background: $magic-line-bg;
+	background: $magic-line-light-bg;
 	overflow: hidden;
 	a {
 	  position: relative;
@@ -141,38 +124,9 @@ $magic-line-primary-color: #FFF !default;
       animation: .15s traversing ease-out both;
     }
 	}
-	.line {
-		position: absolute;
-		left: 0;
-		top: 0;
-    width: auto;
-		height: $magic-line-height;
-    text-indent: -9999rem;
-		transform: translateX(-50%);
-		border-radius: $magic-line-height/2;
-		background: currentColor;
-		transition: left .5s ease-out;
-		z-index: 10;
-	}
   // Traversing animation
   @keyframes traversing {
     0% { opacity: 1; }
     100% { opacity: 0.4; }
-  }
-  // Light color mode
-  &.light {
-    background-color: $magic-line-light-bg;
-    color:  $magic-line-light-color;
-    svg {
-      fill: $magic-line-light-color;
-    }
-  }
-  // Primary color mode
-  &.primary {
-    background: $magic-line-primary-bg;
-    color:  $magic-line-primary-color;
-    svg {
-      fill: $magic-line-primary-color;
-    }
   }
 }
