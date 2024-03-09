@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions', invitations: "users/invitations" }
   root to: "pages#home"
 
-  get "edit_profile" => "users#edit_profile"
-  patch "users/update_profile" => "users#update_profile", as: :update_profile
 
-  resources :missions, only: [:index, :new, :create, :destroy, :edit, :update]
-  
+  resources :love_languages, only: [:new, :create]
   resources :couple_challenges, only: [:show]
   resources :individual_challenges, only: [:show]
+  resources :missions, only: [:index, :new, :create, :destroy, :edit, :update]
+  resources :couple_tasks, only: [:create]
+
+  get "edit_profile" => "users#edit_profile"
+  get '/quest_log', to: 'pages#quests'
+  patch "users/update_profile" => "users#update_profile", as: :update_profile
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -17,6 +20,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get '/quest_log', to: 'pages#quests'
-  resources :love_languages, only: [:new, :create]
 end
