@@ -66,3 +66,39 @@
   text-decoration: none;
   color: inherit;
 }
+
+.hidden-content {
+  display: none;
+}
+
+.card-ongoing-quests {
+  width: 400px;
+  height: 120px;
+  border-radius: 30px;
+  border: 1px solid rgb(41, 41, 40);
+  overflow: hidden;
+}
+
+.image-container-ongoing {
+  position: relative;
+}
+
+.card-img-rounded {
+  width: 100px;
+  height: 100px;
+  border-radius: 30%;
+}
+
+.card-title-ongoing {
+  margin: 10px;
+}
+
+.card-ongoing-quests {
+  position: relative;
+}
+
+.avatares {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

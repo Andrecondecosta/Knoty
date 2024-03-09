@@ -67,7 +67,7 @@
       <div class="col-6 d-flex justify-content-center p-0 fs-5"><u>Couples' Quests</u></div>
       <div class="col-6 d-flex justify-content-center p-0 fs-5"><u>Individual Quests</u></div>
     </div>
-    <div class="row p-0">
+    <div class="row p-0 mb-4">
       <div class="col-3 d-flex justify-content-end pe-2">
         <button type="button" class="btn btn-outline-success rounded-pill" onclick="showActive()">Active</button>
       </div>
@@ -82,19 +82,32 @@
       </div>
     </div>
   </div>
-  <div id="activeContent" class="hidden">
-    <p>This is the active content.</p>
+
+  <div class="d-flex justify-content-center">
+    <div id="activeContent" class="hidden-content">
+      <%= render 'shared/cards_ongoing_couple' %>
+    </div>
   </div>
-  <div id="pendingContent" class="hidden">
-    <p>This is the pending content.</p>
+
+  <div class="d-flex justify-content-center">
+    <div id="pendingContent" class="hidden-content">
+      <p>This is the pending content.</p>
+    </div>
   </div>
-  <div id="ahmedsContent" class="hidden">
-    <p>This is Ahmeds content.</p>
+
+  <div class="d-flex justify-content-center">
+    <div id="ahmedsContent" class="hidden-content">
+      <p>This is Ahmeds content.</p>
+    </div>
   </div>
-  <div id="ancasContent" class="hidden">
-    <p>This is Ancas content.</p>
+
+  <div class="d-flex justify-content-center">
+    <div id="ancasContent" class="hidden-content">
+      <p>This is Ancas content.</p>
+    </div>
   </div>
 </div>
+
 <script>
   var tabs = document.querySelectorAll('.tab');
   tabs.forEach(function(tab) {
@@ -109,33 +122,29 @@
       });
     });
   });
+
   function showActive() {
-  document.getElementById("activeContent").classList.remove("hidden");
-  document.getElementById("pendingContent").classList.add("hidden");
-  document.getElementById("ahmedsContent").classList.add("hidden");
-  document.getElementById("ancasContent").classList.add("hidden");
-}
-function showPending() {
-  document.getElementById("activeContent").classList.add("hidden");
-  document.getElementById("pendingContent").classList.remove("hidden");
-  document.getElementById("ahmedsContent").classList.add("hidden");
-  document.getElementById("ancasContent").classList.add("hidden");
-}
-function showAhmeds() {
-  document.getElementById("activeContent").classList.add("hidden");
-  document.getElementById("pendingContent").classList.add("hidden");
-  document.getElementById("ahmedsContent").classList.remove("hidden");
-  document.getElementById("ancasContent").classList.add("hidden");
-}
-function showAncas() {
-  document.getElementById("activeContent").classList.add("hidden");
-  document.getElementById("pendingContent").classList.add("hidden");
-  document.getElementById("ahmedsContent").classList.add("hidden");
-  document.getElementById("ancasContent").classList.remove("hidden");
-}
+    document.getElementById("activeContent").classList.remove("hidden-content");
+    document.getElementById("pendingContent").classList.add("hidden-content");
+    document.getElementById("ahmedsContent").classList.add("hidden-content");
+    document.getElementById("ancasContent").classList.add("hidden-content");
+  }
+  function showPending() {
+    document.getElementById("activeContent").classList.add("hidden-content");
+    document.getElementById("pendingContent").classList.remove("hidden-content");
+    document.getElementById("ahmedsContent").classList.add("hidden-content");
+    document.getElementById("ancasContent").classList.add("hidden-content");
+  }
+  function showAhmeds() {
+    document.getElementById("activeContent").classList.add("hidden-content");
+    document.getElementById("pendingContent").classList.add("hidden-content");
+    document.getElementById("ahmedsContent").classList.remove("hidden-content");
+    document.getElementById("ancasContent").classList.add("hidden-content");
+  }
+  function showAncas() {
+    document.getElementById("activeContent").classList.add("hidden-content");
+    document.getElementById("pendingContent").classList.add("hidden-content");
+    document.getElementById("ahmedsContent").classList.add("hidden-content");
+    document.getElementById("ancasContent").classList.remove("hidden-content");
+  }
 </script>
-  <style>
-    .hidden {
-      display: none;
-    }
-  </style>
