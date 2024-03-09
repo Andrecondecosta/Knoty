@@ -8,10 +8,10 @@ class LoveLanguagesController < ApplicationController
   end
 
   def create
+    redirect_to root_page if current_user.love_language    # ==========> Set in PUNDIT
     @love_language = LoveLanguage.new(love_language_params)
     @love_language.user = current_user
     if @love_language.save!
-      # if nuser exists reirect to root_path
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
