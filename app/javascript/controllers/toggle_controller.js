@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["toggleableElem", "genderInput", "maleAvatars", "femaleAvatars", "avatarUrlInput", "imgElem", "firstDateInput", "secondDateInput", "thirdDateInput", "firstDateInputContainer", "secondDateInputContainer", "thirdDateInputContainer", "addDateButton1", "addDateButton2", "removeDateButton2"]
+  static targets = ["toggleableElem", "genderInput", "maleAvatars", "femaleAvatars", "avatarUrlInput", "imgElem", "firstDateInput", "secondDateInput", "thirdDateInput", "firstDateInputContainer", "secondDateInputContainer", "thirdDateInputContainer", "addDateButton1", "addDateButton2", "removeDateButton2", "currentUserElem", "partnerUserElem", "currentUserTab", "partnerUserTab"]
 
   toggleElems(event) {
     event.preventDefault()
@@ -61,4 +61,17 @@ export default class extends Controller {
     this.removeDateButton2Target.classList.add('d-none')
   }
 
+  partnerUserProfile(){
+    this.currentUserTabTarget.classList.remove('active')
+    this.partnerUserTabTarget.classList.add('active')
+    this.currentUserElemTarget.classList.add('d-none')
+    this.partnerUserElemTarget.classList.remove('d-none')
+  }
+
+  currentUserProfile(){
+    this.currentUserTabTarget.classList.add('active')
+    this.partnerUserTabTarget.classList.remove('active')
+    this.currentUserElemTarget.classList.remove('d-none')
+    this.partnerUserElemTarget.classList.add('d-none')
+  }
 }

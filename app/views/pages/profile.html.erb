@@ -1,0 +1,25 @@
+<!-- app/views/pages/profile.html.erb -->
+
+  <div data-controller="toggle">
+    <div class="container">
+        <div class="tabs-profile">
+        <div class="tab-profile active d-flex justify-content-center align-items-center" data-toggle-target="currentUserTab" data-action= "click->toggle#currentUserProfile">
+          <img src="<%=current_user.avatar_url  %>" alt="User avatar" class=" avatar">
+        </div>
+        <div class="tab-profile d-flex justify-content-center" data-toggle-target="partnerUserTab" data-action="click->toggle#partnerUserProfile">
+            <% unless @partner.avatar_url.nil? %>
+              <img src="<%= @partner.avatar_url  %>" alt="User avatar" class=" avatar">
+                <% else %>
+              <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="content-profile bg-white " data-toggle-target="currentUserElem">
+      this is the current user
+    </div>
+    <div class="content-profile bg-white d-none" data-toggle-target="partnerUserElem">
+    this is the partner user
+    </div>
+  </div>
+</div>
