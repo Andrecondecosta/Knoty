@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["toggleableElem", "genderInput", "maleAvatars", "femaleAvatars", "avatarUrlInput", "imgElem"]
+  static targets = ["toggleableElem", "genderInput", "maleAvatars", "femaleAvatars", "avatarUrlInput", "imgElem", "firstDateInput", "secondDateInput", "thirdDateInput", "firstDateInputContainer", "secondDateInputContainer", "thirdDateInputContainer", "addDateButton1", "addDateButton2", "removeDateButton2"]
 
   toggleElems(event) {
     event.preventDefault()
@@ -29,4 +29,36 @@ export default class extends Controller {
     const avatarUrl = event.currentTarget.src
     this.avatarUrlInputTarget.value = avatarUrl
   }
+
+  showSecondDate(event) {
+    event.preventDefault()
+    if (this.firstDateInputTarget.value === '') {
+      return alert('Please fill in the first date before adding a second date')
+    }
+    this.firstDateInputContainerTarget.classList.remove('col-10')
+    this.secondDateInputContainerTarget.classList.remove('d-none')
+    this.addDateButton1Target.classList.add('d-none')
+    this.addDateButton2Target.classList.remove('d-none')
+  }
+
+  showThirdDate(event) {
+    event.preventDefault()
+    if (this.secondDateInputTarget.value === '') {
+      return alert('Please fill in the second date before adding a third date')
+    }
+    this.secondDateInputContainerTarget.classList.remove('col-10')
+    this.thirdDateInputContainerTarget.classList.remove('d-none')
+    this.addDateButton2Target.classList.add('d-none')
+    this.removeDateButton2Target.classList.remove('d-none')
+  }
+
+  removeThirdDate(event) {
+    event.preventDefault()
+    this.thirdDateInputTarget.value = null
+    this.thirdDateInputContainerTarget.classList.add('d-none')
+    this.secondDateInputContainerTarget.classList.add('col-10')
+    this.addDateButton2Target.classList.remove('d-none')
+    this.removeDateButton2Target.classList.add('d-none')
+  }
+
 }

@@ -10,7 +10,7 @@
     <div class="carousel-1">
       <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-interval="false">
         <div class="carousel-inner my-5">
-          <% @couple_challenge.each_with_index do |couple, index| %>
+          <% @couple_challenges.each_with_index do |couple, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="card my-card">
                 <div class="card-body">
@@ -35,7 +35,7 @@
     <div class="carousel-2">
       <div id="carouselExampleControls2" class="carousel slide" data-interval="false" data-interval="false">
         <div class="carousel-inner my-5">
-          <% @individual_challenge.each_with_index do |individual, index| %>
+          <% @individual_challenges.each_with_index do |individual, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="card my-card">
                 <div class="card-body">
