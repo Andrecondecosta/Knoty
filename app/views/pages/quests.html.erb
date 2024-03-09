@@ -8,8 +8,9 @@
 <div class="content" id="content1">
   <div class="all-carousel">
     <div class="carousel-1">
+      <h3 class="text-center">Couple Challenge</h3>
       <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-interval="false">
-        <div class="carousel-inner my-5">
+        <div class="carousel-inner">
           <% @couple_challenge.each_with_index do |couple, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="card my-card">
@@ -33,8 +34,9 @@
       </div>
     </div>
     <div class="carousel-2">
+      <h3 class="text-center">Individual Challenge</h3>
       <div id="carouselExampleControls2" class="carousel slide" data-interval="false" data-interval="false">
-        <div class="carousel-inner my-5">
+        <div class="carousel-inner">
           <% @individual_challenge.each_with_index do |individual, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="card my-card">
