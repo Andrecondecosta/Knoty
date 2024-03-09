@@ -1,0 +1,38 @@
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  width: 93%;
+  height: 88%;
+}
+
+.overlay-content {
+  max-width: 100%;
+  word-wrap: break-word;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-slide {
+  pointer-events: none;
+}
+
+.overlay-button {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+}
