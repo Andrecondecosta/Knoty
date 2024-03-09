@@ -1,17 +1,16 @@
-
 <div class="tabs">
-  <div class="tab active" id="tab1">Explore Quest</div>
-  <div class="tab" id="tab2">Ongoing</div>
+  <div class="tab active fs-5 d-flex justify-content-center" id="tab1">Explore Quest</div>
+  <div class="tab fs-5 d-flex justify-content-center" id="tab2">Ongoing</div>
 </div>
-
-
 <div class="content" id="content1">
   <div class="all-carousel">
     <div class="carousel-1">
       <h3 class="text-center">Couple Challenge</h3>
       <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-interval="false">
+
         <div class="carousel-inner">
-          <% @couple_challenge.each_with_index do |couple, index| %>
+          <% @couple_challenges.each_with_index do |couple, index| %>
+
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="card my-card">
                 <div class="card-body">
@@ -36,8 +35,9 @@
     <div class="carousel-2">
       <h3 class="text-center">Individual Challenge</h3>
       <div id="carouselExampleControls2" class="carousel slide" data-interval="false" data-interval="false">
+
         <div class="carousel-inner">
-          <% @individual_challenge.each_with_index do |individual, index| %>
+          <% @individual_challenges.each_with_index do |individual, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="card my-card">
                 <div class="card-body">
@@ -61,23 +61,81 @@
     </div>
   </div>
 </div>
-
-
+<div class="container content mt-3" id="content2">
+  <div>
+    <div class="row my-2">
+      <div class="col-6 d-flex justify-content-center p-0 fs-5"><u>Couples' Quests</u></div>
+      <div class="col-6 d-flex justify-content-center p-0 fs-5"><u>Individual Quests</u></div>
+    </div>
+    <div class="row p-0">
+      <div class="col-3 d-flex justify-content-end pe-2">
+        <button type="button" class="btn btn-outline-success rounded-pill" onclick="showActive()">Active</button>
+      </div>
+      <div class="col-3 d-flex justify-content-start p-0">
+        <button type="button" class="btn btn-outline-warning rounded-pill" onclick="showPending()">Pending</button>
+      </div>
+      <div class="col-3 d-flex justify-content-end p-0">
+        <button type="button" class="btn btn-outline-secondary rounded-pill" onclick="showAhmeds()">Ahmeds'</button>
+      </div>
+      <div class="col-3 d-flex justify-content-start ps-2">
+        <button type="button" class="btn btn-outline-secondary rounded-pill" onclick="showAncas()">Ancas'</button>
+      </div>
+    </div>
+  </div>
+  <div id="activeContent" class="hidden">
+    <p>This is the active content.</p>
+  </div>
+  <div id="pendingContent" class="hidden">
+    <p>This is the pending content.</p>
+  </div>
+  <div id="ahmedsContent" class="hidden">
+    <p>This is Ahmeds content.</p>
+  </div>
+  <div id="ancasContent" class="hidden">
+    <p>This is Ancas content.</p>
+  </div>
+</div>
 <script>
   var tabs = document.querySelectorAll('.tab');
-
   tabs.forEach(function(tab) {
     tab.addEventListener('click', function() {
       tabs.forEach(function(tab) {
         tab.classList.remove('active');
       });
-
       this.classList.add('active');
-
       var contentId = this.id.replace('tab', 'content');
       document.querySelectorAll('.content').forEach(function(content) {
         content.style.display = content.id === contentId ? 'block' : 'none';
       });
     });
   });
+  function showActive() {
+  document.getElementById("activeContent").classList.remove("hidden");
+  document.getElementById("pendingContent").classList.add("hidden");
+  document.getElementById("ahmedsContent").classList.add("hidden");
+  document.getElementById("ancasContent").classList.add("hidden");
+}
+function showPending() {
+  document.getElementById("activeContent").classList.add("hidden");
+  document.getElementById("pendingContent").classList.remove("hidden");
+  document.getElementById("ahmedsContent").classList.add("hidden");
+  document.getElementById("ancasContent").classList.add("hidden");
+}
+function showAhmeds() {
+  document.getElementById("activeContent").classList.add("hidden");
+  document.getElementById("pendingContent").classList.add("hidden");
+  document.getElementById("ahmedsContent").classList.remove("hidden");
+  document.getElementById("ancasContent").classList.add("hidden");
+}
+function showAncas() {
+  document.getElementById("activeContent").classList.add("hidden");
+  document.getElementById("pendingContent").classList.add("hidden");
+  document.getElementById("ahmedsContent").classList.add("hidden");
+  document.getElementById("ancasContent").classList.remove("hidden");
+}
 </script>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
