@@ -1,8 +1,17 @@
-<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto parent" data-controller="island-slide" data-island-slide-target="parentElem"
+<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto parent" data-controller="island-slide overlay" data-island-slide-target="parentElem"
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave">
-  <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709981302/ddd2euc-5e040e65-7a3e-453f-9e0b-49a27ef994ad_jdthoy.png", alt: "islands", class: " child p-0" %>
-  <%= link_to '#', class: "book-icon" do %>
+  <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709981302/ddd2euc-5e040e65-7a3e-453f-9e0b-49a27ef994ad_jdthoy.png", alt: "islands", class: " child p-0", data: { island_slide_target: "image" } %>
+  <%= link_to '#', class: "book-icon", data: { action: "click->overlay#toggleOverlay click->modal#toggle" } do %>
     <i class="fa-solid fa-book-open"></i>
   <% end %>
-
+  <div class="overlay d-none" id="overlay" data-overlay-target="overlay">
+    <div class="overlay-content">
+      <p>I like to move it, move it
+          <!-- Rest of the content -->
+      </p>
+   </div>
+   <div class="overlay-button">
+     <button><i class="fas fa-play"></i></button>
+   </div>
+  </div>
 </div>
