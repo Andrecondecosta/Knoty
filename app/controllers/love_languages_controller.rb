@@ -12,7 +12,7 @@ class LoveLanguagesController < ApplicationController
     @love_language = LoveLanguage.new(love_language_params)
     @love_language.user = current_user
     if @love_language.save!
-      redirect_to root_path
+      redirect_to profile_path, notice: "Your love language has been saved!"
     else
       render :new, status: :unprocessable_entity
     end

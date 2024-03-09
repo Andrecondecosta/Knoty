@@ -1,74 +1,81 @@
 
-<div class="container" data-controller="toggle">
-  <div class="briefing-card">
-    <h3><%= @couple_challenge.title %></h3>
-    <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
-    <div class="briefing-card-body">
-      <p class="card-text text-light">
-        <%= @couple_challenge.details %>
-      </p>
-    </div>
-    <div class="d-flex card-footer justify-content-between align-items-center bg-transparent">
-      <div class="d-flex">
-        <div class="rating">
-          <%= '⭐' * @couple_challenge.difficulty%>
-        </div>
-        <i class="fas fa-user-friends"></i>
+<div data-controller="toggle challenges">
+
+  <!-- Beginning challenge -->
+  <div class="container" data-challenges-target="challengeBriefing">
+    <div class="briefing-card">
+      <h3><%= @couple_challenge.title %></h3>
+      <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+      <div class="briefing-card-body">
+        <p class="card-text text-light">
+          <%= @couple_challenge.details %>
+        </p>
       </div>
-      <button type="button" class="btn btn-secondary rounded-4 ml-auto">Begin</button>
+      <div class="d-flex card-footer justify-content-between align-items-center bg-transparent">
+        <div class="d-flex">
+          <div class="rating">
+            <%= '⭐' * @couple_challenge.difficulty%>
+          </div>
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <button type="button" class="btn btn-secondary rounded-4 ml-auto" data-action="click->challenges#beginChallenge">Begin</button>
+      </div>
     </div>
   </div>
-</div>
 
+  <!-- Date picking and submitting challenge -->
+  <div class="container d-none" data-challenges-target="challengeDate">
+    <div class="briefing-card">
+      <h3><%= @couple_challenge.title %></h3>
+      <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
 
-<div class="container" data-controller="toggle">
-  <div class="briefing-card">
-    <h3><%= @couple_challenge.title %></h3>
-    <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+      <div class="briefing-card-body bg-light pt-3">
+        <h4>Let's make it happen</h4>
+        <%= simple_form_for [@couple_challenge, @couple_task],
+          data:{challenges_target: 'form'} do |f| %>
 
-    <div class="briefing-card-body bg-light pt-3">
-      <h4>Let's make it happen</h4>
-      <%= simple_form_for @couple_task do |f| %>
+          <!-- first date input -->
+          <div class="row ps-2 pe-3 mt-2">
+              <%= f.input :date_option_1, html5: true,
+                label_html: {class: "d-none"},
+                input_html: {min: Date.today, data: {toggle_target: "firstDateInput"}},
+                wrapper_html: {class:"col-10", style: "margin:0 !important;",
+                data: {toggle_target: "firstDateInputContainer"}} %>
+              <button type="button" class="btn btn-primary m-0 p-0 rounded-4 col-2 fs-5" data-toggle-target="addDateButton1"
+                data-action="click->toggle#showSecondDate">+</button>
+          </div>
 
-        <!-- first date input -->
-        <div class="row ps-2 pe-3 mt-2">
-            <%= f.input :date_option_1, html5: true,
+          <!-- second date input -->
+          <div class="row ps-2 pe-3 mt-3">
+            <%= f.input :date_option_2, html5: true,
               label_html: {class: "d-none"},
-              input_html: {min: Date.today, data: {toggle_target: "firstDateInput"}},
-              wrapper_html: {class:"col-10", style: "margin:0 !important;",
-              data: {toggle_target: "firstDateInputContainer"}} %>
-            <button type="button" class="btn btn-primary m-0 p-0 rounded-4 col-2 fs-5" data-toggle-target="addDateButton1"
-              data-action="click->toggle#showSecondDate">+</button>
-        </div>
+              input_html: {min: Date.today, data: {toggle_target: "secondDateInput"}},
+              wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
+              data: {toggle_target: "secondDateInputContainer"}} %>
+            <button type="button" class="btn btn-primary m-0 p-0 rounded-4 col-2 d-none fs-5" data-toggle-target="addDateButton2"
+                data-action="click->toggle#showThirdDate">+</button>
+          </div>
 
-        <!-- second date input -->
-        <div class="row ps-2 pe-3 mt-3">
-          <%= f.input :date_option_2, html5: true,
-            label_html: {class: "d-none"},
-            input_html: {min: Date.today, data: {toggle_target: "secondDateInput"}},
-            wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
-            data: {toggle_target: "secondDateInputContainer"}} %>
-          <button type="button" class="btn btn-primary m-0 p-0 rounded-4 col-2 d-none fs-5" data-toggle-target="addDateButton2"
-              data-action="click->toggle#showThirdDate">+</button>
-        </div>
+          <!-- third date input -->
+          <div class="row ps-2 pe-3 mt-3">
+            <%= f.input :date_option_3, html5: true,
+              label_html: {class: "d-none"},
+              input_html: {min: Date.today, data: {toggle_target: "thirdDateInput"}},
+              wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
+              data: {toggle_target: "thirdDateInputContainer"}} %>
+              <button type="button" class="btn btn-danger m-0 p-0 rounded-4 col-2 d-none text-light fs-5" data-toggle-target="removeDateButton2"
+                data-action="click->toggle#removeThirdDate">-</button>
+          </div>
 
-        <!-- third date input -->
-        <div class="row ps-2 pe-3 mt-3">
-          <%= f.input :date_option_3, html5: true,
-            label_html: {class: "d-none"},
-            input_html: {min: Date.today, data: {toggle_target: "thirdDateInput"}},
-            wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
-            data: {toggle_target: "thirdDateInputContainer"}} %>
-            <button type="button" class="btn btn-danger m-0 p-0 rounded-4 col-2 d-none text-light fs-5" data-toggle-target="removeDateButton2"
-              data-action="click->toggle#removeThirdDate">-</button>
-        </div>
+          <!-- submit button -->
+          <div class="d-flex justify-content-between mt-3 me-3">
+            <button type="button" class="btn btn-secondary ms-2" data-action="click->challenges#backToBriefing">Back</button>
+            <%= f.button :submit, class:"btn btn-success", data: {action: "click->challenges#checkInput"} %>
+          </div>
+        <% end %>
 
-        <!-- submit button -->
-        <div class="d-flex justify-content-end mt-3 me-3">
-          <%= f.button :submit, class:"btn btn-success" %>
-        </div>
-      <% end %>
-
+      </div>
     </div>
   </div>
+
 </div>
