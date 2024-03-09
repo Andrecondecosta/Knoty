@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
 
   resources :love_languages, only: [:new, :create]
-  resources :couple_challenges, only: [:show]
   resources :individual_challenges, only: [:show]
   resources :missions, only: [:index, :new, :create, :destroy, :edit, :update]
-  resources :couple_tasks, only: [:create]
+  resources :couple_tasks, only: [:show]
 
+  resources :couple_challenges, only: [:show] do
+    resources :couple_tasks, only: [:create]
+  end
   get "edit_profile" => "users#edit_profile"
   get '/quest_log', to: 'pages#quests'
   patch "users/update_profile" => "users#update_profile", as: :update_profile

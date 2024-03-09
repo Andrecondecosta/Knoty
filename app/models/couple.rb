@@ -2,6 +2,7 @@ class Couple < ApplicationRecord
   belongs_to :partner_1, class_name: 'User'
   belongs_to :partner_2, class_name: 'User'
   has_many :couple_tasks, dependent: :destroy
+  has_many :couple_challenges, through: :couple_tasks
 
   validate :different_partners
 
