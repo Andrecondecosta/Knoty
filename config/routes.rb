@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "edit_profile" => "users#edit_profile"
   get '/quest_log', to: 'pages#quests'
+  get '/profile', to: 'pages#profile'
   patch "users/update_profile" => "users#update_profile", as: :update_profile
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

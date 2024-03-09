@@ -24,7 +24,7 @@
             <i class="fa-solid fa-gear" style="position: absolute; bottom: -5px; right: -5px; color: black;"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Your Profile", "#", class: "dropdown-item" %>
+              <%= link_to "Your Profile", profile_path, class: "dropdown-item" %>
               <%= link_to "Account Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
