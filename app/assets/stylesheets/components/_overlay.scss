@@ -36,3 +36,23 @@
   height: 50px;
   font-size: 30px;
 }
+
+.overlay-button button {
+  border: none !important;
+  background: none !important;
+}
+
+.scrollable-content {
+  height: 600px; /* Adjust this value as needed */
+  overflow: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+.scrollable-content::-webkit-scrollbar {
+  width: 0px; /* For Chrome, Safari, and Opera */
+}
+
+#overlay, #overlay * {
+  pointer-events: auto;
+}
