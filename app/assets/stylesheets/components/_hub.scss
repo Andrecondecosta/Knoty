@@ -1,3 +1,18 @@
 .islands-container::-webkit-scrollbar{
   display: none;
 }
+
+.book {
+  width: 35%;
+  height: 35%;
+}
+
+.book {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.book:hover,
+.book:active {
+  opacity: 1;
+}
