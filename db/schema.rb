@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_08_222717) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_09_235005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,8 +38,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_222717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date_option_1"
+    t.bigint "invited_id", null: false
     t.index ["couple_challenge_id"], name: "index_couple_tasks_on_couple_challenge_id"
     t.index ["couple_id"], name: "index_couple_tasks_on_couple_id"
+    t.index ["invited_id"], name: "index_couple_tasks_on_invited_id"
   end
 
   create_table "couples", force: :cascade do |t|
@@ -157,6 +159,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_222717) do
 
   add_foreign_key "couple_tasks", "couple_challenges"
   add_foreign_key "couple_tasks", "couples"
+  add_foreign_key "couple_tasks", "users", column: "invited_id"
   add_foreign_key "couples", "users", column: "partner_1_id"
   add_foreign_key "couples", "users", column: "partner_2_id"
   add_foreign_key "events", "couples"

@@ -1,4 +1,5 @@
 class CoupleChallengesController < ApplicationController
+  before_action :set_pending_tasks, only: %i[show]
 
   def show
     @couple_challenge = CoupleChallenge.find(params[:id])
@@ -13,5 +14,10 @@ class CoupleChallengesController < ApplicationController
 
   def set_partner
     @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
+  end
+
+  def set_pending_tasks
+    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+    @pending_tasks = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
   end
 end
