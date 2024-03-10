@@ -73,29 +73,29 @@ $magic-line-primary-color: #FFF !default;
 		transition: background .15s ease-in-out, line-height .2s ease .2s;
     &:hover, &:focus {
       background-color: rgba(128,128,128,0.3);
-      svg {
+      .hub-image {
         transform: scale(1.25);
         opacity: 0.6;
       }
     }
     &:focus, &:active {
       outline: none;
-			svg {
+			.hub-image {
 				opacity: .8;
 			}
     }
     &:active {
-			svg {
+			.hub-image {
 				opacity: 1;
 			}
     }
-		svg {
+		.hub-image {
       position: absolute;
 			fill: currentColor;
-			top: calc(30% + #{$magic-line-height/2});
-      left: 30%;
-			width: 40%;
-			height: 40%;
+			top: calc(25% + #{$magic-line-height/2});
+      left: 25%;
+			width: 50%;
+			height: 50%;
       transform: scale(1);
       transform-origin: center;
       will-change: opacity, transform, top;
@@ -106,20 +106,20 @@ $magic-line-primary-color: #FFF !default;
 		&.active {
       background-color: rgba(128,128,128,0.15);
       text-indent: 0;
-      line-height: 10;
+      line-height: 12;
       transition-delay: 0s, 0s, 0s;
-			svg {
+			.hub-image {
 			  top: calc(17.5% + #{$magic-line-height/2});
         transform-origin: center bottom;
 				opacity: 1;
 			}
       &:hover, &:focus, &:active{
-        svg {
+        .hub-image {
           transform: scale(1);
         }
       }
 		}
-    &.traversing svg {
+    &.traversing .hub-image {
       transition-delay: 0s, 0s, 0s;
       animation: .15s traversing ease-out both;
     }
@@ -129,4 +129,9 @@ $magic-line-primary-color: #FFF !default;
     0% { opacity: 1; }
     100% { opacity: 0.4; }
   }
+}
+
+.hub-img-footer {
+  width: 150px;
+  height: 150px;
 }
