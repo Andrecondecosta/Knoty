@@ -4,6 +4,14 @@
       <%= image_tag "Knoty.png" %>
     <% end %>
 
+    <div class="d-flex justify-content-end w-100">
+
+      <% unless pending_tasks.nil? || pending_tasks.empty? %>
+        <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/carrier-pigeon_zyodoh.png",class:"me-2", style:"width:20%;" %>
+      <% end %>
+
+    </div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,7 +27,6 @@
             <% else %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             <% end %>
-
 
             <i class="fa-solid fa-gear" style="position: absolute; bottom: -5px; right: -5px; color: black;"></i>
           </a>

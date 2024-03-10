@@ -1,6 +1,7 @@
 class CoupleTasksController < ApplicationController
   before_action :set_couple, only: %i[show create]
   before_action :set_partner, only: %i[show create]
+  before_action :set_pending_tasks, only: %i[show]
 
   def show
     @couple_task = CoupleTask.find(params[:id])
@@ -16,8 +17,8 @@ class CoupleTasksController < ApplicationController
     @couple_task = CoupleTask.new(couple_task_params)
     @couple_task.couple_challenge_id = params[:couple_challenge_id]
     @couple_task.couple = @couple
+    @couple_task.invited_id = @partner.id
     @couple_task.active = false
-
     if @couple_task.save!
       redirect_to @couple_task, notice: "Challenge started!"
     else
@@ -41,5 +42,10 @@ class CoupleTasksController < ApplicationController
 
   def similar_task_exists?
     @couple_task = CoupleTask.find_by(couple_challenge_id: params[:couple_challenge_id])
+  end
+
+  def set_pending_tasks
+    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+    @pending_tasks = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
   end
 end

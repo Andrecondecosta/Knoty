@@ -1,14 +1,12 @@
 class MissionsController < ApplicationController
+  before_action :set_pending_tasks, only: %i[index edit]
+
   def index
     @missions = current_user.missions
   end
 
   def new
     @mission = Mission.new
-  end
-
-  def show
-    @mission = Mission.find(params[:id])
   end
 
   def create
@@ -49,5 +47,10 @@ class MissionsController < ApplicationController
 
   def mission_params
     params.require(:mission).permit(:title, :details, :icon)
+  end
+
+  def set_pending_tasks
+    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+    @pending_tasks = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
   end
 end
