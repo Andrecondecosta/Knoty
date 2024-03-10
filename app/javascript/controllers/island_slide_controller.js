@@ -2,10 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="island-slide"
 export default class extends Controller {
-  static targets = ["parentElem"]
+  static targets = ["parentElem", "overlay"]
 
 
   handleMouseDown(event) {
+    const overlay = document.getElementById('overlay');
+    if (!overlay.classList.contains('d-none')) {
+      return;
+    }
+
     event.preventDefault();
     this.isDragging = true;
     this.startX = event.clientX;
