@@ -1,4 +1,4 @@
-<div class="h-100" data-controller="questionnaire" >
+<div class="h-100" data-controller="questionnaire" data-questionnaire-questions-value="<%= @number_of_questions %>">
   <div class="d-flex justify-content-center align-items-center" style="height:90%;">
     <%= simple_form_for @love_language, data: { questionnaire_target: "formElem" } do |f| %>
       <%= f.input :acts_of_service, wrapper_html: {class:"d-none"}%>
@@ -9,7 +9,7 @@
 
       <% @love_language_questionnaire.each_with_index do |pair, i| %>
 
-        <% if i == 29 %>
+        <% if pair == @love_language_questionnaire[-1] %>
           <div class="d-flex flex-column w-100 px-3 gap-3 d-none" id="<%= i %>"  data-questionnaire-target= "optionsElem">
             <h4 class="ps-2">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>">
@@ -19,7 +19,7 @@
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
             <div class="d-flex justify-content-between">
               <button class="btn btn-secondary" data-action="click->questionnaire#back">Back</button>
-              <%= f.button :submit, data: {action: "click->questionnaire#assignValues"}%>
+              <%= f.button :submit,class:"btn btn-outline-dark", data: {action: "click->questionnaire#assignValues"}%>
             </div>
           </div>
         <% elsif i == 0 %>
@@ -60,6 +60,6 @@
   </div>
 
   <div class="d-flex justify-content-center align-items-center" style="height:10%;">
-    <p class="text-light fs-3 bg-info p-2 rounded-4" data-questionnaire-target ="questionNumber">1/30</p>
+    <p class="text-light fs-3 bg-info p-2 rounded-4" data-questionnaire-target ="questionNumber">1/<%= @love_language_questionnaire.size %></p>
   </div>
 </div>

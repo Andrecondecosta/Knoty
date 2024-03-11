@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="questionnaire"
 export default class extends Controller {
   static targets = ["optionsElem", "formElem", "questionNumber"]
+  static values = { questions: Number }
 
   currentOptionIndex = 0
   hasChecked = false
@@ -17,7 +18,7 @@ export default class extends Controller {
     this.#checkForCheckedOptions()
     if (this.hasChecked === true) {
       this.currentOptionIndex++
-      this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/30`
+      this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/${this.questionsValue}`
       this.optionsElemTargets.forEach((element) => {
         if (Number(element.id) === this.currentOptionIndex) {
           element.classList.remove('d-none')
@@ -33,7 +34,7 @@ export default class extends Controller {
   back(event) {
     event.preventDefault()
     this.currentOptionIndex--
-    this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/30`
+    this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/${this.questionsValue}`
     this.optionsElemTargets.forEach((element) => {
       if (Number(element.id) === this.currentOptionIndex) {
         element.classList.remove('d-none')
