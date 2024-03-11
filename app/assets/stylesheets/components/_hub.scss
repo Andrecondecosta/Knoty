@@ -2,17 +2,35 @@
   display: none;
 }
 
-.book {
-  width: 35%;
-  height: 35%;
+.book-icon {
+  position: absolute;
+  bottom: 0;
+  right: -65px;
+  font-size: 55px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  text-decoration: none;
+  color: inherit;
+  z-index: 3;
+  pointer-events: auto;
 }
 
 .book {
+  width: 35%;
+  height: 35%;
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
-.book:hover,
-.book:active {
+.book-active {
   opacity: 1;
+}
+
+.book:hover {
+  opacity: 1;
+}
+
+.blurry-background {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
 }

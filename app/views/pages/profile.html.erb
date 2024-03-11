@@ -4,18 +4,18 @@
     <div class="container">
         <div class="tabs-profile">
         <div class="tab-profile active d-flex justify-content-center align-items-center" data-toggle-target="currentUserTab" data-action= "click->toggle#currentUserProfile">
-            <% unless @partner.avatar_url.nil? %>
-              <img src="<%= current_user.avatar_url  %>" alt="User avatar" class=" avatar">
-                <% else %>
-              <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
-            <% end %>
+          <% unless current_user.avatar_url.nil? %>
+            <%= image_tag current_user.avatar_url, alt: "User avatar", class: "avatar" %>
+            <% else %>
+            <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
+          <% end %>
         </div>
-        <div class="tab-profile d-flex justify-content-center" data-toggle-target="partnerUserTab" data-action="click->toggle#partnerUserProfile">
-            <% unless @partner.avatar_url.nil? %>
-              <img src="<%= @partner.avatar_url  %>" alt="User avatar" class=" avatar">
-                <% else %>
-              <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
-            <% end %>
+        <div class="tab-profile d-flex justify-content-center"  data-toggle-target="partnerUserTab" data-action="click->toggle#partnerUserProfile">
+          <% unless @partner.avatar_url.nil? %>
+            <%= image_tag @partner.avatar_url, alt: "User avatar", class: "avatar" %>
+            <% else %>
+            <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
+          <% end %>
         </div>
     </div>
 

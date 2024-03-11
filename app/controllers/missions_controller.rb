@@ -14,7 +14,7 @@ class MissionsController < ApplicationController
     if @mission.save
       redirect_to missions_path, notice: 'Mission was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +27,7 @@ class MissionsController < ApplicationController
     if @mission.update(mission_params)
       redirect_to missions_path, notice: 'Mission was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -50,7 +50,10 @@ class MissionsController < ApplicationController
   end
 
   def set_pending_tasks
+    return unless signed_in?
+
     @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
-    @pending_tasks = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
+    @pending_tasks = @couple.couple_tasks.where(active: false)
+    @pending_tasks_notif = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
   end
 end
