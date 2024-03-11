@@ -1,47 +1,61 @@
 <%= simple_form_for @mission, html: { class: 'container mt-4 ps-3 pe-3 d-flex flex-column' } do |form| %>
-  <%= link_to missions_path, class: "text-dark" do %>
-    <i class="fa-solid fa-arrow-left" style="font-size: 24px;"></i>
+  <%= link_to missions_path, class: "arrow-back" do %>
+    <%= image_tag "direction-sign.png", alt: "direction", style: "width: 35px;" %>
   <% end %>
-  <div class="p-1 ps-0">
-    <h3 style="padding-left: 3px;"><b>Edit your mission</b></h3>
+
+  <!-- still need to add font to add-mission -->
+  <div class="add-mission d-flex justify-content-center p-1 ps-0 d-f">
+    <h3 style="padding-left: 3px;"><b>Edit the mission on your board!</b></h3>
   </div>
 
-  <div class="row justify-content-center">
-    <% ['https://res.cloudinary.com/dvgcwuo68/image/upload/v1709836310/utensils-solid_rrdov1.png',
-        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1709836309/dog-solid_ayqzw4.png',
-        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1709836309/school-solid_bexvna.png'].each_with_index do |icon_url, index| %>
-      <div class="col-4 d-flex justify-content-center">
+  <div class="d-flex flex-wrap justify-content-center">
+    <% ['https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017024/baby-boy_pxjhuz.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017024/children_rh86sr.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017024/pets_m26mru.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017023/bus_qqfqon.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017022/big-family_cwbr3x.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/cooking_xa7yq2.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/restaurant_p22fqc.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017023/toilet-paper_rhzkq8.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017024/shopping-bag_ydgsi9.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017023/garbage_lrtafp.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/cleaning_yhunfb.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017023/toilet-paper_rhzkq8.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017023/salary_s4njkb.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017022/calendar_xfqacz.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017022/airplane_hx3vqv.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/travel_hku6vo.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/gift-box_ezdcvs.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/hug_euhbos.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/laundry-machine_lmldra.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/post-it_w4vkxy.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/smart-light_l0suko.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/storage-box_fid6op.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017021/call_cuubri.png',
+        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/hospital_uxhsny.png'].each_with_index do |icon_url, index| %>
+      <div class="p-1">
         <%= form.radio_button :icon, icon_url, class: "d-none", id: "radio-icon#{index}" %>
-        <div class="icon-container" style="display: flex; justify-content: center; align-items: center; border: 2px solid #000; border-radius: 50%; padding: 10px; width: 70px; height: 70px;">
-          <%= label_tag "radio-icon#{index}", image_tag(icon_url, alt: "Icon #{index + 1}", style: "cursor:pointer; width: 50px; height: 50px;"), class: "icon-label" %>
+        <div class="icon-container" style="display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); padding: 5px; width: 50px; height: 50px;">
+          <%= label_tag "radio-icon#{index}", image_tag(icon_url, alt: "Icon #{index + 1}", style: "cursor:pointer; width: 30px; height: 30px;"), class: "icon-label" %>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="row justify-content-center">
-    <% ['https://res.cloudinary.com/dvgcwuo68/image/upload/v1709836309/toilet-paper-solid_hhlcgr.png',
-        'https://res.cloudinary.com/dvgcwuo68/image/upload/v1709837121/trashbin-removebg-preview_bayvtn.png'].each_with_index do |icon_url, index| %>
-      <div class="col-6 d-flex justify-content-center">
-        <%= form.radio_button :icon, icon_url, class: "d-none", id: "radio-icon#{index + 3}" %>
-        <div class="icon-container" style="display: flex; justify-content: center; align-items: center; border: 2px solid #000; border-radius: 50%; padding: 10px; width: 70px; height: 70px;">
-          <%= label_tag "radio-icon#{index + 3}", image_tag(icon_url, alt: "Icon #{index + 4}", style: "cursor:pointer; width: 50px; height: 50px;"), class: "icon-label" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
+<div class="mission-form-container">
   <div class="form-group mt-3">
-    <label for="title" class="mb-0" style="font-size: 18px;"><b>Edit the mission name</b></label>
-    <p class="text-muted mb-1">Make it fun!</p>
-    <%= form.input :title, label: false, maxlength: 13, placeholder: 'e.g: Garbage!', input_html: { id: 'title' } %>
+    <label for="title" class="mb-0" style="font-size: 18px;"><b>Edit your mission</b></label>
+    <p class="sub-label text-muted mb-1">Make it fun!</p>
+    <%= form.input :title, label: false, maxlength: 13, placeholder: 'e.g: Trash Fashion Parade!', input_html: { id: 'title' } %>
   </div>
 
   <div class="form-group mt-3">
     <label for="details" class="mb-0" style="font-size: 18px;"><b>Edit the description</b></label>
-    <p class="text-muted mb-1">Optional</p>
-    <%= form.input :details, label: false, maxlength: 36, placeholder: 'e.g: Throw away the garbage later!', input_html: { style: 'resize: none;', id: 'details' } %>
+    <p class="sub-label text-muted mb-1">Optional</p>
+    <%= form.input :details, label: false, maxlength: 36, placeholder: 'e.g: Impress the neighbors and flex those muscles taking out the trash!', input_html: { style: 'resize: none;', id: 'details' } %>
   </div>
 
   <%= form.button :submit, 'Add Mission', class: 'btn btn-primary mt-3' %>
+</div>
+
 <% end %>
