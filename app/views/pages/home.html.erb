@@ -1,19 +1,55 @@
-<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto parent" data-controller="island-slide overlay" data-island-slide-target="parentElem"
+<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto" data-controller="island-slide overlay" data-island-slide-target="parentElem"
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave">
 
-  <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1710001039/ddd2euc-5e040e65-7a3e-453f-9e0b-49a27ef994ad_jdthoy.png", alt: "islands", class: " child p-0" %>
+  <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1710001039/ddd2euc-5e040e65-7a3e-453f-9e0b-49a27ef994ad_jdthoy.png", alt: "islands", class: "p-0",
+    data: {overlay_target: "islandsImage"} %>
+
   <%= link_to '#', class: "book-icon", data: { action: "click->overlay#toggleOverlay click->modal#toggle" } do %>
 
-    <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/open-book_ea66sn.png" alt="Book" class="book">
+    <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/open-book_ea66sn.png" alt="Book" class="book book-inactive" data-overlay-target= "bookButton">
   <% end %>
-  <div class="overlay d-none" id="overlay" data-overlay-target="overlay">
-    <div class="overlay-content">
-      <p>I like to move it, move it
-          <!-- Rest of the content -->
-      </p>
-   </div>
-   <div class="overlay-button">
-     <button><i class="fas fa-play"></i></button>
-   </div>
+
+
+  <div class="overlay d-none rounded-4" id="overlay" data-overlay-target="overlay" data-island-slide-target="overlay">
+  <h3 class="text-center">The start of a journey</h3>
+  <div class="overlay-content">
+    <div class="scrollable-content">
+      <p>It wasn’t soon until the news arrived at Anca and Ahmeds’ house. Long
+          before that day, they’d only heard of it in ancient tales. From time to time, in
+          the village, couples claimed that they had encountered these feared
+          creatures. However, as no one else could see them except for the couples
+          themselves, they were often dismissed as figments of their own imagination.
+          Yet, this time was different.
+          Boredoom and his faithful henchman, Chorebrutus, had been viciously
+          spreading their venom among couples from nearby villages. Stealthily
+          prowling through the surrounding communities, they sowed chaos and fear
+          among the couples. Boredoom was determined to tear every couple apart,
+          revelling in the malicious pride of being the orchestrator of love’s downfall.
+          Anca and Ahmed had been living in Heartshire since they fell in love. Having
+          a kind and thoughtful way with each other, both being dreamers and eager
+          to build their lives together, they embarked on each day with commitment
+          and devotion. Now, to protect their love, they would have to confront the
+          looming threat of Boredoom and Chorebrutus.
+          Determined to protect their love against these malevolent forces, Anca and
+          Ahmed sought guidance from an elder, known to be the sole survivor of a
+          couple whose love had withstood the trials imposed by these creatures.
+          The elder, a venerable figure with eyes that seemed to hold centuries of
+          wisdom, explained that Boredoom and Chorebrutus were embodiments of
+          discord and envy and thrived on the pain and suffering they caused. Legend
+          had it that the key to defeating these creatures lay hidden within the seven
+          islands of Venus Archipelago. It was said that on each island, a different type
+          of love seed flourished, possessing unparalleled strength and resilience.
+          Once nurtured and cared for daily, these seeds possessed the remarkable
+          ability to render the creatures to insignificance, causing them to shrink and
+          ultimately disintegrate into ashes.
+          Driven by the hope ignited by this legend, Anca and Ahmed resolved to
+          embark on a journey to Venus Archipelago. They knew that only by finding
+          and harnessing the power of these extraordinary seeds could they vanquish
+          the malevolent forces threatening their love.</p>
+    </div>
   </div>
+  <div class="overlay-button">
+    <button><i class="fas fa-play"></i></button>
+  </div>
+</div>
 </div>

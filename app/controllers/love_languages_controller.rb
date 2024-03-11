@@ -3,7 +3,8 @@ require_relative '../../db/love_language_questionnaire'
 class LoveLanguagesController < ApplicationController
   def new
     redirect_to root_path if current_user.love_language         # ==========> Set in PUNDIT
-    @love_language_questionnaire = LOVE_LANGUAGE_QUESTIONNAIRE
+    @love_language_questionnaire = LOVE_LANGUAGE_QUESTIONNAIRE_SHORT
+    @number_of_questions = @love_language_questionnaire.size
     @love_language = LoveLanguage.new
   end
 

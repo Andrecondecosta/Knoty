@@ -1,6 +1,6 @@
-
 .my-card {
-  background-color: white;
+  background-image: url("paper_seven.png");
+  background-size: cover;
   height: 303px;
   width: 384px;
   display: block;
@@ -8,9 +8,10 @@
   border-radius: 50px;
   border: none;
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: grey;
+  background-color: transparent;
 }
 
 
@@ -34,59 +35,71 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-bottom: none;
-  background-color: #ddd;
+  background-color: #dddddd00;
   margin-bottom: -1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 30px;
   margin-top: 16px;
-  margin-left: -1px
+  margin-left: -1px;
+  font-size: 20px;
 }
 
 .tab:hover {
   background-color: #ddd;
 }
 .tab.active {
-  background-color: white;
-    border-bottom: none;
+  background-color: #dddddd00;
+  border-bottom: none;
 }
 
 .card-body {
-    border-radius: 50px;
-    margin: 0px 20px 9px 33px;
-    height: 249px;
-    width: 315px;
+  border-radius: 50px;
+  margin: 0px 20px 9px 33px;
+  height: 249px;
+  width: 315px;
+  background-color: #dddddd00;
+  display: flex;
+  flex: column;
 }
 .carousel-2{
-  margin-top: 24px;
+  margin-top: 20px;
+  background-color: #dddddd00;
 }
 .carousel-1 {
   margin-top: 8px;
+  background-color: #dddddd00;
 }
+
+.slide {
+  background-color: #dddddd00;
+}
+
+.carousel-inner {
+  background-color: #dddddd00;
+}
+
+.carousel-item {
+  background-color: #dddddd00;
+}
+
 .a-card {
   text-decoration: none;
   color: inherit;
-}
-
-.hidden-content {
-  display: none;
+  background-color: #dddddd00;
 }
 
 .card-ongoing-quests {
   width: 400px;
   height: 120px;
-  border-radius: 30px;
-  border: 1px solid rgb(41, 41, 40);
-  overflow: hidden;
+  background: url("paper_seven.png");
+  background-size: 100% 100%;;
+  display: block;
+  margin: auto;
+  border: none;
 }
 
 .image-container-ongoing {
   position: relative;
-}
-
-.card-img-rounded {
-  width: 100px;
-  height: 100px;
-  border-radius: 30%;
 }
 
 .card-title-ongoing {
@@ -101,4 +114,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.subtitle-quest-list {
+  color: rgb(43, 31, 31);
 }

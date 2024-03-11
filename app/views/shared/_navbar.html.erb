@@ -1,16 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon position-sticky top-0">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "Knoty.png" %>
+      <%= image_tag "knoty_option_one.png" %>
     <% end %>
 
-    <div class="d-flex justify-content-end w-100">
 
-      <% unless pending_tasks.nil? || pending_tasks.empty? %>
-        <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/carrier-pigeon_zyodoh.png",class:"me-2", style:"width:20%;" %>
-      <% end %>
+    <!-- activate after modifying navbar -->
 
-    </div>
+    <%# unless pending_tasks_notif.nil? || pending_tasks_notif.empty? %>
+      <!-- <div class="d-flex justify-content-end w-100">
+          <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/carrier-pigeon_zyodoh.png",class:"me-2", style:"width:20%;" %>
+      </div> -->
+    <%# end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

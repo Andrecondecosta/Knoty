@@ -301,6 +301,8 @@ LOVE_LANGUAGE_QUESTIONNAIRE = [
   ]
 ]
 
+LOVE_LANGUAGE_QUESTIONNAIRE_SHORT = LOVE_LANGUAGE_QUESTIONNAIRE.first(10)
+
 words_of_affirmation_description = "Your self-image and confidence are built through compliments and verbal praise. To feel encouraged, you require the other person to empathize and see the world from your perspective. You feel loved when people know what is important to you. Tone of voice is very important"
 quality_time_description = "Being together, doing things together and focusing in on one another is the best way to show love. If this is your love language, you want your friend or spouse to give you undivided attention and do meaningful activities with you. This includes quality conversation."
 receiving_gifts_description = "They don't have to be expensive to send a powerful message of love. They can be purchased, found, or made. Spouses who forget a birthday or anniversary or who never give gifts to someone who truly enjoys gift-giving will find themselves with a spouse who feels neglected and unloved. This would include the gift of your presence during a crisis."
