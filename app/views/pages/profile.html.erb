@@ -1,14 +1,18 @@
 <!-- app/views/pages/profile.html.erb -->
 
-  <div data-controller="toggle">
+  <div data-controller="toggle chart"
+    data-chart-my-love-language-value="<%= @my_love_language.to_json %>"
+    data-chart-partner-love-language-value="<%= @partner_love_language.to_json %>">
     <div class="container">
         <div class="tabs-profile">
+
         <div class="tab-profile active d-flex justify-content-center align-items-center" data-toggle-target="currentUserTab" data-action= "click->toggle#currentUserProfile">
           <% unless current_user.avatar_url.nil? %>
             <%= image_tag current_user.avatar_url, alt: "User avatar", class: "avatar" %>
             <% else %>
             <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
           <% end %>
+
         </div>
         <div class="tab-profile d-flex justify-content-center"  data-toggle-target="partnerUserTab" data-action="click->toggle#partnerUserProfile">
           <% unless @partner.avatar_url.nil? %>
@@ -19,11 +23,27 @@
         </div>
     </div>
 
-    <div class="content-profile bg-white " data-toggle-target="currentUserElem">
-      this is the current user
+
+    <div class="content-profile mx-auto row w-100 justify-content-center align-items-center bg-white" data-toggle-target="currentUserElem">
+      <% unless @my_love_language.nil? %>
+        <canvas class="col-10 h-75 "
+          data-chart-target="myChart">
+        </canvas>
+      <% else %>
+        <h4 class="text-body-tertiary">You don't have Love language stats yet 😭</h4>
+      <% end %>
     </div>
-    <div class="content-profile bg-white d-none" data-toggle-target="partnerUserElem">
-    this is the partner user
+
+
+    <div class="content-profile mx-auto row w-100 justify-content-center align-items-center bg-white d-none" data-toggle-target="partnerUserElem">
+      <% unless @partner_love_language.nil? %>
+      <canvas class="col-10 h-75 "
+        data-chart-target = "partnerChart">
+      </canvas>
+      <% else %>
+        <h4 class="text-body-tertiary">Your partner doesn't have Love language stats yet 😭</h4>
+      <% end %>
     </div>
+
   </div>
 </div>
