@@ -106,7 +106,7 @@
         <div class="col-3 d-flex justify-content-start ps-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio4">
           <label class="btn btn-outline-secondary rounded-pill" for="btnradio4"
-            data-action="click->quests#indivQuests2"><%= @partner.first_name.capitalize %>'s</label>
+            data-action="click->quests#indivQuests2"><%= @partner.first_name %>'s</label>
         </div>
 
       </div>
@@ -143,7 +143,7 @@
     <!-- Partner's individual quests tab content -->
     <div class="d-flex justify-content-center d-none"
       data-quests-target="indivQuestsTab2">
-      <h4 class="text-center text-body-tertiary"><%= @partner.first_name.capitalize %> did not start any individual challenges yet! 😱</h4>
+      <h4 class="text-center text-body-tertiary"><%= @partner.first_name %> did not start any individual challenges yet! 😱</h4>
     </div>
   </div>
 
