@@ -1,11 +1,33 @@
+  <div class="card-2 d-flex flex-column">
+    <div class="row">
+      <h5 class="couple-challange-title love-yalikeasister-regular d-flex justify-content-center mb-2"><%= individual.title %></h5>
+    </div>
 
-  <div class="card-2">
-    <h5><strong><%= individual.title %></strong></h5>
-      <img class="card-img-top mx-auto d-block" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
-    <div class="card-footer d-flex justify-content-between">
-      <div class="rating">
-        <%= '⭐' * individual.difficulty%>
+    <div class="row d-flex justify-content-center">
+      <img class="card-img-top border-0 p-0" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+    </div>
+
+
+    <div class="row card-footer d-flex justify-content-start mt-1 px-2">
+      <div class="col-6">
+        <% individual.difficulty.times do %>
+          <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
+        <% end %>
       </div>
-      <i class="fas fa-user" ></i>
+
+    <div class="col-3 d-flex justify-content-start">
+      <% if individual.estimated_time == 1 %>
+        <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
+      <% elsif individual.estimated_time == 2 %>
+        <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
+      <% elsif individual.estimated_time == 3 %>
+        <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
+      <% end %>
+    </div>
+
+
+      <div class="col-3 d-flex justify-content-end">
+        <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017024/pets_m26mru.png" alt="Couple">
+      </div>
     </div>
   </div>

@@ -3,41 +3,71 @@ h5 {
   padding-top: 17px;
   margin: 0;
 }
+
+.card {
+  background-color:#dddddd00;
+}
+
 .card-2 {
-  border-radius: 5%;
   border: none;
   height: 303px;
   width: 351px;
-  background-color:#ddd;
+  background-color:#dddddd00;
   margin-left: -33px;
   margin-top: -17px;
+  padding: 10px 30px;
 }
 
 .card-img-top {
   padding: 10px;
   border-radius: 10%;
-  height: 222px;
-
-
+  height: 165px;
+  width: 280px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 10px rgba(77, 75, 75, 0.5);
+  filter: grayscale(20%) sepia(60%) brightness(80%) contrast(80%);
 }
+
+.card-img-rounded {
+  padding: 10px;
+  border-radius: 30%;
+  width: 100px;
+  height: 90px;
+  border: 2px solid transparent;
+  box-shadow: 2 2 5px rgba(58, 50, 7, 0.7);
+  filter: grayscale(20%) sepia(60%) brightness(80%) contrast(80%);
+}
+
 .fa-user {
   padding-left: 25px;
-
 }
+
 .fa-user-friends {
   padding-left: 25px;
 }
-.rating {
-  border-radius: 50px;
-  background-color: grey;
-  margin-left: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+
 .card-footer {
 border: none;
 margin: 0px;
-margin-left: 27px;
-margin-right: 29px;
-background-color:#ddd;
+margin-left: -15px;
+margin-right: -8px;
+background-color:#dddddd00;
+}
+
+.couple-challenge-title {
+  color: rgba(126, 84, 84, 0.211);
+}
+
+.icon-challenge-card {
+  height: 30px;
+  width: 30px;
+  filter: grayscale(0%) sepia(30%) brightness(90%) contrast(75%);
+}
+
+.love-yalikeasister-regular {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: rgb(43, 26, 26)
 }
