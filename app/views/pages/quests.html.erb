@@ -113,9 +113,11 @@
 
         <div class="col-3 d-flex justify-content-start ps-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio4">
+
           <label class="btn btn-outline-secondary rounded-pill sign-button-name" for="btnradio4"
             data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 23px;"><%= @partner.first_name %>'s</label>
             <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-name">
+
         </div>
       </div>
     </div>
@@ -134,7 +136,7 @@
 
       <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
         <% @pending_tasks.each do |task| %>
-          <%= render 'shared/cards_ongoing_couple', task: task %>
+          <%= render 'shared/cards_ongoing_pending_couple', task: task %>
         <% end %>
       <% else %>
         <h4 class="text-center text-body-tertiary">You have no pending couple challenges! 🥳</h4>
