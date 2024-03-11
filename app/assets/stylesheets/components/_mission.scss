@@ -5,14 +5,10 @@
   align-items: center;
   width: 400px;
   height: 125px;
-  // border: 1px solid lightgrey;
-  // background-color: lightgrey;
-  // box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
   background-image: image-url('Burnpaper.png');
   background-repeat: no-repeat;
   background-size: 419px 129px;
   background-position: -9px;
-
 }
 
 .container.mt-4.ps-3.pe-3.d-flex.flex-column {
@@ -26,13 +22,20 @@
 
 .mission-details {
   margin-top: -10px;
+  word-wrap: break-word;
+  padding-right: 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
 }
 
 .mission-date {
   font-size: 0.8em;
   position: relative;
   top: 20px;
-  color:rgb(63, 63, 63)
+  color:rgb(63, 63, 63);
+  margin-bottom: 20px;
+  margin-left: -10px;
+  overflow: visible;
 }
 
 .icon-link {
@@ -46,20 +49,52 @@
   text-decoration: none;
   position: relative;
   top: 15px;
-  color: rgb(0, 82, 150);
+  color: rgb(0, 0, 0);
 }
+
+.thumb {
+  text-decoration: none;
+  position: relative;
+  margin-right: -10px;
+  top: 15px;
+  opacity: 0.5;
+
+  &:hover {
+    text-decoration: none;
+    position: relative;
+    top: 15px;
+    opacity: 1;
+  }
+}
+
+
 
 .icon-class {
   font-size: 40px;
-  background: linear-gradient(to right, rgb(28, 99, 0), rgb(79, 190, 4), rgb(35, 139, 14), rgb(33, 190, 2));
   -webkit-background-clip: text;
   color: transparent;
 }
 
+.mission-form-container {
+  margin: 0 25px;
+}
+
 .icon-container:hover {
-  box-shadow: 0 0 15px rgb(0,0,0);
+  box-shadow: 0 0 15px rgb(255, 254, 254);
 }
 
 input[type=radio]:checked + .icon-container {
   box-shadow: 0 0 15px rgb(47, 170, 9);
+}
+
+.arrow-back {
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.sub-label {
+  font-size: 0.8em;
+  color: rgb(63, 63, 63);
+  margin-top: -5px;
+  margin-bottom: 10px;
 }

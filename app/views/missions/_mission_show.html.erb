@@ -1,21 +1,22 @@
 <div class="mission d-flex align-items-center mission-background" style="min-height: 110px;">
-  <div class="icon ps-3">
-    <%= image_tag(mission.icon, size: "50x50") %>
+  <div class="icon ps-4" style="margin-top: -50px;">
+    <%= image_tag(mission.icon, size: "35x35") %>
   </div>
-  <div class="details p-2" style="flex-basis: 70%; max-width: 65%; word-wrap: break-word;">
+
+  <div class="details p-2 ms-2" style="flex-basis: 70%; max-width: 65%; word-wrap: break-word; margin-top: -40px;">
     <h4 class="mission-title ps-0" style="align-self: flex-start;"><%= mission.title %></h4>
-    <div class="mission-details" style="word-wrap: break-word; padding-right: 10px;">
-      <p><%= mission.details %></p>
+    <div class="mission-details">
+      <%= mission.details %>
     </div>
   </div>
-  <div class="complete p-2 text-center pb-4">
+  <div class="p-2 text-center pb-4">
     <div class="ps-4 pb-6">
       <%= link_to edit_mission_path(mission), class: "icon-link" do %>
         <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
     </div>
-    <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission accomplished?"}, class: "icon-link" do %>
-      <i class="fas fa-thumbs-up icon-class"></i>
+    <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission accomplished?"}, class: "thumb" do %>
+      <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017020/like_honzha.png" alt="ThumbUp" style="width: 20px; height: 20px;" >
     <% end %>
     <p class="mission-date"><%= format_date(mission.created_at) %></p>
   </div>
