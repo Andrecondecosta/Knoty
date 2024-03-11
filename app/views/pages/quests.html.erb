@@ -100,7 +100,7 @@
         <div class="col-3 d-flex justify-content-end p-0">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio3">
           <label class="btn btn-outline-secondary rounded-pill" for="btnradio3"
-            data-action="click->quests#indivQuests1"><%= current_user.first_name.capitalize %>'s</label>
+            data-action="click->quests#indivQuests1">Mine</label>
         </div>
 
         <div class="col-3 d-flex justify-content-start ps-2">
@@ -115,19 +115,29 @@
     <!-- Active couple quests tab content -->
     <div class="d-flex justify-content-center"
       data-quests-target="activeQuestsTab">
-      <%= render 'shared/cards_ongoing_couple' %>
+
+      <p>hello</p>
+
     </div>
 
     <!-- Pending couple quests tab content -->
     <div class="d-flex justify-content-center d-none"
       data-quests-target="pendingQuestsTab">
-      <p>This is the pending content.</p>
+
+      <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
+        <% @pending_tasks.each do |task| %>
+          <%= render 'shared/cards_ongoing_couple', task: task %>
+        <% end %>
+      <% else %>
+        <h4 class="text-center text-body-tertiary">You have no pending couple challenges! 🥳</h4>
+      <% end %>
+
     </div>
 
     <!-- Current user's individual quests tab content -->
     <div class="d-flex justify-content-center d-none"
       data-quests-target="indivQuestsTab1">
-      <h4 class="text-center text-body-tertiary"><%= current_user.first_name.capitalize %> did not start any individual challenges yet! 😱</h4>
+      <h4 class="text-center text-body-tertiary">You did not start any individual challenges yet! 😱</h4>
     </div>
 
     <!-- Partner's individual quests tab content -->

@@ -4,14 +4,14 @@
   </div>
   <div class="col-8 pt-2 pb-3">
     <div class="row d-flex justify-content-end align-items-end mb-0">
-      <p>Challenge name</p>
+      <p>Sent on: <%= task.created_at.strftime("%b %e, %l:%M %p") %></p>
     </div>
     <div class="row d-flex justify-content-start align-items-start">
-      <h4>Challenge name</h4>
+      <h4><%= task.couple_challenge.title %></h4>
     </div>
     <div class="row">
       <div class="d-flex justify-content-end align-items-end">
-        <h4 class="avatares pe-5">avatares</h4>
+        <h4 class="avatares pe-5"></h4>
       </div>
     </div>
   </div>
