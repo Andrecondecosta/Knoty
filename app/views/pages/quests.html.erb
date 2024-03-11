@@ -1,4 +1,4 @@
-<div class="container" data-controller="quests">
+<div class="container" style="height: 723px;" data-controller="quests">
 
   <!-- Explore Quests/In progress tab links -->
   <div class="tabs">
@@ -13,7 +13,7 @@
   <!------------------------ Explore Quests tab content ------------------------>
   <div class="content bg-light bg-opacity-50 rounded-bottom-4" data-quests-target="exploreQuestsTab">
     <div class="all-carousel">
-      <div class="carousel-1 mt-0">
+      <div class="carousel-1 mt-0 pt-1">
         <h3 class="d-flex justify-content-start fs-4 fw-bold subtitle-quest-list">Couple Challenge</h3>
         <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-interval="false">
 
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="carousel-2">
+      <div class="carousel-2 pb-2">
         <h3 class="d-flex justify-content-start fs-4 fw-bold subtitle-quest-list">Individual Challenge</h3>
         <div id="carouselExampleControls2" class="carousel slide" data-interval="false" data-interval="false">
 
@@ -74,7 +74,7 @@
 
 
   <!------------------------ In progress tab content ------------------------>
-  <div class="container content mt-0 d-none bg-light bg-opacity-50 rounded-bottom-4"
+  <div class="container h-100 content mt-0 d-none bg-light bg-opacity-50 rounded-bottom-4"
     data-quests-target="inProgressTab">
 
     <!-- In progress tab links -->
@@ -124,16 +124,16 @@
       <p>This is the pending content.</p>
     </div>
 
-    <!-- Ahmeds' individual quests tab content -->
+    <!-- Current user's individual quests tab content -->
     <div class="d-flex justify-content-center d-none"
       data-quests-target="indivQuestsTab1">
-      <p>This is Ahmeds content.</p>
+      <h4 class="text-center text-body-tertiary"><%= current_user.first_name.capitalize %> did not start any individual challenges yet! 😱</h4>
     </div>
 
-    <!-- Ancas' individual quests tab content -->
+    <!-- Partner's individual quests tab content -->
     <div class="d-flex justify-content-center d-none"
       data-quests-target="indivQuestsTab2">
-      <p>This is Ancas content.</p>
+      <h4 class="text-center text-body-tertiary"><%= @partner.first_name.capitalize %> did not start any individual challenges yet! 😱</h4>
     </div>
   </div>
 

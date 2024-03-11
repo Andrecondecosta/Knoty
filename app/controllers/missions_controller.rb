@@ -14,7 +14,7 @@ class MissionsController < ApplicationController
     if @mission.save
       redirect_to missions_path, notice: 'Mission was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +27,7 @@ class MissionsController < ApplicationController
     if @mission.update(mission_params)
       redirect_to missions_path, notice: 'Mission was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
