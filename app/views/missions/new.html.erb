@@ -1,10 +1,10 @@
-  <%= simple_form_for @mission, html: { class: 'container mt-4 ps-3 pe-3 d-flex flex-column' } do |form| %>
+  <%= simple_form_for @mission, html: { class: 'container mt-4 ps-3 pe-3 py-5 d-flex flex-column paper-form' } do |form| %>
     <%= link_to missions_path, class: "arrow-back" do %>
-      <%= image_tag "direction-sign.png", alt: "direction", style: "width: 35px;" %>
+      <%= image_tag "direction-sign.png", alt: "direction", style: "width: 35px; margin-left: 20px;" %>
     <% end %>
 
     <!-- still need to add font to add-mission -->
-    <div class="add-mission d-flex justify-content-center p-1 ps-0 d-f">
+    <div class="add-mission d-flex justify-content-center mb-2 p-1 ps-0 d-f">
       <h3 style="padding-left: 3px;"><b>Add a mission to your board!</b></h3>
     </div>
 
@@ -46,16 +46,19 @@
     <div class="form-group mt-3">
       <label for="title" class="mb-0" style="font-size: 18px;"><b>Add a name to your mission</b></label>
       <p class="sub-label text-muted mb-1">Make it fun!</p>
-      <%= form.input :title, label: false, maxlength: 13, placeholder: 'e.g: Trash Fashion Parade!', input_html: { id: 'title' } %>
+      <%= form.input :title, label: false, maxlength: 13, placeholder: 'e.g: Trash Fashion Parade!', input_html: { id: 'form-input-boxes' } %>
     </div>
 
-    <div class="form-group mt-3">
+    <div class="form-group mt-3 mb-4">
       <label for="details" class="mb-0" style="font-size: 18px;"><b>Add a description</b></label>
       <p class="sub-label text-muted mb-1">Optional</p>
-      <%= form.input :details, label: false, maxlength: 36, placeholder: 'e.g: Impress the neighbors and flex those muscles taking out the trash!', input_html: { style: 'resize: none;', id: 'details' } %>
+      <%= form.input :details, label: false, maxlength: 45, placeholder: 'e.g: Impress the neighbors and flex those muscles taking out the trash!', input_html: { style: 'resize: none;', id: 'form-input-boxes' } %>
     </div>
 
-    <%= form.button :submit, 'Add Mission', class: 'btn btn-primary mt-3' %>
+    <div class="d-flex justify-content-end">
+      <%= form.button :submit, 'Add Mission', class: 'wood-plaque-button' %>
+    </div>
+
   </div>
 
   <% end %>
