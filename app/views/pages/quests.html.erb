@@ -115,9 +115,7 @@
     <!-- Active couple quests tab content -->
     <div class="d-flex justify-content-center"
       data-quests-target="activeQuestsTab">
-
       <p>hello</p>
-
     </div>
 
     <!-- Pending couple quests tab content -->
@@ -126,7 +124,7 @@
 
       <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
         <% @pending_tasks.each do |task| %>
-          <%= render 'shared/cards_ongoing_couple', task: task %>
+          <%= render 'shared/cards_ongoing_pending_couple', task: task %>
         <% end %>
       <% else %>
         <h4 class="text-center text-body-tertiary">You have no pending couple challenges! 🥳</h4>
