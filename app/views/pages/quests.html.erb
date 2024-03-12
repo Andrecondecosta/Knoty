@@ -80,35 +80,45 @@
     <!-- In progress tab links -->
     <div>
       <div class="row mt-0 mb-2 pt-2">
-        <div class="col-6 d-flex justify-content-center p-0 fs-5"><u>Couples' Quests</u></div>
-        <div class="col-6 d-flex justify-content-center p-0 fs-5"><u>Individual Quests</u></div>
+          <div class="col-6 d-flex justify-content-center p-0 fs-5 position-relative">
+            <img src="<%= asset_path 'woodenlognew.png' %>" class="position-absolute background-image-1">
+            <div class="position-relative" style="z-index: 3; font-weight: bold;">Couples' Quests</div>
+          </div>
+          <div class="col-6 d-flex justify-content-center p-0 fs-5 position-relative">
+            <img src="<%= asset_path 'woodenlognew.png' %>" class="position-absolute background-image-2">
+            <div class="position-relative" style="z-index: 3; font-weight: bold; padding-left: 14px">Individual Quests</div>
+          </div>
       </div>
       <div class="row p-0 mb-4">
-
         <div class="col-3 d-flex justify-content-end pe-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio1" checked>
-          <label class="btn btn-outline-success rounded-pill" for="btnradio1"
-            data-action="click->quests#activeQuests">Active</label>
+          <label class="btn btn-outline-success rounded-pill sign-button-active" for="btnradio1"
+            data-action="click->quests#activeQuests" style="z-index: 1; padding-top: 23px;">Active</label>
+            <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-active">
         </div>
 
         <div class="col-3 d-flex justify-content-start p-0">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio2">
-          <label class="btn btn-outline-warning rounded-pill" for="btnradio2"
-            data-action="click->quests#pendingQuests">Pending</label>
+          <label class="btn btn-outline-warning rounded-pill sign-button-pending" for="btnradio2"
+            data-action="click->quests#pendingQuests" style="z-index: 1; padding-top: 23px;">Pending</label>
+            <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-pending">
         </div>
 
         <div class="col-3 d-flex justify-content-end p-0">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio3">
-          <label class="btn btn-outline-secondary rounded-pill" for="btnradio3"
-            data-action="click->quests#indivQuests1">Mine</label>
+          <label class="btn btn-outline-secondary rounded-pill sign-button-mine" for="btnradio3"
+            data-action="click->quests#indivQuests1" style="z-index: 1; padding-top: 23px;">Mine</label>
+            <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-mine">
         </div>
 
         <div class="col-3 d-flex justify-content-start ps-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio4">
-          <label class="btn btn-outline-secondary rounded-pill" for="btnradio4"
-            data-action="click->quests#indivQuests2"><%= @partner.first_name %>'s</label>
-        </div>
 
+          <label class="btn btn-outline-secondary rounded-pill sign-button-name" for="btnradio4"
+            data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 23px;"><%= @partner.first_name %>'s</label>
+            <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-name">
+
+        </div>
       </div>
     </div>
 
