@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :love_languages, only: [:new, :create]
   resources :individual_challenges, only: [:show]
   resources :missions, only: [:index, :new, :create, :destroy, :edit, :update]
-  resources :couple_tasks, only: [:show]
+  resources :couple_tasks, only: [:show, :edit, :update]
 
   resources :couple_challenges, only: [:show] do
     resources :couple_tasks, only: [:create]

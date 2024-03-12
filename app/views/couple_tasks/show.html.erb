@@ -1,21 +1,5 @@
-<div class="container" data-controller="toggle">
-  <div class="briefing-card">
-    <h3><%= @couple_challenge.title %></h3>
-    <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
-    <div class="briefing-card-body">
-      <p class="card-text text-light">
-        <%= @couple_challenge.prompt_1 if current_user == @couple.partner_1%>
-        <%= @couple_challenge.prompt_2 if current_user == @couple.partner_2%>
-      </p>
-    </div>
-    <div class="d-flex card-footer justify-content-between align-items-center bg-transparent">
-      <div class="d-flex">
-        <div class="rating">
-          <%= '⭐' * @couple_challenge.difficulty%>
-        </div>
-        <i class="fas fa-user-friends"></i>
-      </div>
-      <button type="button" class="btn btn-secondary rounded-4 ml-auto">Begin</button>
-    </div>
-  </div>
-</div>
+<% if @couple_task.invited_id != current_user.id %>
+  <%= render 'task_briefing',challenge: @couple_challenge, prompt: @couple_challenge.prompt_1 %>
+<% elsif @couple_task.invited_id == current_user.id %>
+  <%= render 'task_briefing',challenge: @couple_challenge, prompt: @couple_challenge.prompt_2 %>
+<% end %>

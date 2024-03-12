@@ -89,6 +89,7 @@
 }
 
 .card-ongoing-quests {
+  position: relative;
   width: 400px;
   height: 120px;
   background: url("paper_seven.png");
@@ -105,11 +106,6 @@
 .card-title-ongoing {
   margin: 10px;
 }
-
-.card-ongoing-quests {
-  position: relative;
-}
-
 .avatares {
   position: absolute;
   bottom: 0;

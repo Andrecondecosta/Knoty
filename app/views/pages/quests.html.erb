@@ -111,11 +111,11 @@
             <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-mine">
         </div>
 
-        <div class="col-3 d-flex justify-content-start ps-2">
+        <div class="col-3 d-flex justify-content-center ps-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio4">
 
           <label class="btn btn-outline-secondary rounded-pill sign-button-name" for="btnradio4"
-            data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 23px;"><%= @partner.first_name %>'s</label>
+            data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 23px;"><%= @partner.first_name %></label>
             <img src="<%= asset_path 'woodensignnew.png' %>" class="position-absolute wooden-sign-name">
 
         </div>
@@ -123,18 +123,38 @@
     </div>
 
     <!-- Active couple quests tab content -->
-    <div class="d-flex justify-content-center"
+    <div class="row justify-content-center"
       data-quests-target="activeQuestsTab">
-      <p>hello</p>
+      <% unless @active_tasks.nil? || @active_tasks.empty?  %>
+        <% @active_tasks.each do |task| %>
+
+          <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+            <%= render 'shared/cards_ongoing_active_couple', task: task %>
+          <% end %>
+
+        <% end %>
+      <% else %>
+        <h4 class="text-center text-body-tertiary">You have no active couple challenges! 🥹</h4>
+      <% end %>
     </div>
 
     <!-- Pending couple quests tab content -->
-    <div class="d-flex justify-content-center d-none"
+    <div class="row justify-content-center d-none"
       data-quests-target="pendingQuestsTab">
 
       <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
         <% @pending_tasks.each do |task| %>
-          <%= render 'shared/cards_ongoing_pending_couple', task: task %>
+
+          <% if current_user == User.find(task.invited_id) && task.active == false %>
+            <%= link_to edit_couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+              <%= render 'shared/cards_ongoing_pending_couple', task: task %>
+            <% end %>
+          <% else %>
+            <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+              <%= render 'shared/cards_ongoing_pending_couple', task: task %>
+            <% end %>
+          <% end %>
+
         <% end %>
       <% else %>
         <h4 class="text-center text-body-tertiary">You have no pending couple challenges! 🥳</h4>
@@ -143,13 +163,13 @@
     </div>
 
     <!-- Current user's individual quests tab content -->
-    <div class="d-flex justify-content-center d-none"
+    <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab1">
       <h4 class="text-center text-body-tertiary">You did not start any individual challenges yet! 😱</h4>
     </div>
 
     <!-- Partner's individual quests tab content -->
-    <div class="d-flex justify-content-center d-none"
+    <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab2">
       <h4 class="text-center text-body-tertiary"><%= @partner.first_name %> did not start any individual challenges yet! 😱</h4>
     </div>
