@@ -93,7 +93,6 @@ export default class extends Controller {
         },
       };
 
-
       new Chart(this.partnerChartTarget, partnerConfig);
     }
   }
