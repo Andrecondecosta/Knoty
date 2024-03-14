@@ -3,20 +3,18 @@
     <img class="card-img-rounded" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
   </div>
   <div class="col-9 pt-2 pb-3">
-    <div class="d-flex justify-content-end mb-0 me-4">
-      <% if task.invited_id == current_user.id %>
-        <p><strong>Received on: <%= task.created_at.strftime("%b %e, %l:%M %p") %></strong></p>
-      <% else %>
-        <p>Sent on: <%= task.created_at.strftime("%b %e, %l:%M %p") %></p>
-      <% end %>
+    <div class="d-flex justify-content-end align-items-end mb-0">
+      <p class="text-end pe-3"><%= task.created_at.strftime("%b %e, %l:%M %p") %></p>
     </div>
-    <div class="d-flex justify-content-start">
-      <h4><%= task.couple_challenge.title %></h4>
+    <div class="d-flex justify-content-start align-items-start">
+      <h4><%= task.individual_challenge.title %></h4>
     </div>
-    <div>
+    <div class="row">
+    <!--
       <div class="d-flex justify-content-end align-items-end">
         <h4 class="avatares pe-5"></h4>
       </div>
+    -->
     </div>
   </div>
 </div>

@@ -24,25 +24,26 @@
     </div>
 
 
-    <div class="content-profile mx-auto row w-100 justify-content-center align-items-end bg-white" data-toggle-target="currentUserElem">
-      <h3>Character Stats</h3>
+    <div class="content-profile mx-auto row w-100 justify-content-center align-items-end bg-white rounded-bottom-4" data-toggle-target="currentUserElem">
+      <p class="text-center col-10 fs-3 pt-3 pb-2 ">Character Stats</p>
       <% unless @my_love_language.nil? %>
-        <canvas class="col-10 h-75 "
+        <canvas class="col-10  h-75"
           data-chart-target="myChart">
         </canvas>
       <% else %>
-        <h4 class="text-body-tertiary">You don't have Love language stats yet 😭</h4>
+        <h4 class="col-10 text-body-tertiary">You don't have Love language stats yet 😭</h4>
       <% end %>
     </div>
 
 
-    <div class="content-profile mx-auto row w-100 justify-content-center align-items-end bg-white d-none" data-toggle-target="partnerUserElem">
+    <div class="content-profile mx-auto row w-100 justify-content-center align-items-end bg-white d-none rounded-bottom-4" data-toggle-target="partnerUserElem">
+      <p class="text-center col-10 fs-3 pt-3 pb-2 ">Character Stats</p>
       <% unless @partner_love_language.nil? %>
-      <canvas class="col-10 h-75 "
+      <canvas class="col-10 h-75"
         data-chart-target = "partnerChart">
       </canvas>
       <% else %>
-        <h4 class="text-body-tertiary">Your partner doesn't have Love language stats yet 😭</h4>
+        <h4 class="col-10 text-body-tertiary">Your partner doesn't have Love language stats yet 😭</h4>
       <% end %>
     </div>
 

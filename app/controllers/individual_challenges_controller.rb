@@ -3,9 +3,14 @@ class IndividualChallengesController < ApplicationController
 
   def show
     @individual_challenge = IndividualChallenge.find(params[:id])
+    @individual_task = IndividualTask.new
   end
 
   private
+
+  def set_couple
+    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+  end
 
   def set_pending_tasks
     return unless signed_in?

@@ -6,7 +6,6 @@ class CoupleTasksController < ApplicationController
   before_action :set_invited_partner, only: %i[show edit]
 
   def show
-
     @couple_challenge = @couple.couple_challenges.find(@couple_task.couple_challenge_id)
   end
 
@@ -65,7 +64,7 @@ class CoupleTasksController < ApplicationController
   end
 
   def similar_task_exists?
-    @existing_couple_task = CoupleTask.find_by(couple_challenge_id: params[:couple_challenge_id])
+    CoupleTask.find_by(couple_challenge_id: params[:couple_challenge_id])
   end
 
   def belongs_to_couple?(user)

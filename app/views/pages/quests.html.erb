@@ -11,7 +11,7 @@
   </div>
 
   <!------------------------ Explore Quests tab content ------------------------>
-  <div class="content bg-light bg-opacity-50 rounded-bottom-4" data-quests-target="exploreQuestsTab">
+  <div class="content h-100 bg-light bg-opacity-50 rounded-bottom-4" data-quests-target="exploreQuestsTab">
     <div class="all-carousel">
 
       <div>
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div class="carousel-1 mt-0">
+      <div class="carousel-1">
         <div id="carouselExampleControls" class="carousel slide mt-3" data-interval="false" data-interval="false">
 
           <div class="carousel-inner">
@@ -124,7 +124,9 @@
         <div class="col-3 d-flex justify-content-center ps-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio4">
 
-          <label class="btn btn-outline-secondary rounded-pill sign-button-name" for="btnradio4" data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 3px;">Hers</label>
+          <label class="btn btn-outline-secondary rounded-pill sign-button-name ps-1" for="btnradio4" data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 3px;">
+            His/Hers
+          </label>
           <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/3cb5c6ac-b9c7-4a64-b071-ef4d3cf61091-removebg-preview_gdhoda.png' %>" class="position-absolute wooden-sign-name">
         </div>
 
@@ -174,13 +176,34 @@
     <!-- Current user's individual quests tab content -->
     <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab1">
-      <h4 class="text-center text-body-tertiary">At the moment, you haven't embarked on a solo quest. 😱</h4>
+        <% unless @my_solo_tasks.nil? || @my_solo_tasks.empty?  %>
+
+          <% @my_solo_tasks.each do |task| %>
+            <%= link_to individual_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+              <%= render 'shared/cards_individual_active', task: task %>
+            <% end %>
+          <% end %>
+
+        <% else %>
+          <h4 class="text-center text-body-tertiary">At the moment, you haven't embarked on a solo quest. 😱</h4>
+        <% end %>
     </div>
 
     <!-- Partner's individual quests tab content -->
     <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab2">
-      <h4 class="text-center text-body-tertiary"><%= @partner.first_name %> Anca hasn't embarqued on a solo quest yet! 😱</h4>
+
+      <% unless @partner_solo_tasks.nil? || @partner_solo_tasks.empty?  %>
+
+          <% @partner_solo_tasks.each do |task| %>
+            <%= link_to individual_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+              <%= render 'shared/cards_individual_active', task: task %>
+            <% end %>
+          <% end %>
+
+      <% else %>
+        <h4 class="text-center text-body-tertiary">At the moment, they haven't embarked on a solo quest. 😱</h4>
+      <% end %>
     </div>
   </div>
 

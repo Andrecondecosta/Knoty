@@ -2,15 +2,26 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   before_action :set_couple, only: %i[profile]
   before_action :set_pending_tasks, only: %i[home profile quests]
-  before_action :set_active_tasks, only: %i[ quests]
+  before_action :set_active_tasks, only: %i[quests]
   before_action :set_partner, only: %i[profile quests]
 
   def home
   end
 
   def quests
-    @couple_challenges = CoupleChallenge.all
-    @individual_challenges = IndividualChallenge.all
+    # All couple challenges that are not completed
+    # needs to be fixed (retrieves couple challenges that are completed by anyone not exclusively the couple)
+    @couple_challenges = CoupleChallenge.left_outer_joins(:couple_tasks).where(couple_tasks: { id: nil })
+
+    # All solo challenges that are not completed
+    # needs to be fixed (retrieves solo challenges that are completed by anyone not exclusively the couple)
+    @individual_challenges = IndividualChallenge.left_outer_joins(:individual_tasks).where(individual_tasks: { id: nil })
+
+    # current_user solo tasks
+    @my_solo_tasks = current_user.individual_tasks
+
+    # partner solo tasks
+    @partner_solo_tasks = @partner.individual_tasks if @partner
   end
 
   def profile
