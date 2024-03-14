@@ -1,15 +1,16 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <% resource.class.invite_key_fields.each do |field| -%>
-    <div class="form-inputs">
-      <%= f.input field %>
-    </div>
-  <% end -%>
-
-  <div class="form-actions">
-    <%= f.button :submit, t("devise.invitations.new.submit_button") %>
+<div class="h-100 row justify-content-center align-items-center">
+  <div class="box bg-white p-3 rounded-4 border border-dark col-10">
+    <h3 class="ps-1 pt-1 pb-2 text-center">Invite your significant other! 💓</h3>
+    <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+      <% resource.class.invite_key_fields.each do |field| -%>
+        <div class="form-inputs">
+          <%= f.input field %>
+        </div>
+      <% end -%>
+      <div class="form-actions d-flex justify-content-end">
+        <%= f.button :submit, t("devise.invitations.new.submit_button"), class:"btn btn-outline-dark" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

@@ -10,7 +10,7 @@
       <% @love_language_questionnaire.each_with_index do |pair, i| %>
 
         <% if pair == @love_language_questionnaire[-1] %>
-          <div class="d-flex flex-column w-100 px-3 gap-3 d-none" id="<%= i %>"  data-questionnaire-target= "optionsElem">
+          <div class="d-flex flex-column w-100 px-3 gap-3 d-none rounded-4 border border-dark py-4 px-1" id="<%= i %>"  data-questionnaire-target= "optionsElem">
             <h4 class="ps-2">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>">
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
@@ -18,13 +18,13 @@
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="<%= pair[1][:type] %>">
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
             <div class="d-flex justify-content-between">
-              <button class="btn btn-secondary" data-action="click->questionnaire#back">Back</button>
-              <%= f.button :submit,class:"btn btn-outline-dark", data: {action: "click->questionnaire#assignValues"}%>
+              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#back">< Back</button>
+              <%= f.button :submit,value: "Save my Love Language" ,class:"btn btn-success text-body-secondary fw-semibold", data: {action: "click->questionnaire#assignValues"}%>
             </div>
           </div>
         <% elsif i == 0 %>
 
-          <div class="d-flex flex-column w-100 px-3 gap-3" id="<%= i %>"  data-questionnaire-target= "optionsElem">
+          <div class="d-flex flex-column w-100 px-3 gap-3 rounded-4 border border-dark py-4 px-1" id="<%= i %>"  data-questionnaire-target= "optionsElem">
             <h4 class="ps-2">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>" >
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
@@ -33,13 +33,13 @@
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
 
             <div class="d-flex justify-content-end">
-              <button class="btn btn-secondary" data-action="click->questionnaire#next">Next</button>
+              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#next">Next ></button>
             </div>
           </div>
 
         <% else %>
 
-          <div class="d-flex flex-column w-100 px-3 gap-3 d-none" id="<%= i %>"  data-questionnaire-target= "optionsElem">
+          <div class="d-flex flex-column w-100 px-3 gap-3 d-none rounded-4 border border-dark py-4 px-1" id="<%= i %>"  data-questionnaire-target= "optionsElem">
             <h4 class="ps-2">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>">
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
@@ -47,8 +47,8 @@
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="<%= pair[1][:type] %>">
             <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
             <div class="d-flex justify-content-between">
-              <button class="btn btn-secondary" data-action="click->questionnaire#back">Back</button>
-              <button class="btn btn-secondary" data-action="click->questionnaire#next">Next</button>
+              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#back">< Back</button>
+              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#next">Next ></button>
                 <%= f.button :submit, class: "btn btn-success text-light d-none", value: "Create my profile" %>
             </div>
           </div>
