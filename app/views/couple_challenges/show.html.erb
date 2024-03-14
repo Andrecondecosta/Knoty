@@ -4,33 +4,48 @@
   <!-- Beginning challenge -->
   <div class="container" data-challenges-target="challengeBriefing">
     <div class="briefing-card">
-      <h3><%= @couple_challenge.title %></h3>
+      <div>
+        <%= image_tag 'wooden-arrow.png', alt:"wooden-arrow", style:"width: 40px; height: 20px;"%>
+        <h3 class="briefing-title"><%= @couple_challenge.title %></h3>
+      </div>
       <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+
+      <div class="d-flex card-footer-briefing justify-space-between align-items-center bg-transparent pe-4" style="padding-left: 100px;">
+          <div class="rating">
+            <% @couple_challenge.difficulty.times do %>
+              <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
+            <% end %>
+          </div>
+          <div>
+            <% if @couple_challenge.estimated_time == 1 %>
+              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
+            <% elsif @couple_challenge.estimated_time == 2 %>
+              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
+            <% elsif @couple_challenge.estimated_time == 3 %>
+              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
+            <% end %>
+          </div>
+          <div>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017024/pets_m26mru.png" alt="Couple">
+          </div>
+      </div>
       <div class="briefing-card-body">
-        <p class="card-text text-light">
-          <%= @couple_challenge.details %>
+        <p class="card-text">
+          &nbsp;&nbsp;&nbsp; <%= @couple_challenge.details %>
         </p>
       </div>
-      <div class="d-flex card-footer justify-content-between align-items-center bg-transparent ps-5 pe-4">
-        <div class="d-flex">
-          <div class="rating">
-            <%= '⭐' * @couple_challenge.difficulty%>
-          </div>
-          <i class="fas fa-user-friends"></i>
-        </div>
-        <button type="button" class="btn btn-secondary rounded-4 ml-auto" data-action="click->challenges#beginChallenge">Begin</button>
-      </div>
+        <button type="button" class="begin-quest" data-action="click->challenges#beginChallenge">Begin</button>
     </div>
   </div>
 
   <!-- Date picking and submitting challenge -->
   <div class="container d-none" data-challenges-target="challengeDate">
     <div class="briefing-card">
-      <h3><%= @couple_challenge.title %></h3>
+      <h3 class="briefing-title"><%= @couple_challenge.title %></h3>
       <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
 
-      <div class="briefing-card-body bg-light p-4 pt-3">
-        <h4>Let's make it happen</h4>
+      <div class="briefing-card-body p-4 pt-3" style="background-colour: transparent;">
+        <h4 class="make-happen">Let's make it happen!</h4>
         <%= simple_form_for [@couple_challenge, @couple_task],
           data:{challenges_target: 'form'} do |f| %>
 
@@ -42,8 +57,7 @@
                   input_html: {min: Date.today, data: {toggle_target: "firstDateInput"}},
                   wrapper_html: {class:"col-10", style: "margin:0 !important;",
                   data: {toggle_target: "firstDateInputContainer"}} %>
-                <button type="button" class="btn btn-primary m-0 p-0 rounded-4 col-2 fs-5" data-toggle-target="addDateButton1"
-                  data-action="click->toggle#showSecondDate">+</button>
+                <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png" alt="add_date" class="add-date-button" data-toggle-target="addDateButton1" data-action="click->toggle#showSecondDate">
             </div>
             <!-- second date input -->
             <div class="row ps-2 pe-3 mt-3">
@@ -52,8 +66,7 @@
                 input_html: {min: Date.today, data: {toggle_target: "secondDateInput"}},
                 wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
                 data: {toggle_target: "secondDateInputContainer"}} %>
-              <button type="button" class="btn btn-primary m-0 p-0 rounded-4 col-2 d-none fs-5" data-toggle-target="addDateButton2"
-                  data-action="click->toggle#showThirdDate">+</button>
+              <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png" alt="add_date" class="add-date-button d-none" data-toggle-target="addDateButton2" data-action="click->toggle#showThirdDate">
             </div>
             <!-- third date input -->
             <div class="row ps-2 pe-3 mt-3">
@@ -62,8 +75,9 @@
                 input_html: {min: Date.today, data: {toggle_target: "thirdDateInput"}},
                 wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
                 data: {toggle_target: "thirdDateInputContainer"}} %>
-                <button type="button" class="btn btn-danger m-0 p-0 rounded-4 col-2 d-none text-light fs-5" data-toggle-target="removeDateButton2"
-                  data-action="click->toggle#removeThirdDate">-</button>
+              <%= image_tag('MinusButton.png', alt: 'minus-button', class: 'add-date-button d-none', data: { toggle_target: 'removeDateButton2' }, 'data-action': 'click->toggle#removeThirdDate') %>
+
+              <!-- <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png" alt="add_date" class="add-date-button d-none" data-toggle-target="removeDateButton2" data-action="click->toggle#removeThirdDate"> -->
             </div>
           </div>
 

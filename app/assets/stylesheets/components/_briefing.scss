@@ -2,26 +2,34 @@ h2 {
   text-align: center;
 }
 h3 {
-  padding-left: 25px;
-  padding-top: 5px;
+  padding-left: 32px;
+  padding-top: 51px;
 }
+
 .briefing-card-img-top {
-  padding: 2px 20px 14px 20px;
-  border-radius: 14%;
-  height: 216px;
-  width: 402px;
+  padding: 6px 25px 15px 40px;
+  border-radius: 20%;
+  height: 184px;
+  width: 342px;
+  margin-left: 24px;
+  margin-top: 20px;
+  opacity: 0.8;
 }
+
 .briefing-card {
   border-radius: 25px;
-  background-color: #ddd;
-  height: 744px;
-  margin-top: 25px;
+  background-image: url("paper_seven.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 763px;
+  margin-top: 13px;
 }
 .briefing-card-body {
-  background-color: grey;
+  background-color: transparent;
   border-radius: 25px;
   margin: 0px 10px 9px 10px;
-  height: 425px;
+  height: 324px;
 }
 .fa-user-friends {
   padding-left: 25px;
@@ -30,5 +38,73 @@ h3 {
   border-radius: 50px;
 }
 .card-text {
-  padding: 19px 15px 0px 14px;
+  padding: 19px 15px 0px 22px;
+  color: rgb(34, 20, 20);
+  font-family: "Vidaloka", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.briefing-title {
+  font-family: Berkshire Swash, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 27px;
+  color: rgb(18, 11, 11);
+  margin-bottom: -14px;
+  margin-top: -9px;
+  margin-left: 61px;
+}
+
+.card-footer-briefing {
+  border: none;
+  margin: 0px;
+  margin-left: 6px;
+  margin-right: 27px;
+}
+
+.begin-quest {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png');
+  background-size: cover;
+  width: 221px;
+  height: 50px;
+  opacity: 0.8;
+  margin-left: 161px;
+
+  color: rgb(6, 6, 6);
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
+    filter: brightness(80%);
+  }
+}
+
+.make-happen {
+  font-family: "Vidaloka", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 21px;
+  padding-left: 11px;
+  margin-bottom: 27px;
+}
+
+.add-date-button {
+  width: 62px;
+  height: 39px;
+  opacity: 0.8;
+  margin-left: -16px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 12;
+  }
 }
