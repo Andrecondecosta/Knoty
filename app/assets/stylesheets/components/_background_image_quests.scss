@@ -1,0 +1,101 @@
+.background-image-1 {
+  top: -3px;
+  left: -2px;
+  width: 100%;
+  height: 125%;
+  z-index: 2;
+}
+.background-image-2 {
+  top: -3px;
+  left: 9px;
+  width: 96%;
+  height: 125%;
+  z-index: 2;
+}
+
+.wooden-sign-active {
+  top: 102px;
+  left: 22px;
+  width: 90px;
+  height: 98px;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.wooden-sign-pending {
+  top: 102px;
+  left: 112px;
+  width: 90px;
+  height: 98px;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.wooden-sign-mine {
+  top: 102px;
+  left: 241px;
+  width: 80px;
+  height: 98px;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.wooden-sign-name {
+  top: 102px;
+  left: 321px;
+  width: 80px;
+  height: 98px;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.btn-check:checked ~ .sign-button-active,
+.btn-check:checked ~ .sign-button-pending,
+.btn-check:checked ~ .sign-button-mine,
+.btn-check:checked ~ .sign-button-name,
+.sign-button-active:hover,
+.sign-button-pending:hover,
+.sign-button-mine:hover,
+.sign-button-name:hover {
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+.sign-button-active {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #422a14;
+  font-weight: lighter;
+}
+
+.sign-button-pending {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #422a14;
+  font-weight: lighter;
+}
+
+.sign-button-mine {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #422a14;
+  font-weight: lighter;
+}
+
+.sign-button-name {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #422a14;
+  font-weight: lighter;
+}
+
+.btn-check:checked ~ .wooden-sign-active,
+.btn-check:checked ~ .wooden-sign-pending,
+.btn-check:checked ~ .wooden-sign-mine,
+.btn-check:checked ~ .wooden-sign-name {
+  opacity: 1;
+}

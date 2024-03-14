@@ -11,10 +11,6 @@
   background-position: -9px;
 }
 
-.container.mt-4.ps-3.pe-3.d-flex.flex-column {
-  background: transparent;
-}
-
 .mission-title {
   margin-bottom: 10px;
   padding-top: 15px;
@@ -38,22 +34,26 @@
   color:rgb(63, 63, 63);
   margin-bottom: 20px;
   overflow: visible;
-
 }
 
 .icon-link {
   text-decoration: none;
   position: relative;
-  top: 15px;
+  top: 5px;
   color: rgb(102, 102, 102);
 }
 
 .icon-link:hover {
-  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+edit-icon {
   position: relative;
   top: 15px;
   color: rgb(0, 0, 0);
   opacity: 1;
+  height: 10px;
+  width: 10px;
 }
 
 .thumb {
@@ -70,8 +70,6 @@
     opacity: 1;
   }
 }
-
-
 
 .icon-class {
   font-size: 40px;
@@ -101,4 +99,48 @@ input[type=radio]:checked + .icon-container {
   color: rgb(63, 63, 63);
   margin-top: -5px;
   margin-bottom: 10px;
+}
+
+.mission_plus {
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    filter: brightness(80%);
+  }
+}
+
+.wood-plaque-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png');
+  background-size: cover;
+  width: 200px;
+  height: 50px;
+  padding-top: -10px;
+  opacity: 0.8;
+
+  color: rgb(6, 6, 6);
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
+    filter: brightness(80%);
+  }
+}
+
+.paper-form {
+  background-image: image-url("paper_seven.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-right: 20px;
+  padding-left: 20px;
 }
