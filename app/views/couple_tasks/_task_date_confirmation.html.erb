@@ -31,7 +31,7 @@
           <!-- submit button -->
           <div class="d-flex align-self-end justify-content-between mt-3 me-1">
             <%= link_to "Back", quest_log_path, class: "btn btn-secondary ms-2" %>
-            <%= f.button :submit, class:"btn btn-success", data: {action: "click->form#chooseDate"} %>
+            <%= f.button :submit,value: "Accept", class:"btn btn-success", data: {action: "click->form#chooseDate"} %>
           </div>
         <% end %>
 
