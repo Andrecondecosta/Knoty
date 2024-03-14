@@ -18,6 +18,7 @@
 .mission-title {
   margin-bottom: 10px;
   padding-top: 15px;
+  font-family: "El Messiri", sans-serif;
 }
 
 .mission-details {
@@ -25,7 +26,9 @@
   word-wrap: break-word;
   padding-right: 10px;
   margin-bottom: 5px;
-  font-size: 15px;
+  font-size: 16px;
+  font-family: "Caveat", cursive;
+  line-height: 1.2;
 }
 
 .mission-date {
@@ -34,8 +37,8 @@
   top: 20px;
   color:rgb(63, 63, 63);
   margin-bottom: 20px;
-  margin-left: -10px;
   overflow: visible;
+
 }
 
 .icon-link {
@@ -50,6 +53,7 @@
   position: relative;
   top: 15px;
   color: rgb(0, 0, 0);
+  opacity: 1;
 }
 
 .thumb {

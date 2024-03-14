@@ -14,71 +14,76 @@ export default class extends Controller {
 
   connect() {
 
+    if (this.hasMyLoveLanguageValue){
+      const myJson = JSON.parse(this.myLoveLanguageValue)
 
-    const myJson = JSON.parse(this.myLoveLanguageValue)
-    const partnerJson = JSON.parse(this.partnerLoveLanguageValue)
 
-    const myData= {
-      labels: Object.keys(myJson),
-      datasets: [{
-        label: 'My First Dataset',
-        data: Object.values(myJson),
-        fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(255, 99, 132)'
-      },{
-        label: 'My Second Dataset',
-        data: Object.values(partnerJson),
-        fill: true,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgb(54, 162, 235)',
-        pointBackgroundColor: 'rgb(54, 162, 235)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(54, 162, 235)'
-      }]
-    };
-
-    const config = {
-      type: 'radar',
-      data: myData,
-      options: {
-        elements: {
-          line: {
-            borderWidth: 3
-          }
+      const myData= {
+        labels: Object.keys(myJson),
+        datasets: [{
+          label: 'My First Dataset',
+          data: Object.values(myJson),
+          fill: true,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgb(255, 99, 132)',
+          pointBackgroundColor: 'rgb(255, 99, 132)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgb(255, 99, 132)'
         }
-      },
-    };
+      ]
+      };
 
-    new Chart(this.myChartTarget, config);
+      const config = {
+        type: 'radar',
+        data: myData,
+        options: {
+          elements: {
+            line: {
+              borderWidth: 3
+            }
+          },
+          scales: {
+            r: {
+                angleLines: {
+                    display: false
+                },
+                suggestedMin: 1,
+                suggestedMax: 10
+            }
+        }
+        },
+      };
 
-    const partnerData = {
-      labels: Object.keys(partnerJson),
-      datasets: [{
-        label: 'My First Dataset',
-        data: Object.values(partnerJson),
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(75, 192, 192)',
-          'rgb(255, 205, 86)',
-          'rgb(201, 203, 207)',
-          'rgb(54, 162, 235)'
-        ]
-      }]
-    };
+      new Chart(this.myChartTarget, config);
+    }
 
-    const partnerConfig = {
-      type: 'polarArea',
-      data: partnerData,
-      options: {}
-    };
+        console.log(this.partnerLoveLanguageValue)
+    if (this.hasPartnerLoveLanguageValue)
+    {
+      const partnerJson = JSON.parse(this.partnerLoveLanguageValue)
+      const partnerData = {
+        labels: Object.keys(partnerJson),
+        datasets: [{
+          label: 'My First Dataset',
+          data: Object.values(partnerJson),
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(75, 192, 192)',
+            'rgb(255, 205, 86)',
+            'rgb(201, 203, 207)',
+            'rgb(54, 162, 235)'
+          ]
+        }]
+      };
 
-    new Chart(this.partnerChartTarget, partnerConfig);
+      const partnerConfig = {
+        type: 'polarArea',
+        data: partnerData,
+        options: {}
+      };
 
+      new Chart(this.partnerChartTarget, partnerConfig);
+    }
   }
 }
