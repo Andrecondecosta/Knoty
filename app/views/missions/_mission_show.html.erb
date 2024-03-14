@@ -17,11 +17,11 @@
     <% end %>
   </div>
   <div>
-    <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission deleted!!!"}, class: "thumb" do %>
-      <%= image_tag('delete.png', alt: 'ThumbUp', style: 'width: 20px; height: 20px; margin-right: 10px') %>
+    <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission deleted?"}, class: "thumb" do %>
+      <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412461/kisspng-x-mark-check-mark-clip-art-wrong-sign-5b12e998675839.8614187915279661044233_wl8elh.png', alt: 'ThumbUp', style: 'width: 20px; height: 20px; margin-right: 10px') %>
     <% end %>
     <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission accomplished?"}, class: "thumb" do %>
-      <%= image_tag('check.png', alt: 'ThumbUp', style: 'width: 20px; height: 20px; margin-right: 12px;') %>
+      <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/kisspng-check-mark-watercolor-painting-vector-graphics-dra-foliewikkelaar-leer-tijd-en-folie-te-besparen-raj-5cce91c4bc1bb7.9170619015570416047705_fhtebi.png', alt: 'ThumbUp', style: 'width: 20px; height: 20px; margin-right: 12px;') %>
     <% end %>
   </div>
 </div>

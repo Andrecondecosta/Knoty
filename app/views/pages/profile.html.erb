@@ -24,7 +24,8 @@
     </div>
 
 
-    <div class="content-profile mx-auto row w-100 justify-content-center align-items-center bg-white" data-toggle-target="currentUserElem">
+    <div class="content-profile mx-auto row w-100 justify-content-center align-items-end bg-white" data-toggle-target="currentUserElem">
+      <h3>Character Stats</h3>
       <% unless @my_love_language.nil? %>
         <canvas class="col-10 h-75 "
           data-chart-target="myChart">
@@ -35,7 +36,7 @@
     </div>
 
 
-    <div class="content-profile mx-auto row w-100 justify-content-center align-items-center bg-white d-none" data-toggle-target="partnerUserElem">
+    <div class="content-profile mx-auto row w-100 justify-content-center align-items-end bg-white d-none" data-toggle-target="partnerUserElem">
       <% unless @partner_love_language.nil? %>
       <canvas class="col-10 h-75 "
         data-chart-target = "partnerChart">

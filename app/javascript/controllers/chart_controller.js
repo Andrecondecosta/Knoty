@@ -25,7 +25,7 @@ export default class extends Controller {
           fill: true,
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
+          pointBackgroundColor: 'rgb(29, 31, 243)',
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: 'rgb(255, 99, 132)'
@@ -39,6 +39,10 @@ export default class extends Controller {
           elements: {
             line: {
               borderWidth: 3
+            }
+          }, plugins: {
+            legend: {
+              display: false,
             }
           },
           scales: {
@@ -61,11 +65,10 @@ export default class extends Controller {
       const partnerData = {
         labels: Object.keys(partnerJson),
         datasets: [{
-          label: 'My Stats',
           data: Object.values(partnerJson),
           fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgba(29, 31, 243, 0.1)',
+          borderColor: 'rgb(29, 31, 243)',
           pointBackgroundColor: 'rgb(255, 99, 132)',
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
@@ -80,6 +83,11 @@ export default class extends Controller {
           elements: {
             line: {
               borderWidth: 3
+            },
+          },
+          plugins: {
+            legend: {
+              display: false
             }
           },
           scales: {
