@@ -13,9 +13,22 @@
   <!------------------------ Explore Quests tab content ------------------------>
   <div class="content bg-light bg-opacity-50 rounded-bottom-4" data-quests-target="exploreQuestsTab">
     <div class="all-carousel">
-      <div class="carousel-1 mt-0 pt-1">
-        <h3 class="d-flex justify-content-start fs-4 fw-bold subtitle-quest-list">Couple Challenge</h3>
-        <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-interval="false">
+
+      <div>
+        <div class="row mt-0 mb-2 pt-4">
+          <div class="col-6 d-flex justify-content-center p-0 fs-5 position-relative" id="couples-quests-explore">
+            <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png' %>" class="position-absolute background-image-1" style="left: 14px; width: 93%;">
+            <div class="position-relative couples-quests-explore" style="z-index: 3; font-weight: bold; left: 8px;">Couples' Quests</div>
+          </div>
+          <div class="col-6 d-flex justify-content-center p-0 fs-5 position-relative" id="solo-quests-explore">
+            <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png' %>" class="position-absolute background-image-2" style="width: 87%;">
+            <div class="position-relative solo-quests-explore" style="z-index: 3; font-weight: bold; padding-left: 0px">Solo Quests</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-1 mt-0">
+        <div id="carouselExampleControls" class="carousel slide mt-3" data-interval="false" data-interval="false">
 
           <div class="carousel-inner">
             <% @couple_challenges.each_with_index do |couple, index| %>
@@ -42,8 +55,7 @@
         </div>
       </div>
 
-      <div class="carousel-2 pb-2">
-        <h3 class="d-flex justify-content-start fs-4 fw-bold subtitle-quest-list">Individual Challenge</h3>
+      <div class="carousel-2">
         <div id="carouselExampleControls2" class="carousel slide" data-interval="false" data-interval="false">
 
           <div class="carousel-inner">
@@ -112,7 +124,7 @@
         <div class="col-3 d-flex justify-content-center ps-2">
           <input type="radio" class="btn-check" name="inprogresstab" id="btnradio4">
 
-          <label class="btn btn-outline-secondary rounded-pill sign-button-name" for="btnradio4" data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 3px;">Ancas'</label>
+          <label class="btn btn-outline-secondary rounded-pill sign-button-name" for="btnradio4" data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 3px;">Hers</label>
           <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/3cb5c6ac-b9c7-4a64-b071-ef4d3cf61091-removebg-preview_gdhoda.png' %>" class="position-absolute wooden-sign-name">
         </div>
 
