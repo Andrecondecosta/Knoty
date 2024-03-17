@@ -1,3 +1,43 @@
+  <div class="container" style="position: relative; overflow: auto;">
+    <div class="container-progressing" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -620%);">
+    <div class="progress-container" style="width: 300px;">
+      <div class="progress" id="progress"> </div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    const progress = document.getElementById("progress");
+    const stepCircles = document.querySelectorAll(".circle");
+    let currentActive = 1;
+
+    //NOTE CHANGE HERE TO 1-4
+    //1=25%
+    //2=50%
+    //3=75%
+    //4=100%
+    update(2);
+
+    function update(currentActive) {
+      stepCircles.forEach((circle, i) => {
+        if (i < currentActive) {
+          circle.classList.add("active");
+        } else {
+          circle.classList.remove("active");
+        }
+      });
+
+      const activeCircles = document.querySelectorAll(".active");
+      progress.style.width =
+        ((activeCircles.length - 1) / (stepCircles.length - 1)) * 100 + "%";
+    }
+  </script>
+
 <div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto" data-controller="island-slide overlay" data-island-slide-target="parentElem"
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave">
 
@@ -9,10 +49,9 @@
     <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/open-book_ea66sn.png" alt="Book" class="book book-inactive" data-overlay-target= "bookButton">
   <% end %>
 
-
   <div class="overlay d-none rounded-4" id="overlay" data-overlay-target="overlay" data-island-slide-target="overlay">
   <h3 class="text-center my-3" style="font-family: Berkshire Swash, serif; font-weight: 400; font-style: normal; padding-top: 10px">The start of a journey</h3>
-  <div class="overlay-content">
+  <div class="overlay-content px-4 fs-5" style="font-family: Playfair; font-style: normal; font-weight: 400; font-size: 15px;">
     <div class="scrollable-content">
       <p>&nbsp;It wasn’t soon until the news arrived at Anca and Ahmeds’ house. Long
           before that day, they’d only heard of it in ancient tales. From time to time, in
@@ -49,7 +88,7 @@
     </div>
   </div>
   <div class="overlay-button">
-    <button><i class="fas fa-play"></i></button>
+    <button><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-bottom: 15px;"></i></button>
   </div>
 </div>
 </div>
