@@ -28,7 +28,9 @@
   <h3 class="text-center my-3" style="font-family: Berkshire Swash, serif; font-weight: 400; font-style: normal; padding-top: 10px">The start of a journey</h3>
   <div class="overlay-content px-4 fs-5" style="font-family: Playfair; font-style: normal; font-weight: 400; font-size: 15px;">
     <div class="scrollable-content">
-      <p>&nbsp;It wasn’t soon until the news arrived at Anca and Ahmeds’ house. Long
+      <p>&nbsp;It wasn’t soon until the news arrived at
+        <%= signed_in? && current_user.first_name && @partner.first_name ? "#{@couple.partner_1.first_name} and #{@couple.partner_2.first_name}'s": "the heroes'" %>
+          house. Long
           before that day, they’d only heard of it in ancient tales. From time to time, in
           the village, couples claimed that they had encountered these feared
           creatures. However, as no one else could see them except for the couples
@@ -62,8 +64,17 @@
           the malevolent forces threatening their love.</p>
     </div>
   </div>
-  <div class="overlay-button">
-    <button><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-bottom: 15px;"></i></button>
+  <div class="overlay-button" data-controller="audio">
+
+    <% if signed_in? && @couple.audio.attached? %>
+      <%= audio_tag @couple.audio, data: {audio_target: "storyAudio"}%>
+    <% else %>
+      <%= audio_tag "https://res.cloudinary.com/dvgcwuo68/video/upload/v1710779454/development/2az0g93jjfghblihys3bq6s7fhz9.mp3",
+        data: {audio_target: "storyAudio"}%>
+    <% end %>
+
+
+    <button data-action="click->audio#playAudio"><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-bottom: 15px;"></i></button>
   </div>
 </div>
 </div>
