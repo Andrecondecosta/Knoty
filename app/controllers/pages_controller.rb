@@ -6,6 +6,14 @@ class PagesController < ApplicationController
   before_action :set_partner, only: %i[profile quests]
 
   def home
+    # this defines the progress value on the progress bar:
+    # NOTE CHANGE HERE TO 1-5
+    # 1=20%
+    # 2=40%
+    # 3=60%
+    # 4=80%
+    # 5=100%
+    @current_progress = 3
   end
 
   def quests

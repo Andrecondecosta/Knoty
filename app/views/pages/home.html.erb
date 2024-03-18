@@ -1,42 +1,17 @@
-  <div class="container" style="position: relative; overflow: auto;">
+  <div class="container" style="position: relative; overflow: auto;"
+    data-controller="progress-bar"
+    data-progress-bar-current-progress-value="<%= @current_progress %>">
     <div class="container-progressing" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -620%);">
-    <div class="progress-container" style="width: 300px;">
-      <div class="progress" id="progress"> </div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
+      <div class="progress-container" style="width: 300px;">
+        <div class="progress" data-progress-bar-target="progress"> </div>
+        <div class="circle" data-progress-bar-target="circle"></div>
+        <div class="circle" data-progress-bar-target="circle"></div>
+        <div class="circle" data-progress-bar-target="circle"></div>
+        <div class="circle" data-progress-bar-target="circle"></div>
+        <div class="circle" data-progress-bar-target="circle"></div>
+      </div>
     </div>
   </div>
-
-  <script>
-    const progress = document.getElementById("progress");
-    const stepCircles = document.querySelectorAll(".circle");
-    let currentActive = 1;
-
-    //NOTE CHANGE HERE TO 1-4
-    //1=25%
-    //2=50%
-    //3=75%
-    //4=100%
-    update(2);
-
-    function update(currentActive) {
-      stepCircles.forEach((circle, i) => {
-        if (i < currentActive) {
-          circle.classList.add("active");
-        } else {
-          circle.classList.remove("active");
-        }
-      });
-
-      const activeCircles = document.querySelectorAll(".active");
-      progress.style.width =
-        ((activeCircles.length - 1) / (stepCircles.length - 1)) * 100 + "%";
-    }
-  </script>
 
 <div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto" data-controller="island-slide overlay" data-island-slide-target="parentElem"
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave">

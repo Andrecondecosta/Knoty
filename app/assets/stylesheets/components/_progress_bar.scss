@@ -1,35 +1,6 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-
-
 :root {
   --line-border-fill: #3498db;
   --line-border-empty: #e0e0e0;
-}
-
-
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-body {
-  background: #F3F4F6;
-  font-family: "Rubik", sans-serif;
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
 }
 
 .container-progressing {
@@ -83,7 +54,7 @@ body {
   transition: .4s ease;
 }
 
-.circle.active {
+.circle.activated {
   border-color: var(--line-border-fill);
   background: #54bfd8;
 }
