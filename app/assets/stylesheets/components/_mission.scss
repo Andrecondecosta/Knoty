@@ -4,39 +4,46 @@
   display: flex;
   align-items: center;
   width: 400px;
-  height: 125px;
+  height: 164px;
   background-image: image-url('Burnpaper.png');
   background-repeat: no-repeat;
-  background-size: 419px 129px;
+  background-size: 419px 170px;
   background-position: -9px;
 }
 
 .mission-title {
-  padding-top: -5px;
   font-family: "El Messiri", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 22px;
+  padding-left: 5px;
+  align-self: flex-start;
 }
 
 .mission-details {
-  margin-top: -10px;
-  word-wrap: break-word;
-  padding-right: 10px;
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Caveat", cursive;
-  line-height: 1.2;
+  overflow: auto;
+  word-wrap: break-word;
+  flex-grow: 1;
+  padding-left: 32px;
+  padding-right: 10px;
+  line-height: 1;
+  margin-top: 1px;
 }
 
 .mission-date {
-  font-size: 0.8em;
+  font-size: 12px;
   color:rgb(63, 63, 63);
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: "Caveat", cursive;
+  font-style: italic;
 }
 
 .icon-link {
   text-decoration: none;
-  position: relative;
   top: 5px;
-  color: rgb(102, 102, 102);
 }
 
 .icon-link:hover {
