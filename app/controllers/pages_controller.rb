@@ -1,11 +1,19 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :set_couple, only: %i[profile]
+  before_action :set_couple, only: %i[home profile]
   before_action :set_pending_tasks, only: %i[home profile quests]
   before_action :set_active_tasks, only: %i[quests]
-  before_action :set_partner, only: %i[profile quests]
+  before_action :set_partner, only: %i[home profile quests]
 
   def home
+    # this defines the progress value on the progress bar:
+    # NOTE CHANGE HERE TO 1-5
+    # 1=20%
+    # 2=40%
+    # 3=60%
+    # 4=80%
+    # 5=100%
+    @current_progress = 3
   end
 
   def quests
@@ -32,10 +40,14 @@ class PagesController < ApplicationController
   private
 
   def set_couple
+    return unless signed_in?
+
     @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
   end
 
   def set_partner
+    return unless signed_in?
+
     @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
   end
 
