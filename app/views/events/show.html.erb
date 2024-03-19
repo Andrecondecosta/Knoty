@@ -1,0 +1,29 @@
+  <%= link_to events_path, class: "arrow-back" do %>
+      <%= image_tag "direction-sign.png", alt: "direction", style: "width: 35px; margin-left: 20px;" %>
+    <% end %>
+
+<p class="event-show ms-3 fs-2">Events on this day:</p>
+
+<% @day_events.each do |event| %>
+  <div class="events-body bg-white m-3 " style="min-height: 110px; padding-left: 15px; border-radius: 15px;">
+    <div class="details ms-2" style="flex-basis: 70%; max-width: 100%; word-wrap: break-word;">
+      <h4 class="event-title" style="align-self: flex-start; font-size: 20px; margin-bottom: 2px; padding-top: 10px">
+          <strong><%= event.name %></strong>
+      </h4>
+        <i class="fa-regular fa-clock"></i>
+        <%= event.created_at.strftime("%H:%M") %>
+      <div class="events-details">
+          <strong>Details:</strong>
+          <%= event.details %>
+      </div>
+      <div class="d-flex justify-content-end align-items-end mt-3">
+        <%= link_to edit_event_path(event) do %>
+          <i class="fas fa-pen-square m-2 fa-lg "></i>
+        <% end %>
+        <%= link_to event_path(event), data:{turbo_method: :delete, turbo_confirm:"Delete mission?"} do %>
+          <i class="fas fa-trash-alt m-2 fa-lg"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
