@@ -2,23 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["toggleableElem", "genderInput", "maleAvatars", "femaleAvatars", "avatarUrlInput", "imgElem", "firstDateInput", "secondDateInput", "thirdDateInput", "firstDateInputContainer", "secondDateInputContainer", "thirdDateInputContainer", "addDateButton1", "addDateButton2", "removeDateButton2", "currentUserElem", "partnerUserElem", "currentUserTab", "partnerUserTab"]
+  static targets = ["toggleableElem", "avatarUrlInput", "imgElem", "firstDateInput", "secondDateInput", "thirdDateInput", "firstDateInputContainer", "secondDateInputContainer", "thirdDateInputContainer", "addDateButton1", "addDateButton2", "removeDateButton2", "currentUserElem", "partnerUserElem", "currentUserTab", "partnerUserTab"]
 
   toggleElems(event) {
     event.preventDefault()
     this.toggleableElemTargets.forEach((toggleable) => {
       toggleable.classList.toggle('d-none')
     })
-    if (this.genderInputTarget.value === 'Male') {
-      this.maleAvatarsTarget.classList.remove('d-none')
-      this.femaleAvatarsTarget.classList.add('d-none')
-    } else if (this.genderInputTarget.value === 'Female') {
-      this.maleAvatarsTarget.classList.add('d-none')
-      this.femaleAvatarsTarget.classList.remove('d-none')
-    } else {
-      this.maleAvatarsTarget.classList.remove('d-none')
-      this.femaleAvatarsTarget.classList.remove('d-none')
-    }
   }
 
   selectAvatar(event) {
@@ -61,14 +51,14 @@ export default class extends Controller {
     this.removeDateButton2Target.classList.add('d-none')
   }
 
-  partnerUserProfile(){
+  partnerUserProfile() {
     this.currentUserTabTarget.classList.remove('active')
     this.partnerUserTabTarget.classList.add('active')
     this.currentUserElemTarget.classList.add('d-none')
     this.partnerUserElemTarget.classList.remove('d-none')
   }
 
-  currentUserProfile(){
+  currentUserProfile() {
     this.currentUserTabTarget.classList.add('active')
     this.partnerUserTabTarget.classList.remove('active')
     this.currentUserElemTarget.classList.remove('d-none')

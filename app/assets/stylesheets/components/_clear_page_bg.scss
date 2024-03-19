@@ -1,0 +1,14 @@
+.bg-clear-page {
+  background-color: #50E3C2;
+  background-image:
+      radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%),
+      radial-gradient(at 82% 65%, hsl(198.00, 100%, 50%) 0, transparent 55%);
+}
+
+.glass-morph-card {
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background-color: rgba(255, 255, 255, 0.76);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}

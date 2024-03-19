@@ -1,5 +1,5 @@
-<div class="h-100" data-controller="questionnaire" data-questionnaire-questions-value="<%= @number_of_questions %>">
-  <div class="d-flex justify-content-center align-items-center" style="height:90%;">
+<div class="h-100 row justify-content-center align-items-end" data-controller="questionnaire" data-questionnaire-questions-value="<%= @number_of_questions %>">
+  <div class="col-12 d-flex justify-content-center align-items-center">
     <%= simple_form_for @love_language, data: { questionnaire_target: "formElem" } do |f| %>
       <%= f.input :acts_of_service, wrapper_html: {class:"d-none"}%>
       <%= f.input :words_of_affirmation, wrapper_html: {class:"d-none"}%>
@@ -10,46 +10,58 @@
       <% @love_language_questionnaire.each_with_index do |pair, i| %>
 
         <% if pair == @love_language_questionnaire[-1] %>
-          <div class="d-flex flex-column w-100 px-3 gap-3 d-none rounded-4 border border-dark py-4 px-1" id="<%= i %>"  data-questionnaire-target= "optionsElem">
-            <h4 class="ps-2">What tells more about you?</h4>
+          <div class="d-flex flex-column mx-auto px-3 gap-3 d-none py-4 px-1 glass-morph-card position-relative" style="width:90%;" id="<%= i %>"  data-questionnaire-target= "optionsElem">
+            <h4 class="ps-2 fw-semibold text-center">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>">
-            <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
+            <label class="btn btn-outline-info fw-semibold fs-5 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
 
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="<%= pair[1][:type] %>">
-            <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
-            <div class="d-flex justify-content-between">
-              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#back">< Back</button>
-              <%= f.button :submit,value: "Save my Love Language" ,class:"btn btn-success text-body-secondary fw-semibold", data: {action: "click->questionnaire#assignValues"}%>
+            <label class="btn btn-outline-info fw-semibold fs-5 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
+            <div class="d-flex justify-content-between mb-4">
+              <button class="btn btn-link text-dark fw-semibold fs-5" style="text-decoration:none;" data-action="click->questionnaire#back">< Back</button>
+              <%= f.button :submit,value: "Save Love Language" ,class:"btn btn-info text-light fw-semibold", data: {action: "click->questionnaire#assignValues"}%>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center position-absolute" style="height:10%; left:162px; bottom:-21px;">
+              <p class="text-light fs-3 bg-info p-2 rounded-4 mb-0" data-questionnaire-target ="questionNumber"></p>
             </div>
           </div>
         <% elsif i == 0 %>
 
-          <div class="d-flex flex-column w-100 px-3 gap-3 rounded-4 border border-dark py-4 px-1" id="<%= i %>"  data-questionnaire-target= "optionsElem">
-            <h4 class="ps-2">What tells more about you?</h4>
+          <div class="d-flex flex-column mx-auto px-3 gap-3 py-4 px-1 glass-morph-card position-relative" style="width:90%;" id="<%= i %>"  data-questionnaire-target= "optionsElem">
+            <h4 class="ps-2 fw-semibold text-center">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>" >
-            <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
+            <label class="btn btn-outline-info fw-semibold fs-5 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
 
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="<%= pair[1][:type] %>">
-            <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
+            <label class="btn btn-outline-info fw-semibold fs-5 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
 
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#next">Next ></button>
+            <div class="d-flex justify-content-end mb-4">
+              <button class="btn btn-link text-dark fw-semibold fs-5" style="text-decoration:none;" data-action="click->questionnaire#next">Next ></button>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center position-absolute" style="height:10%; left:162px; bottom:-21px;">
+              <p class="text-light fs-3 bg-info p-2 rounded-4 mb-0" data-questionnaire-target ="questionNumber">1/<%= @love_language_questionnaire.size %></p>
             </div>
           </div>
 
         <% else %>
 
-          <div class="d-flex flex-column w-100 px-3 gap-3 d-none rounded-4 border border-dark py-4 px-1" id="<%= i %>"  data-questionnaire-target= "optionsElem">
-            <h4 class="ps-2">What tells more about you?</h4>
+          <div class="d-flex flex-column mx-auto px-3 gap-3 d-none py-4 px-1 glass-morph-card position-relative" style="width:90%;" id="<%= i %>"  data-questionnaire-target= "optionsElem">
+            <h4 class="ps-2 fw-semibold text-center">What tells more about you?</h4>
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>1" value="<%= pair[0][:type] %>">
-            <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
+            <label class="btn btn-outline-info fw-semibold fs-5 d-flex justify-content-center align-items-center" for="option<%= i %>1" style="height:122px;"><%= pair[0][:option] %></label>
 
             <input type="radio" class="btn-check" name="options<%= i %>" id="option<%= i %>2" value="<%= pair[1][:type] %>">
-            <label class="btn btn-outline-info fs-4 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
-            <div class="d-flex justify-content-between">
-              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#back">< Back</button>
-              <button class="btn btn-link text-dark fw-semibold" data-action="click->questionnaire#next">Next ></button>
+            <label class="btn btn-outline-info fw-semibold fs-5 d-flex justify-content-center align-items-center" for="option<%= i %>2" style="height:122px;"><%= pair[1][:option]%></label>
+            <div class="d-flex justify-content-between mb-4">
+              <button class="btn btn-link text-dark fw-semibold fs-5" style="text-decoration:none;" data-action="click->questionnaire#back">< Back</button>
+              <button class="btn btn-link text-dark fw-semibold fs-5" style="text-decoration:none;" data-action="click->questionnaire#next">Next ></button>
                 <%= f.button :submit, class: "btn btn-success text-light d-none", value: "Create my profile" %>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center position-absolute" style="height:10%; left:162px; bottom:-21px;">
+              <p class="text-light fs-3 bg-info p-2 rounded-4 mb-0" data-questionnaire-target ="questionNumber"></p>
             </div>
           </div>
         <% end %>
@@ -57,9 +69,8 @@
       <% end %>
 
     <% end %>
-  </div>
 
-  <div class="d-flex justify-content-center align-items-center" style="height:10%;">
-    <p class="text-light fs-3 bg-info p-2 rounded-4" data-questionnaire-target ="questionNumber">1/<%= @love_language_questionnaire.size %></p>
   </div>
+  <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710804956/Imagem4_hcfn7v.png', style:"max-width:30%;", class:"col-12 mb-5" %>
+
 </div>
