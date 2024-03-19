@@ -8,9 +8,13 @@
 
         <div class="tab-profile active d-flex justify-content-center align-items-center" data-toggle-target="currentUserTab" data-action= "click->toggle#currentUserProfile">
           <% unless current_user.avatar_url.nil? %>
-            <%= image_tag current_user.avatar_url, alt: "User avatar", class: "avatar" %>
-            <% else %>
-            <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
+            <%= link_to edit_existing_profile_path, class: "avatar-link" do %>
+              <%= image_tag current_user.avatar_url, alt: "User avatar", class: "avatar" %>
+            <% end %>
+          <% else %>
+            <%= link_to edit_user_registration_path, class: "avatar-link" do %>
+              <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar' %>
+            <% end %>
           <% end %>
 
         </div>

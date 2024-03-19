@@ -1,0 +1,42 @@
+<div class="h-100 row justify-content-center align-items-center position-relative" data-controller="avatar">
+  <div class="profile-icon-container">
+    <%= image_tag(@user.avatar_url.presence || 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar large', data: { avatar_target: "avatar", action: "click->avatar#toggleOverlay" }, style: "cursor: pointer;") %>
+  </div>
+  <div class="box col-10 rounded-4 p-3 glass-morph-card position-absolute top-50 start-50 d-none" data-avatar-target="overlay" style="height: 59vh; top: 55%; transform: translate(-50%, -44%);">
+    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720584/woman_5_new_uncyhq.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720583/woman_4_new_hebkbm.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720582/woman_3_new_qssyuu.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720582/result_j6llxk.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720581/man_3_new_ymj7ri.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+  </div>
+  <div class="box col-10 rounded-4 p-3 glass-morph-card">
+    <h3 class="ps-1 pt-5 pb-2 text-center">Edit your profile</h3>
+    <div class="container" data-controller= "toggle">
+      <%= simple_form_for @user, url: update_profile_path do |f| %>
+        <!-- Personal information -->
+        <div class="container" data-toggle-target="toggleableElem">
+          <%= f.input :avatar_url, as: :hidden, input_html: { data: { avatar_target: "avatarField" } } %>
+          <%= f.input :first_name,
+                      autofocus: true,
+                      input_html: { placeholder: "e.g: John" }%>
+          <%= f.input :last_name,
+                      autofocus: true,
+                      input_html: { placeholder: "e.g: Doe" }%>
+          <%= f.input :nickname,
+                      input_html: { placeholder: 'e.g: Babe' }%>
+          <%= f.input :gender,
+                      collection: ['Male', 'Female', 'I prefer not to say'],
+                      prompt: 'Choose your gender',
+                      input_html: { data: {toggle_target: 'genderInput'} }%>
+          <%= f.input :date_of_birth,
+                      html5: true,
+                      input_html: { max: Date.today - 16.years } %>
+
+          <div class="d-flex justify-content-center mt-4 mb-2">
+            <%= f.button :submit, 'Save', class:"btn btn-primary fw-semibold pt-2", style: "width: 100%" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -28,3 +28,25 @@
   background-color: white;
     border-bottom: none;
 }
+
+.avatar-link:hover .avatar {
+  transform: scale(1.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-icon-container {
+  position: absolute;
+  top: 25px;
+  left: 83%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.avatar.large {
+  width: 125px;
+  height: 125px;
+}
+
+.h-100 {
+  position: relative;
+}
