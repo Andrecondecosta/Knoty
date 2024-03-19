@@ -1,5 +1,23 @@
 // Specific CSS for your home-page
-body{
+body {
   width: 100%;
-	height: 100vh;
+  height: 100vh;
+  --sb-track-color: #93838300;
+  --sb-thumb-color: #d6c2a1;
+  --sb-size: 4px;
+}
+
+*::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+  border: 1px solid #232E33;
 }

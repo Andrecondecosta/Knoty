@@ -1,5 +1,5 @@
 <% if @couple_task.invited_id != current_user.id %>
-  <%= render 'shared/task_briefing',challenge: @couple_challenge, prompt: @couple_challenge.prompt_1 %>
+  <%= render 'shared/task_briefing',challenge: @couple_challenge, prompt: @couple_challenge.prompt_1, task:@couple_task %>
 <% elsif @couple_task.invited_id == current_user.id %>
-  <%= render 'shared/task_briefing',challenge: @couple_challenge, prompt: @couple_challenge.prompt_2 %>
+  <%= render 'shared/task_briefing',challenge: @couple_challenge, prompt: @couple_challenge.prompt_2, task:@couple_task %>
 <% end %>

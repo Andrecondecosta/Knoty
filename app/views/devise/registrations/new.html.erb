@@ -1,11 +1,19 @@
 <div class="d-flex justify-content-center align-items-center pt-5 mt-5 mb-3">
-  <div class="box bg-white p-3 rounded-4">
+  <div class="box w-75 bg-white p-3 rounded-4">
     <h2>Sign up</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
+        <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "e.g: John" }%>
+        <%= f.input :last_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "e.g: Doe" }%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
