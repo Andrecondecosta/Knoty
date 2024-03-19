@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     resources :individual_tasks, only: [:create]
   end
   resources :individual_tasks, only: [:show]
-
+  # Events
+  resources :events
 
   # Pages
   root to: "pages#home"

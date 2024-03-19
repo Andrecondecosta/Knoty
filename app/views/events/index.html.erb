@@ -1,0 +1,32 @@
+<div class="container">
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
+<%= calendar_for @event, @date, :year => @date.year, :month => @date.month do |t| %>
+    <%= t.head('DOM','SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB') %>
+    <%= t.day do |day, event| %>
+      <% day_events = (@events || []).select { |e| e.date && day && e.date.to_date == day.to_date } %>
+      <% day_couple_tasks = (CoupleTask.all || []).select { |c| c.date_option_1 && day && c.date_option_1.to_date == day.to_date } %>
+      <div class="day-container d-flex flex-column justify-content-start align-items-center">
+        <%= day.day %>
+        <div class="icons-container mt-auto">
+          <% if day_events.any? %>
+            <%= link_to event_path(day_events.first), class: 'gray-link' do %>
+              <i class="fa fa-calendar"></i> <!-- Icon for event -->
+            <% end %>
+          <% end %>
+          <% if day_couple_tasks.any? %>
+            <%= link_to couple_task_path(day_couple_tasks.first), class: 'gray-link' do %>
+              <i class="fa fa-heart"></i> <!-- Icon for couple task -->
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%= link_to 'New event', new_event_path %>
+</div>

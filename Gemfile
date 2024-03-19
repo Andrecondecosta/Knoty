@@ -53,6 +53,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "cloudinary"
 gem "ruby-openai"
+gem "watu_table_builder", require: "table_builder"
 
 group :development, :test do
   gem "dotenv-rails"
