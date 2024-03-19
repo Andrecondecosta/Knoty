@@ -1,21 +1,23 @@
 <div class="mission d-flex flex-column align-items-start" style="position: relative; padding-left: 15px;">
 
-  <div class="mission-title">
-    <%= image_tag(mission.icon, size: "25x25" ) %>  <%= mission.title %>
-    <%= link_to edit_mission_path(mission), class: "icon-link" do %>
-      <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: 'filter: sepia(90%); filter: contrast(80%); width: 14px; height: 20px; padding-bottom: 5px;') %>
-    <% end %>
-    <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Delete mission?"} do %>
-      <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412461/kisspng-x-mark-check-mark-clip-art-wrong-sign-5b12e998675839.8614187915279661044233_wl8elh.png', alt: 'ThumbUp', style: 'margin-top: -16px; margin-left: -5px; width: 15px; height: 15px; filter: sepia(80%);') %>
-    <% end %>
-  </div>
+  <div class="row mission-title w-100">
+    <div class="col-2 p-0 text-center">
+      <%= image_tag(mission.icon, size: "40x40") %>
+    </div>
+    <div class="col-10 ps-0 pe-4">
+      <%= mission.title %>
+    </div>
 
-  <div class="mission-details">
-    <%= mission.details %>
   </div>
 
   <div style="position: absolute; top: 10px; right: 20px;">
-    <p class="mission-date"><%= format_date(mission.created_at) %></p>
+    <div>
+      <p class="mission-date mt-1"><%= format_date(mission.created_at) %>
+        <%= link_to edit_mission_path(mission), class: "icon-link" do %>
+          <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: 'filter: sepia(90%); filter: contrast(80%); width: 19px; height: 25px; padding-bottom: 2px; margin-left: 6px;') %>
+        <% end %>
+      </p>
+    </div>
   </div>
 
   <div>
