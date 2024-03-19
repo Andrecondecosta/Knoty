@@ -33,7 +33,8 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Your Profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "Account Settings", "#", class: "dropdown-item" %>
+              <%= link_to "Profile Settings", edit_existing_profile_path, class: "dropdown-item" %>
+              <%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

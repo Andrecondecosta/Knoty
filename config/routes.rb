@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   # Pages
   root to: "pages#home"
   get "edit_profile" => "users#edit_profile"
+  get 'edit_existing_profile', to: 'users#edit_existing_profile'
+  patch 'users/update_existing_profile', to: 'users#update_existing_profile'
   get '/quest_log', to: 'pages#quests'
   get '/profile', to: 'pages#profile'
 
