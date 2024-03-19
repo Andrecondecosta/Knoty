@@ -44,24 +44,16 @@
 
   <div class="mission-form-container">
     <div class="form-group mt-3">
-      <label for="title" class="mb-0" style="font-size: 18px;"><b>Add a name to your mission</b></label>
+      <label for="title" class="mb-0" style="font-size: 18px;"><b>What's the mission?</b></label>
       <p class="sub-label text-muted mb-1">Make it fun!</p>
 
-      <%= form.input :title, label: false, maxlength: 17, placeholder: 'e.g: Trash Fashion Parade!', input_html: { id: 'title' } %>
+      <%= form.input :title, label: false, maxlength: 80, placeholder: 'e.g: Trash Fashion Parade!', input_html: { id: 'title' } %>
 
-    </div>
-
-    <div class="form-group mt-3 mb-4">
-      <label for="details" class="mb-0" style="font-size: 18px;"><b>Add a description</b></label>
-      <p class="sub-label text-muted mb-1">Optional</p>
-
-      <%= form.input :details, label: false, maxlength: 80, placeholder: 'e.g: Impress the neighbors and flex those muscles taking out the trash!', input_html: { style: 'resize: none;', id: 'details' } %>
     </div>
 
     <div class="d-flex justify-content-end">
       <%= form.button :submit, 'Add Mission', class: 'wood-plaque-button' %>
     </div>
+      <% end %>
 
   </div>
-
-  <% end %>

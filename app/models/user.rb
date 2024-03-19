@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :missions, dependent: :destroy
   has_one :love_language, dependent: :destroy
   has_many :events, dependent: :destroy
+
+  validates_presence_of :first_name
 end

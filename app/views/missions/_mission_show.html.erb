@@ -1,24 +1,29 @@
-<div class="mission d-flex align-items-center mission-background" style="min-height: 110px; padding-left: 15px;">
-  <div class="details ms-2" style="flex-basis: 70%; max-width: 65%; word-wrap: break-word; margin-top: -17px;">
-    <h4 class="mission-title ps-0" style="align-self: flex-start; font-size: 17px">
-      <%= mission.title %>
-      <%= link_to edit_mission_path(mission), class: "icon-link" do %>
-        <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: 'filter: sepia(90%); filter: contrast(80%); width: 14px; height: 20px; padding-bottom: 5px;') %>
-      <% end %>
-      <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Delete mission?"} do %>
-        <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412461/kisspng-x-mark-check-mark-clip-art-wrong-sign-5b12e998675839.8614187915279661044233_wl8elh.png', alt: 'ThumbUp', style: 'padding-bottom: 3px; width: 15px; height: 15px; filter: sepia(80%);') %>
-      <% end %>
-    </h4>
+<div class="mission d-flex flex-column align-items-start" style="position: relative; padding-left: 15px;">
 
-    <div class="mission-details">
-      <%= mission.details %>
+  <div class="row mission-title w-100">
+    <div class="col-2 p-0 text-center">
+      <%= image_tag(mission.icon, size: "40x40") %>
     </div>
-    <p class="mission-date"><%= format_date(mission.created_at) %></p>
+    <div class="col-10 ps-0 pe-4">
+      <%= mission.title %>
+    </div>
+
   </div>
-  <div style="position: relative">
+
+  <div style="position: absolute; top: 10px; right: 20px;">
+    <div>
+      <p class="mission-date mt-1"><%= format_date(mission.created_at) %>
+        <%= link_to edit_mission_path(mission), class: "icon-link" do %>
+          <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: 'filter: sepia(90%); filter: contrast(80%); width: 19px; height: 25px; padding-bottom: 2px; margin-left: 6px;') %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <div>
     <%= link_to mission_path(mission), data:{turbo_method: :delete, turbo_confirm:"Mission accomplished?"}, class: "thumb" do %>
-      <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/kisspng-check-mark-watercolor-painting-vector-graphics-dra-foliewikkelaar-leer-tijd-en-folie-te-besparen-raj-5cce91c4bc1bb7.9170619015570416047705_fhtebi.png', alt: 'ThumbUp', style: 'width: 20px; height: 20px; margin-right: 12px;') %>
+      <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/kisspng-check-mark-watercolor-painting-vector-graphics-dra-foliewikkelaar-leer-tijd-en-folie-te-besparen-raj-5cce91c4bc1bb7.9170619015570416047705_fhtebi.png', alt: 'ThumbUp', style: 'position: absolute; top: -50px; right: -380px; width: 30px; height: 30px; margin-right: 12px;') %>
     <% end %>
-    <%= image_tag(mission.icon, size: "25x25", ) %>
   </div>
+
 </div>

@@ -1,5 +1,5 @@
-<div class="h-100 row justify-content-center align-items-center">
-  <div class="box col-10 rounded-4 border border-dark p-3">
+<div class="h-100 row justify-content-center align-items-end">
+  <div class="box col-10 p-3 glass-morph-card">
     <h3 class="ps-1 pt-3 pb-2 text-center">Complete your profile</h3>
     <div class="container" data-controller= "toggle">
       <%= simple_form_for @user, url: update_profile_path do |f| %>
@@ -18,30 +18,23 @@
           <%= f.input :gender,
                       collection: ['Male', 'Female', 'I prefer not to say'],
                       prompt: 'Choose your gender',
-                      required: true,
-                      input_html: { data: {toggle_target: 'genderInput'} }%>
+                      required: true %>
           <%= f.input :date_of_birth,
                       html5: true,
                       input_html: { max: Date.today - 16.years } %>
-          <div class="d-flex justify-content-end" >
-            <button class="btn btn-outline-primary fw-semibold mt-2"
+          <div class="d-flex justify-content-end me-1" >
+            <button class="btn btn-outline-dark fw-semibold mt-2"
               data-action="click->toggle#toggleElems">Next >></button>
           </div>
         </div>
-
 
         <!-- Avatars -->
         <div class=" container px-1 py-3 d-none" data-toggle-target="toggleableElem" id="avatars-container">
           <h4 class="ps-1 pt-3 pb-2 text-center">Choose your avatar</h4>
 
-          <!-- Male avatars -->
-          <div class="row justify-content-center" data-toggle-target="maleAvatars">
+          <div class="row justify-content-center">
             <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720582/result_j6llxk.png", alt: "text", class: "col-5 avatar-x-large", data: {toggle_target: "imgElem", action: "click->toggle#selectAvatar"},style:"cursor:pointer;" %>
             <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720581/man_3_new_ymj7ri.png", alt: "text", class: "col-5 avatar-x-large", data: {toggle_target: "imgElem", action: "click->toggle#selectAvatar"},style:"cursor:pointer;" %>
-          </div>
-
-          <!-- Female avatars -->
-          <div class="row justify-content-center" data-toggle-target="femaleAvatars">
             <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720584/woman_5_new_uncyhq.png", alt: "text", class: "col-5 avatar-x-large", data: {toggle_target: "imgElem", action: "click->toggle#selectAvatar"},style:"cursor:pointer;" %>
             <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720583/woman_4_new_hebkbm.png", alt: "text", class: "col-5 avatar-x-large", data: {toggle_target: "imgElem", action: "click->toggle#selectAvatar"},style:"cursor:pointer;" %>
             <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720582/woman_3_new_qssyuu.png", alt: "text", class: "col-5 avatar-x-large", data: {toggle_target: "imgElem", action: "click->toggle#selectAvatar"},style:"cursor:pointer;" %>
@@ -52,12 +45,14 @@
             <%= f.input :avatar_url,
                         wrapper_html: {class: "d-none"},
                         input_html: { data: {toggle_target: "avatarUrlInput"}}%>
-            <button class="btn btn-outline-primary fw-semibold pt-2"
+            <button class="btn btn-outline-dark fw-semibold pt-2"
               data-action="click->toggle#toggleElems"><< Back </button>
-            <%= f.button :submit, 'Save', class:"btn btn-success fw-semibold pt-2" %>
+            <%= f.button :submit, 'Save', class:"btn btn-success fw-semibold pt-2 px-4" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+
+  <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710804956/Imagem4_hcfn7v.png', style:"max-width:30%;", class:"col-10 mb-5" %>
 </div>

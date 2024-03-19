@@ -4,39 +4,57 @@
   display: flex;
   align-items: center;
   width: 400px;
-  height: 125px;
+  height: 130px;
   background-image: image-url('Burnpaper.png');
   background-repeat: no-repeat;
-  background-size: 419px 129px;
+  background-size: 419px 132px;
   background-position: -9px;
+
+  &:hover {
+    .thumb {
+      opacity: 1;
+    }
+  }
 }
 
 .mission-title {
-  padding-top: -5px;
-  font-family: "El Messiri", sans-serif;
+  font-family:  "Caveat", cursive;
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 40px;
+  padding-left: 12px;
+  padding-top: 8px;
+  overflow: auto;
+  word-wrap: break-word;
+  flex-grow: 1;
+  line-height: 1;
 }
 
 .mission-details {
-  margin-top: -10px;
-  word-wrap: break-word;
-  padding-right: 10px;
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Caveat", cursive;
-  line-height: 1.2;
+  overflow: auto;
+  word-wrap: break-word;
+  flex-grow: 1;
+  padding-left: 32px;
+  padding-right: 10px;
+  line-height: 1;
+  margin-top: 1px;
 }
 
 .mission-date {
-  font-size: 0.8em;
+  font-size: 12px;
   color:rgb(63, 63, 63);
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: "Caveat", cursive;
+  font-style: italic;
+  margin-bottom: -20px;
 }
 
 .icon-link {
   text-decoration: none;
-  position: relative;
   top: 5px;
-  color: rgb(102, 102, 102);
 }
 
 .icon-link:hover {
@@ -48,8 +66,8 @@
   top: 15px;
   color: rgb(0, 0, 0);
   opacity: 1;
-  height: 10px;
-  width: 10px;
+  height: 25px;
+  width: 25px;
 }
 
 .thumb {
@@ -57,14 +75,7 @@
   position: relative;
   margin-right: -10px;
   top: 15px;
-  opacity: 0.5;
-
-  &:hover {
-    text-decoration: none;
-    position: relative;
-    top: 15px;
-    opacity: 1;
-  }
+  opacity: 0.3;
 }
 
 .icon-class {

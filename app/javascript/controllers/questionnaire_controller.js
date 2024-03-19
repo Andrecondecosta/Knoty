@@ -18,7 +18,9 @@ export default class extends Controller {
     this.#checkForCheckedOptions()
     if (this.hasChecked === true) {
       this.currentOptionIndex++
-      this.questionNumberTarget.innerText = `${this.currentOptionIndex + 1}/${this.questionsValue}`
+      this.questionNumberTargets.forEach(n => {
+        n.innerText = `${this.currentOptionIndex + 1}/${this.questionsValue}`
+      })
       this.optionsElemTargets.forEach((element) => {
         if (Number(element.id) === this.currentOptionIndex) {
           element.classList.remove('d-none')

@@ -45,6 +45,15 @@ class CoupleTasksController < ApplicationController
     end
   end
 
+  def mark_as_completed
+    @couple_task = CoupleTask.find(params[:id])
+    if @couple_task.update(completed: true)
+      redirect_to quest_log_path, notice: "Challenge completed!"
+    else
+      render :show, alert: "Something went wrong, please try again."
+    end
+  end
+
   private
 
   def couple_task_params
@@ -64,7 +73,7 @@ class CoupleTasksController < ApplicationController
   end
 
   def similar_task_exists?
-    CoupleTask.find_by(couple_challenge_id: params[:couple_challenge_id])
+    CoupleTask.find_by(couple_challenge_id: params[:couple_challenge_id], couple: @couple, completed: nil)
   end
 
   def belongs_to_couple?(user)

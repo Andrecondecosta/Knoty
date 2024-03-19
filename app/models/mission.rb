@@ -1,6 +1,6 @@
 class Mission < ApplicationRecord
   belongs_to :user
-  validates :icon, :title, :details, presence: true
+  validates :icon, :title, presence: true
   after_initialize :set_default_icon, if: :new_record?
 
   private

@@ -25,14 +25,23 @@ class IndividualTasksController < ApplicationController
     end
   end
 
+  def mark_as_completed
+    @individual_task = IndividualTask.find(params[:id])
+    if @individual_task.update(completed: true)
+      redirect_to quest_log_path, notice: "Challenge completed!"
+    else
+      render :show, alert: "Something went wrong, please try again."
+    end
+  end
+
   private
 
   def set_couple
     @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
   end
 
-  def similar_task_exists?
-    IndividualTask.find_by(user: current_user, individual_challenge_id: params[:individual_challenge_id], active: true)
+  def similar_task_exists? # Fix this and the couples
+    IndividualTask.find_by(user: current_user, individual_challenge_id: params[:individual_challenge_id], completed: nil)
   end
 
   def set_partner
