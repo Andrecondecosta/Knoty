@@ -3,6 +3,7 @@ class Couple < ApplicationRecord
   belongs_to :partner_2, class_name: 'User'
   has_many :couple_tasks, dependent: :destroy
   has_many :couple_challenges, through: :couple_tasks
+  has_many :events, dependent: :destroy
   has_one_attached :audio
 
   validate :different_partners
