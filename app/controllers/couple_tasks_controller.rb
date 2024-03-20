@@ -1,5 +1,5 @@
 class CoupleTasksController < ApplicationController
-  before_action :set_couple, only: %i[show edit create]
+  before_action :set_couple, only: %i[show edit create mark_as_completed]
   before_action :set_couple_task, only: %i[show edit update]
   before_action :set_partner, only: %i[show create]
   before_action :set_pending_tasks, only: %i[show]
@@ -48,7 +48,10 @@ class CoupleTasksController < ApplicationController
   def mark_as_completed
     @couple_task = CoupleTask.find(params[:id])
     if @couple_task.update(completed: true)
-      redirect_to quest_log_path, notice: "Challenge completed!"
+      @couple.total_exp = 0 if @couple.total_exp.nil?
+      @couple.total_exp += @couple_task.couple_challenge.exp
+      @couple.save
+      redirect_to root_path, notice: "Challenge completed!"
     else
       render :show, alert: "Something went wrong, please try again."
     end

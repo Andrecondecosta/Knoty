@@ -3,13 +3,15 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="progress-bar"
 export default class extends Controller {
   static targets = ["progress", "circle"]
-  static values = { currentProgress: String }
+  static values = { currentScore: String }
 
-  currentActive = Number(this.currentProgressValue)
+  score = Number(this.currentScoreValue)
   progressBar = this.progressTarget
   stepCircles = this.circleTargets
+  currentActive = 1
 
   connect() {
+    this.#changeCurrentActive();
     this.update(this.currentActive);
   }
 
@@ -22,8 +24,18 @@ export default class extends Controller {
       }
     });
 
-    const activeCircles = document.querySelectorAll(".activated");
-    this.progressBar.style.width =
-      ((activeCircles.length - 1) / (this.stepCircles.length - 1)) * 100 + "%";
+    // const activeCircles = document.querySelectorAll(".activated");
+    this.progressBar.style.width = `${this.score / 2}%`;
+  }
+
+  // private
+  #changeCurrentActive() {
+    if (this.score / 2 === 100) {
+      this.currentActive = 5;
+    } else if (this.score / 2 >= 66) {
+      this.currentActive = 4;
+    } else if (this.score / 2 >= 33) {
+      this.currentActive = 2;
+    }
   }
 }

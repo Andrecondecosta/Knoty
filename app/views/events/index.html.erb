@@ -9,7 +9,7 @@
     <%= t.head('DOM','SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB') %>
     <%= t.day do |day, event| %>
       <% day_events = (@events || []).select { |e| e.date && day && e.date.to_date == day.to_date } %>
-      <% day_couple_tasks = (CoupleTask.all || []).select { |c| c.date_option_1 && day && c.date_option_1.to_date == day.to_date } %>
+      <% day_couple_tasks = (CoupleTask.where(couple: @couple) || []).select { |c| c.date_option_1 && day && c.date_option_1.to_date == day.to_date } %>
       <div class="day-container d-flex flex-column justify-content-start align-items-center">
         <%= day.day %>
         <div class="icons-container mt-auto">

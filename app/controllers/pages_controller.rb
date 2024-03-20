@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     # 3=60%
     # 4=80%
     # 5=100%
-    @current_progress = 3
+    @current_score = @couple.total_exp if signed_in?
   end
 
   def quests
@@ -74,7 +74,7 @@ class PagesController < ApplicationController
     # All couple challenges that are not completed
     open_cpl_chals = CoupleChallenge.left_outer_joins(:couple_tasks).where(couple_tasks: { id: nil })
     filtered_cpl_chals = CoupleChallenge.joins(:couple_tasks).where.not(couple_tasks: { couple_id: @couple.id })
-                                         .select do |chal|
+                                        .select do |chal|
       chal.couple_tasks.where(couple_id: @couple.id).empty?
     end
     @couple_challenges = open_cpl_chals + filtered_cpl_chals
