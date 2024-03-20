@@ -36,7 +36,7 @@
 
 .profile-icon-container {
   position: absolute;
-  top: 25px;
+  top: 5px;
   left: 83%;
   transform: translateX(-50%);
   z-index: 1;
@@ -45,8 +45,4 @@
 .avatar.large {
   width: 125px;
   height: 125px;
-}
-
-.h-100 {
-  position: relative;
 }

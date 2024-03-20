@@ -2,14 +2,27 @@
   <div class="profile-icon-container">
     <%= image_tag(@user.avatar_url.presence || 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar large', data: { avatar_target: "avatar", action: "click->avatar#toggleOverlay" }, style: "cursor: pointer;") %>
   </div>
-  <div class="box col-10 rounded-4 p-3 glass-morph-card position-absolute top-50 start-50 d-none" data-avatar-target="overlay" style="height: 59vh; top: 55%; transform: translate(-50%, -44%);">
-    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720584/woman_5_new_uncyhq.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720583/woman_4_new_hebkbm.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720582/woman_3_new_qssyuu.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720582/result_j6llxk.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709720581/man_3_new_ymj7ri.png", alt: "text", class: "col-5 avatar-x-large avatar-hover", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+  <% names_1 = ["Ivan", "Ana", "Ahmed", "André", "Smokey", "Jasper", "Sheba", "Flower", "Peanut", "Trouble", "Simon", "Cuddles", "Lucky", "Bear", "Trump", "George", "Joe Bi", "Luna", "Cami", "Maggie"] %>
+  <% names_2 = ["Bandit", "Jimmy", "Be", "B", "Smokey", "Sheba", "Iter", "adada", "Dusty", "Oliver", "Loki", "Shadow", "Garfield", "Sugar", "Socks", "Daisy", "Harley", "Pumpkin", "Hello", "Snowball"] %>
+  <% names_3 = ["Sophie", "Lilly", "Buddy", "Bear", "Simon", "Chester", "Cuddles", "Toby", "Bubba", "Oscar", "Salem", "Sammy", "Bailey", "Princess", "Cali", "Fluffy", "Snickers", "Lola", "Pepper", "Tinkerbell"] %>
+  <% names_4 = ["Garfield", "Cookie", "Baby", "Daisy", "Sam", "dadef", "Milo", "Oreo", "Lola", "Precious", "Buddy", "Fluffy", "Salem", "Jasper", "Sophie", "Trouble", "Scooter", "Sassy", "Max", "Lilly"] %>
+
+  <div class="scrollable-content box col-10 rounded-4 p-3 bg-white position-absolute top-50 start-50 d-none d-flex flex-wrap justify-content-center" data-avatar-target="overlay" style="height: 59vh; top: 55%; transform: translate(-50%, -44%); z-index: 50;">
+    <% names_1.each do |name| %>
+      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&accessoriesProbability=50&eyebrows=raisedExcited&eyes=squint,wink,winkWacky&mouth=smile&topProbability=80", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <% end %>
+    <% names_2.each do |name| %>
+      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&eyes=closed,cry,default,eyeRoll,happy,hearts,side,squint,surprised,wink,winkWacky&mouth=concerned,default,disbelief,grimace,sad,serious,smile,tongue,twinkle", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <% end %>
+    <% names_3.each do |name| %>
+      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&eyebrows=default,defaultNatural,flatNatural,frownNatural,raisedExcited,raisedExcitedNatural,unibrowNatural,upDown,upDownNatural&eyes=closed,default,eyeRoll,happy,hearts,side,squint,surprised,wink,winkWacky&mouth=serious,smile,tongue,twinkle,eating,default", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <% end %>
+    <% names_4.each do |name| %>
+      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&eyebrows=default,defaultNatural,flatNatural,frownNatural,raisedExcited,raisedExcitedNatural,unibrowNatural,upDown,upDownNatural&eyes=cry,default,happy,hearts,side,squint,surprised,wink,winkWacky&mouth=concerned,default,disbelief,eating,serious,smile,tongue,twinkle,grimace", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <% end %>
+
   </div>
-  <div class="box col-10 rounded-4 p-3 glass-morph-card">
+  <div class="box col-10 rounded-4 p-1 glass-morph-card">
     <h3 class="ps-1 pt-5 pb-2 text-center">Edit your profile</h3>
     <div class="container" data-controller= "toggle">
       <%= simple_form_for @user, url: update_profile_path do |f| %>
