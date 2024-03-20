@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_couple, only: [:create, :update]
+  before_action :set_couple, only: [:index, :create, :update]
 
   # GET /events
   def index

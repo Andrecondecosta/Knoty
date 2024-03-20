@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_225821) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_20_005949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_225821) do
     t.bigint "partner_1_id", null: false
     t.bigint "partner_2_id", null: false
     t.date "relation_since"
-    t.integer "total_exp"
+    t.integer "total_exp", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["partner_1_id"], name: "index_couples_on_partner_1_id"

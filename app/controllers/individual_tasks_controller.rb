@@ -1,5 +1,5 @@
 class IndividualTasksController < ApplicationController
-  before_action :set_couple, only: %i[create]
+  before_action :set_couple, only: %i[create mark_as_completed]
   before_action :set_partner, only: %i[create]
 
   def show
@@ -28,7 +28,10 @@ class IndividualTasksController < ApplicationController
   def mark_as_completed
     @individual_task = IndividualTask.find(params[:id])
     if @individual_task.update(completed: true)
-      redirect_to quest_log_path, notice: "Challenge completed!"
+      @couple.total_exp = 0 if @couple.total_exp.nil?
+      @couple.total_exp += @individual_task.individual_challenge.exp
+      @couple.save
+      redirect_to root_path, notice: "Challenge completed!"
     else
       render :show, alert: "Something went wrong, please try again."
     end
