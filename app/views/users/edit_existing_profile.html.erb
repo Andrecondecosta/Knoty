@@ -43,7 +43,7 @@
                       input_html: { data: {toggle_target: 'genderInput'} }%>
           <%= f.input :date_of_birth,
                       html5: true,
-                      input_html: { max: Date.today - 16.years } %>
+                      input_html: { max: Time.current - 16.years } %>
 
           <div class="d-flex justify-content-center mt-4 mb-2">
             <%= f.button :submit, 'Save', class:"btn btn-primary fw-semibold pt-2", style: "width: 100%" %>
