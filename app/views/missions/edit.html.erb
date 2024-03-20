@@ -43,16 +43,16 @@
   </div>
 
 <div class="mission-form-container">
-  <div class="form-group mt-3">
+  <div class="form-group mt-3" data-controller="char-counter">
     <label for="title" class="mb-0" style="font-size: 18px;"><b>Edit your mission</b></label>
-    <p class="sub-label text-muted mb-1">Make it fun!</p>
-    <%= form.input :title, label: false, maxlength: 17, placeholder: 'e.g: Trash Fashion Parade!', input_html: { id: 'title' } %>
-  </div>
+    <p class="sub-label text-muted mb-1">Make it fun!<span class=" text-secondary ms-1" style = "margin-top: -10px;">(Max: 65 chars)</span></p>
 
-  <div class="form-group mt-3">
-    <label for="details" class="mb-0" style="font-size: 18px;"><b>Edit the description</b></label>
-    <p class="sub-label text-muted mb-1">Optional</p>
-    <%= form.input :details, label: false, maxlength: 80, placeholder: 'e.g: Impress the neighbors and flex those muscles taking out the trash!', input_html: { style: 'resize: none;', id: 'details' } %>
+    <%= form.input :title,as: :text, label: false, maxlength: 65, placeholder: 'e.g: Trash Fashion Parade!',
+    input_html: { id: 'title', rows: 2,
+    data: {char_counter_target: 'input', action: "keyup->char-counter#updateCounter"} } %>
+    <div class="d-flex justify-content-between">
+        <p class="fs-6 text-secondary ms-3 mb-0" data-char-counter-target="counterDisplay" style = "margin-top: -10px; height:24px;"></p>
+      </div>
   </div>
 
   <div class="d-flex justify-content-end">
