@@ -53,7 +53,7 @@
             <div class="row ps-2 pe-3 mt-2">
                 <%= f.input :date_option_1, html5: true,
                   label_html: {class: "d-none"},
-                  input_html: {min: Date.today, data: {toggle_target: "firstDateInput"}},
+                  input_html: {min: Time.current, data: {toggle_target: "firstDateInput"}},
                   wrapper_html: {class:"col-10", style: "margin:0 !important;",
                   data: {toggle_target: "firstDateInputContainer"}} %>
                 <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png" alt="add_date" class="add-date-button" data-toggle-target="addDateButton1" data-action="click->toggle#showSecondDate">
@@ -62,7 +62,7 @@
             <div class="row ps-2 pe-3 mt-3">
               <%= f.input :date_option_2, html5: true,
                 label_html: {class: "d-none"},
-                input_html: {min: Date.today, data: {toggle_target: "secondDateInput"}},
+                input_html: {min: Time.current, data: {toggle_target: "secondDateInput"}},
                 wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
                 data: {toggle_target: "secondDateInputContainer"}} %>
               <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png" alt="add_date" class="add-date-button d-none" data-toggle-target="addDateButton2" data-action="click->toggle#showThirdDate">
@@ -71,7 +71,7 @@
             <div class="row ps-2 pe-3 mt-3">
               <%= f.input :date_option_3, html5: true,
                 label_html: {class: "d-none"},
-                input_html: {min: Date.today, data: {toggle_target: "thirdDateInput"}},
+                input_html: {min: Time.current, data: {toggle_target: "thirdDateInput"}},
                 wrapper_html: {class:"d-none col-10", style: "margin:0 !important;",
                 data: {toggle_target: "thirdDateInputContainer"}} %>
               <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710414826/MinusButton_l2xw2j.png" alt="minus_date" class="add-date-button d-none" style='filter: saturate(120%) hue-rotate(-16deg) brightness(84%) contrast(157%);' data-toggle-target="removeDateButton2" data-action="click->toggle#removeThirdDate">

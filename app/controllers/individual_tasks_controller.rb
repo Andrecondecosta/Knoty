@@ -14,10 +14,11 @@ class IndividualTasksController < ApplicationController
     return redirect_to quest_log_path, alert: "You have already started this challenge." if similar_task_exists?  # ==========> Set in PUNDIT
 
     @individual_challenge = IndividualChallenge.find(params[:individual_challenge_id])
-    @individual_task = IndividualTask.new
-    @individual_task.individual_challenge = @individual_challenge
-    @individual_task.user = current_user
-    @individual_task.active = true
+    @individual_task = IndividualTask.new(date: individual_task_params[:date],
+                                          individual_challenge: @individual_challenge,
+                                          user: current_user,
+                                          active: true)
+
     if @individual_task.save
       redirect_to individual_task_path(@individual_task), notice: "Challenge accepted!"
     else
@@ -39,11 +40,15 @@ class IndividualTasksController < ApplicationController
 
   private
 
+  def individual_task_params
+    params.require(:individual_task).permit(:date)
+  end
+
   def set_couple
     @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
   end
 
-  def similar_task_exists? # Fix this and the couples
+  def similar_task_exists?
     IndividualTask.find_by(user: current_user, individual_challenge_id: params[:individual_challenge_id], completed: nil)
   end
 
