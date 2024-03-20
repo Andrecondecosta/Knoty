@@ -1,18 +1,17 @@
-<%= form_for(@event) do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="h-60 row justify-content-center align-items-end">
+  <div class="box col-10 p-3 glass-morph-card">
+    <div class="container" data-controller= "toggle">
+      <%= simple_form_for(@event) do |f| %>
+        <!-- Personal information -->
+        <div class="container" data-toggle-target="toggleableElem">
+          <%= f.input :name %>
+          <%= f.input :details %>
+            <%= f.input :date, html5: true, input_html: { class: "mb-3" } %>
+          <%= link_to 'Back', events_path, class: "btn btn-white", style: "color: black; " %>
+          <%= f.button :submit, class: "btn btn-secondary", style: "border: 1px solid black; float: right;" %>
+          <% end %>
+        </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :details %><br>
-    <%= f.text_area :details %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
