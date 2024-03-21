@@ -26,6 +26,25 @@ class PagesController < ApplicationController
     @partner_solo_tasks = @partner.individual_tasks.where(completed: nil) if @partner
   end
 
+  # ---------------------------- LINK OPTIONS IN THE QUEST LOG ----------------------------
+  def explore_couples_challenges
+    @couple_challenges = CoupleChallenge.left_outer_joins(:couple_tasks).where(couple_tasks: { id: nil })
+  end
+
+  def explore_solo_challenges
+    @individual_challenges = IndividualChallenge.left_outer_joins(:individual_tasks).where(individual_tasks: { id: nil })
+  end
+
+  def solo_challenges_in_progress
+    @my_solo_tasks = current_user.individual_tasks
+  end
+
+  def couples_challenges_in_progress
+    @couple_challenge = @couple.couple_challenges.find(@couple_task.couple_challenge_id)
+  end
+
+  #-------------------------------- PROFILE PAGE --------------------------------
+
   def profile
     @my_love_language = define_love_language(current_user.love_language) if current_user.love_language
     @partner_love_language = define_love_language(@partner.love_language) if @partner.love_language
