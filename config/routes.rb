@@ -37,6 +37,11 @@ Rails.application.routes.draw do
     get 'add-memory', to: 'events#add_memory', on: :collection
   end
 
+  # Chatroom
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   # Pages
   root to: "pages#home"
   get "edit_profile" => "users#edit_profile"
