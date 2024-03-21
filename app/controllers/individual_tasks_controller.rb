@@ -22,7 +22,7 @@ class IndividualTasksController < ApplicationController
     if @individual_task.save
       redirect_to individual_task_path(@individual_task), notice: "Challenge accepted!"
     else
-      render "individual_challenges/show", alert: "Something went wrong, please try again."
+      render "individual_challenges/show"
     end
   end
 

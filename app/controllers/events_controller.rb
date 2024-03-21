@@ -30,7 +30,11 @@ class EventsController < ApplicationController
     @event.couple = @couple
     @event.user = current_user
     if @event.save
-      redirect_to events_path, notice: 'Event was successfully create.'
+      if @event.is_memory
+        redirect_to timeline_events_path
+      else
+        redirect_to @event
+      end
     else
       render :new
     end
@@ -52,6 +56,17 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully deleted.'
   end
+
+  def timeline
+    @events = Event.all
+  end
+
+  def add_memory
+    @event = Event.new
+  end
+
+
+
   private
 
     def set_event
@@ -60,7 +75,7 @@ class EventsController < ApplicationController
 
 
     def event_params
-      params.require(:event).permit(:name, :date, :details)
+      params.require(:event).permit(:name, :date, :details, :location, :is_memory)
     end
 
     def set_couple
