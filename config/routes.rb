@@ -24,15 +24,20 @@ Rails.application.routes.draw do
   resources :individual_challenges, only: [:show] do
     resources :individual_tasks, only: [:create]
   end
-  
+
   resources :individual_tasks, only: [:show] do
     member do
       patch :mark_as_completed
     end
   end
-  
+
   # Events
   resources :events
+
+  # Chatroom
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
   # Pages
   root to: "pages#home"
