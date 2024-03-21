@@ -31,9 +31,9 @@ export default class extends Controller {
   // private
   #changeCurrentActive() {
     if (this.score / 2 === 100) {
-      this.currentActive = 5;
-    } else if (this.score / 2 >= 66) {
       this.currentActive = 4;
+    } else if (this.score / 2 >= 66) {
+      this.currentActive = 3;
     } else if (this.score / 2 >= 33) {
       this.currentActive = 2;
     }

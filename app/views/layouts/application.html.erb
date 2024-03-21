@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +32,8 @@
 
     <% elsif current_page?(root_path) %>  <!-- Home page -->
       <div class="content-box border border-dark">
-        <%= render "shared/navbar", pending_tasks_notif: @pending_tasks_notif %>
-        <%= render "shared/flashes" %>
+        <%= render "shared/navbar"%>
+        <%= render 'shared/flashes' %>
         <div class="sub-content-box" >
           <%= yield %>
         </div>
@@ -40,17 +41,15 @@
       </div>
 
     <% else %>  <!-- Other pages -->
-      <div class="content-box border border-dark" style="background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710000877/app-bg2_1_klbkms.png');">
-        <%= render "shared/navbar", pending_tasks_notif: @pending_tasks_notif  %>
-        <%= render "shared/flashes" %>
-        <div class="sub-content-box" >
+      <div class="content-box border border-dark" style="background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710976395/blurred_islands_yjhszf.jpg');">
 
+        <%= render "shared/navbar" %>
+        <%= render 'shared/flashes' %>
+        <div class="sub-content-box" >
           <%= yield %>
         </div>
-
         <%= render 'shared/footer' %>
       </div>
-
     <% end %>
 
 
