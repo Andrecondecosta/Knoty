@@ -1,0 +1,18 @@
+<div class="h-60 row justify-content-center align-items-end">
+  <div class="box col-10 p-3 glass-morph-card">
+    <div class="container" data-controller= "toggle">
+      <%= simple_form_for(@event) do |f| %>
+        <!-- Personal information -->
+        <div class="container" data-toggle-target="toggleableElem">
+          <%= f.input :name %>
+          <%= f.input :details %>
+            <%= f.input :date, html5: true, input_html: { class: "mb-3" } %>
+          <%= f.input :location %>
+          <%= f.input :is_memory, wrapper_html:{class: "d-none" }, input_html: {checked: true} %>
+          <%= link_to 'Back', timeline_events_path, class: "btn btn-white", style: "color: black; " %>
+          <%= f.button :submit, class: "btn btn-secondary", style: "border: 1px solid black; float: right;" %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
