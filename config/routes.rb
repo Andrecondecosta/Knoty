@@ -32,7 +32,10 @@ Rails.application.routes.draw do
   end
 
   # Events
-  resources :events
+  resources :events  do
+    get '/timeline', to: 'events#timeline', on: :collection
+    get 'add-memory', to: 'events#add_memory', on: :collection
+  end
 
   # Chatroom
   resources :chatrooms, only: :show do

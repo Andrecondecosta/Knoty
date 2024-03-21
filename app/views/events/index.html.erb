@@ -1,5 +1,8 @@
 <div class="container">
-  <%= link_to 'New event', new_event_path %>
+  <div class="add-memory d-flex justify-content-between">
+  <%= button_to 'New event', new_event_path, method: :get, class: 'btn btn-outline-dark' %>
+  <%= button_to 'Timeline', timeline_events_path, method: :get, class: 'btn btn-outline-dark' %>
+</div>
   <div id="calendar">
     <h2 id="month">
       <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
