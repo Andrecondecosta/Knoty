@@ -25,7 +25,7 @@
   <div class="box col-10 rounded-4 p-1 glass-morph-card">
     <h3 class="ps-1 pt-5 pb-2 text-center">Edit your profile</h3>
     <div class="container" data-controller= "toggle">
-      <%= simple_form_for @user, url: update_profile_path do |f| %>
+      <%= simple_form_for @user, url: update_existing_profile_path do |f| %>
         <!-- Personal information -->
         <div class="container" data-toggle-target="toggleableElem">
           <%= f.input :avatar_url, as: :hidden, input_html: { data: { avatar_target: "avatarField" } } %>

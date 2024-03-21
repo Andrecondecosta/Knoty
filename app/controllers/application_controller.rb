@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_mailer_host
+  before_action :set_chatroom
+  before_action :set_couple
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -16,5 +18,18 @@ class ApplicationController < ActionController::Base
 
   def set_mailer_host
     ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
+
+  def set_chatroom
+    return unless user_signed_in?
+
+    couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+    @chatroom = couple.chatroom
+  end
+
+  def set_couple
+    return unless user_signed_in?
+
+    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
   end
 end

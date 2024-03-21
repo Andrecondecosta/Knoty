@@ -1,20 +1,18 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :set_couple, only: %i[home profile quests]
-  before_action :set_pending_tasks, only: %i[home profile quests]
-  before_action :set_active_tasks, only: %i[quests]
-  before_action :set_partner, only: %i[home profile quests]
-  before_action :set_couple_challenges, only: %i[quests]
-  before_action :set_individual_challenges, only: %i[quests]
+  before_action :set_pending_tasks, only: %i[home profile quests couples_challenges_in_progress]
+  before_action :set_active_tasks, only: %i[quests couples_challenges_in_progress]
+  before_action :set_partner, only: %i[home profile quests solo_challenges_in_progress]
+  before_action :set_couple_challenges, only: %i[quests explore_couples_challenges]
+  before_action :set_individual_challenges, only: %i[quests explore_solo_challenges]
 
   def home
     # this defines the progress value on the progress bar:
     # NOTE CHANGE HERE TO 1-5
-    # 1=20%
-    # 2=40%
-    # 3=60%
-    # 4=80%
-    # 5=100%
+    # 1=0%
+    # 2=33%
+    # 3=66%
+    # 4=100%
     @current_score = @couple.total_exp if signed_in?
   end
 
@@ -28,19 +26,17 @@ class PagesController < ApplicationController
 
   # ---------------------------- LINK OPTIONS IN THE QUEST LOG ----------------------------
   def explore_couples_challenges
-    @couple_challenges = CoupleChallenge.left_outer_joins(:couple_tasks).where(couple_tasks: { id: nil })
   end
 
   def explore_solo_challenges
-    @individual_challenges = IndividualChallenge.left_outer_joins(:individual_tasks).where(individual_tasks: { id: nil })
   end
 
   def solo_challenges_in_progress
-    @my_solo_tasks = current_user.individual_tasks
+    @my_solo_tasks = current_user.individual_tasks.where(completed: nil)
+    @partner_solo_tasks = @partner.individual_tasks.where(completed: nil) if @partner
   end
 
   def couples_challenges_in_progress
-    @couple_challenge = @couple.couple_challenges.find(@couple_task.couple_challenge_id)
   end
 
   #-------------------------------- PROFILE PAGE --------------------------------
@@ -52,12 +48,6 @@ class PagesController < ApplicationController
 
   private
 
-  def set_couple
-    return unless signed_in?
-
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
-  end
-
   def set_partner
     return unless signed_in?
 
@@ -67,7 +57,6 @@ class PagesController < ApplicationController
   def set_pending_tasks
     return unless signed_in?
 
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
     @pending_tasks_notif = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
     @pending_tasks = @couple.couple_tasks.where(active: false)
   end
@@ -102,7 +91,8 @@ class PagesController < ApplicationController
   def set_individual_challenges
     # All solo challenges that are not completed
     open_solo_chals = IndividualChallenge.left_outer_joins(:individual_tasks).where(individual_tasks: { id: nil })
-    filtered_solo_chals = IndividualChallenge.joins(:individual_tasks).where.not(individual_tasks: { user_id: current_user.id })
+    filtered_solo_chals = IndividualChallenge.joins(:individual_tasks)
+                                             .where.not(individual_tasks: { user_id: current_user.id })
                                              .select do |chal|
       chal.individual_tasks.where(user_id: current_user.id).empty?
     end

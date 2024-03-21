@@ -61,6 +61,7 @@ class Users::InvitationsController < Devise::InvitationsController
     if @existing_couple.nil?
       couple = Couple.new(partner_1: current_inviter, partner_2: resource)
       couple.save!
+      Chatroom.create(couple:)
     end
   end
 end
