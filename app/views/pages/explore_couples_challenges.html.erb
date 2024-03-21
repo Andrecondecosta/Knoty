@@ -1,0 +1,44 @@
+<div class="container mt-5" style="height: 88%" data-controller="quests">
+
+  <div class="content h-100 bg-light bg-opacity-50 rounded-4 py-3" style="position: relative;" data-quests-target="exploreQuestsTab">
+
+    <div class="carousel-1">
+
+    <h1 class="explore-quests-title">Explore Couples' Quests</h1>
+
+      <div id="carouselExampleControls" class="carousel slide mt-0" data-interval="false" data-interval="false">
+
+        <div class="carousel-inner">
+          <% @couple_challenges.each_with_index do |couple, index| %>
+
+            <div class="carousel-item <%= 'active' if index.zero? %>">
+              <div class="card my-card">
+                <div class="card-body">
+                  <%= link_to couple_challenge_path(couple), class: "a-card" do %>
+                    <%= render 'shared/cards_couple', couple: couple %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <a class="carousel-control-prev" role="button" data-bs-target= "#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" role="button" data-bs-target= "#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+
+    <%= link_to quest_log_path do %>
+      <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore" style="width: 130px; height: 69px;">
+    	<h5 class="go-back-text">BACK</h5>
+    <% end %>
+
+  </div>
+</div>

@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get 'edit_existing_profile', to: 'users#edit_existing_profile'
   patch 'users/update_existing_profile', to: 'users#update_existing_profile'
   get '/quest_log', to: 'pages#quests'
+  get '/explore_couples_challenges', to: 'pages#explore_couples_challenges'
+  get '/explore_solo_challenges', to: 'pages#explore_solo_challenges'
+  get '/solo_challenges_in_progress', to: 'pages#solo_challenges_in_progress'
   get '/profile', to: 'pages#profile'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

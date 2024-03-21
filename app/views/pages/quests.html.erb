@@ -1,6 +1,47 @@
-<div class="container" style="height: 723px;" data-controller="quests">
+<div class="container mt-5" data-controller="quests">
 
-  <!-- Explore Quests/In progress tab links -->
+  <div class="vines content bg-light bg-opacity-50 rounded-4" data-quests-target="exploreQuestsTab">
+    <%= image_tag("questmenu.png", alt: "vines") %>
+
+    <!-- link to Explore Couples Quests -->
+    <div style="text-align: center; position: relative;">
+      <a href="/explore_couples_challenges" class="link1" style="top: -608px; left: 150px; transform: rotate(6deg)">
+        Explore Couples'<br>
+        <span class="subtext">Quests</span>
+      </a>
+    </div>
+
+    <!-- link to Explore Solo Quests -->
+    <div style="text-align: center; position: relative;">
+      <a href="/explore_solo_challenges" class="link1" style="top: -436px; left: 97px; transform: rotate(-9deg)">
+        Explore Solo<br>
+        <span class="subtext">Quests</span>
+      </a>
+    </div>
+
+    <!-- link to Couples' Quests in Progress -->
+    <div style="text-align: center; position: relative;">
+      <a href="#" class="link1" style="top: -260px; left: 178px; transform: rotate(0deg)">
+        Couples' Quests<br>
+        <span class="subtext">In Progress</span>
+      </a>
+    </div>
+
+    <!-- link to Solo Quests in Progress -->
+    <div style="text-align: center; position: relative;">
+      <a href="/solo_challenges_in_progress" class="link1" style="top: -110px; left: 104px; transform: rotate(4deg)">
+        Solo Quests<br>
+        <span class="subtext">In Progress</span>
+      </a>
+    </div>
+
+  </div>
+
+
+
+  <!-- EXPLORE QUESTS / IN PROGRESS QUEST TAB LINKS -->
+
+  <!--
   <div class="tabs">
     <div class="tab fs-5 d-flex justify-content-center bg-light bg-opacity-25 bg-opacity-50"
       data-quests-target="exploreQuestsLink"
@@ -9,8 +50,11 @@
       data-quests-target="inProgressLink"
       data-action="click->quests#inProgress">In progress</div>
   </div>
+  -->
 
-  <!------------------------ Explore Quests tab content ------------------------>
+  <!------------------------ EXPLORE QUESTS TAB CONTENT ------------------------>
+
+  <!--
   <div class="content h-100 bg-light bg-opacity-50 rounded-bottom-4" data-quests-target="exploreQuestsTab">
     <div class="all-carousel">
 
@@ -83,13 +127,17 @@
       </div>
     </div>
   </div>
+  -->
 
 
-  <!------------------------ In progress tab content ------------------------>
+  <!------------------------ IN PROGRESS TAB CONTENT ------------------------>
+  <!--
   <div class="container h-100 content mt-0 d-none bg-light bg-opacity-50 rounded-bottom-4"
     data-quests-target="inProgressTab">
+  -->
 
-    <!-- In progress tab links -->
+    <!-------------------------- IN PROGRESS TAB LINKS -------------------------->
+    <!--
     <div class="logs_plaques">
       <div class="row mt-0 mb-2 pt-4">
           <div class="col-6 d-flex justify-content-center p-0 fs-5 position-relative">
@@ -132,9 +180,12 @@
 
       </div>
     </div>
+    -->
 
-    <!-- Active couple quests tab content -->
 
+    <!-------------------------- ACTIVE COUPLES' QUESTS TAB CONTENT -------------------------->
+
+    <!--
     <div class="row justify-content-center"
       data-quests-target="activeQuestsTab">
       <% unless @active_tasks.nil? || @active_tasks.empty?  %>
@@ -149,8 +200,11 @@
         <h4 class="text-center text-body-tertiary">You have no active couple challenges! 🥹</h4>
       <% end %>
     </div>
+    -->
 
-    <!-- Pending couple quests tab content -->
+
+    <!-------------------------- PENDING COUPLE QUESTS TAB CONTENT -------------------------->
+    <!--
     <div class="row justify-content-center d-none"
       data-quests-target="pendingQuestsTab">
 
@@ -172,8 +226,11 @@
         <h4 class="text-center text-body-tertiary">You have no pending couple quests! 🥳</h4>
       <% end %>
     </div>
+    -->
 
-    <!-- Current user's individual quests tab content -->
+
+    <!-------------------------- CURRENT USERS' INDIVIDUAL QUESTS TAB CONTENT -------------------------->
+    <!--
     <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab1">
         <% unless @my_solo_tasks.nil? || @my_solo_tasks.empty?  %>
@@ -185,11 +242,14 @@
           <% end %>
 
         <% else %>
-          <h4 class="text-center text-body-tertiary">At the moment, you haven't embarked on a solo quest. 😱</h4>
+          <h4 class="text-center text-body-tertiary">At the moment, you haven't embarked on a solo adventure quest. 🧭</h4>
         <% end %>
     </div>
+    -->
 
-    <!-- Partner's individual quests tab content -->
+
+    <!-------------------------- PARTNERS INDIVIDUAL QUESTS TAB CONTENT -------------------------->
+    <!--
     <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab2">
 
@@ -202,9 +262,9 @@
           <% end %>
 
       <% else %>
-        <h4 class="text-center text-body-tertiary">At the moment, they haven't embarked on a solo quest. 😱</h4>
+        <h4 class="text-center text-body-tertiary">At the moment, your partner hasn't embarked on a solo adventure quest. 🧭</h4>
       <% end %>
     </div>
   </div>
-
+ -->
 </div>
