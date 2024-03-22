@@ -2,6 +2,8 @@ class ChatroomsController < ApplicationController
   before_action :set_notifications_to_read, only: :show
 
   def show
+
+    @messages = @chatroom.messages.order(created_at: :asc)
     @message = Message.new
   end
 

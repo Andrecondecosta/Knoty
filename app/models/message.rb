@@ -1,6 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :chatroom
   belongs_to :user
+
   validates_presence_of :content
 
   has_many :notification_mentions, as: :record, dependent: :destroy, class_name: 'Noticed::Event'
@@ -16,5 +17,13 @@ class Message < ApplicationRecord
     notification.deliver_later(partner)
     partner.notifications.update_all(read_at: Time.zone.now) unless partner.current_chatroom.nil?
     NotificationsChannel.broadcast_to(partner, partner.notifications.unread.count)
+  end
+
+  def sender?(a_user)
+    user.id == a_user.id
+  end
+
+  def message_date
+    created_at.strftime("%B %e")
   end
 end

@@ -1,0 +1,35 @@
+.message-row {
+  margin-bottom: 0px;
+  padding: 8px;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 63px;
+  padding: 15px 15px 6px 15px;
+}
+
+.sender-style {
+  background-image: url("chatroom-message-blue.png");
+  opacity: 0.9;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.receiver-style {
+  background-image: url("chatroom-message-green.png");
+  opacity: 0.9;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hour-message {
+  font-size: 12px;
+  color: #000;
+}

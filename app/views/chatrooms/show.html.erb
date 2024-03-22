@@ -1,20 +1,49 @@
 <div class="container chatroom"
   data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+
+  <!-- <%= @chatroom.name %> -->
+  <div class="chatroom-board">
+    <h1 class="chatroom-name">Adventurers Lounge</h1>
+  </div>
 
   <div class="messages" data-chatroom-subscription-target="messages">
+    <% current_date = nil %>
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <% if current_date != message.created_at.to_date %>
+        <!-- Display common header for the day -->
+        <div class="common-header">
+          <%= message.created_at.strftime("%B %e") %>
+        </div>
+        <% current_date = message.created_at.to_date %>
+      <% end %>
+
+  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+    <% if message.sender?(current_user) %>
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+        <%= render "messages/message", message: message %>
+      </div>
+      <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-left: 10px;" %>
+    <% else %>
+      <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-right: 10px;" %>
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+        <%= render "messages/message", message: message %>
+      </div>
     <% end %>
   </div>
-  <%= simple_form_for [@chatroom, @message],
-    html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ##{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1 mb-0"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+
   <% end %>
+  </div>
+
+<%= simple_form_for [@chatroom, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+  <%= f.input :content,
+    label: false,
+    placeholder: "e.g. You make me smile!",
+    wrapper_html: { class: "flex-grow-1 mb-0" },
+    input_html: { style: "width: 98%" } %>
+  <%= image_submit_tag("message-send.png", alt: "Send", class: "send-wings") %>
+<% end %>
+
 </div>
