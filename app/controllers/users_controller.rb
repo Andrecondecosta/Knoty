@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_couple, only: %i[update_profile]
-
   def edit_profile
     @user = current_user
   end
@@ -32,10 +30,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :date_of_birth, :avatar_url)
-  end
-
-  def set_couple
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
   end
 
   def generate_audio_mp3

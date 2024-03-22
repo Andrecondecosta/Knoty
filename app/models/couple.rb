@@ -4,6 +4,7 @@ class Couple < ApplicationRecord
   has_many :couple_tasks, dependent: :destroy
   has_many :couple_challenges, through: :couple_tasks
   has_many :events, dependent: :destroy
+  has_one :chatroom, dependent: :destroy
   has_one_attached :audio
 
   validate :different_partners

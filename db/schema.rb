@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_004408) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_22_221440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_004408) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "couple_id", null: false
+    t.index ["couple_id"], name: "index_chatrooms_on_couple_id"
   end
 
   create_table "couple_challenges", force: :cascade do |t|
@@ -173,6 +175,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_004408) do
     t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
+  create_table "noticed_events", force: :cascade do |t|
+    t.string "type"
+    t.string "record_type"
+    t.bigint "record_id"
+    t.jsonb "params"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "notifications_count"
+    t.index ["record_type", "record_id"], name: "index_noticed_events_on_record"
+  end
+
+  create_table "noticed_notifications", force: :cascade do |t|
+    t.string "type"
+    t.bigint "event_id", null: false
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.datetime "read_at", precision: nil
+    t.datetime "seen_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_noticed_notifications_on_event_id"
+    t.index ["recipient_type", "recipient_id"], name: "index_noticed_notifications_on_recipient"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -196,6 +222,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_004408) do
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.integer "mission_count", default: 0
+    t.bigint "current_chatroom_id"
+    t.index ["current_chatroom_id"], name: "index_users_on_current_chatroom_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
@@ -205,6 +233,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_004408) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "couples"
   add_foreign_key "couple_tasks", "couple_challenges"
   add_foreign_key "couple_tasks", "couples"
   add_foreign_key "couple_tasks", "users", column: "invited_id"
@@ -218,4 +247,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_004408) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "missions", "users"
+  add_foreign_key "users", "chatrooms", column: "current_chatroom_id", on_delete: :nullify
 end
