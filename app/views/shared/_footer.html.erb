@@ -8,24 +8,24 @@
   </div>
 </div> -->
 <nav class="mobile-footer footer-nav light" role="menulist">
-    <a href="<%= quest_log_path %>" role="menuitem">
+    <a href="<%= quest_log_path %>" role="menuitem" data-turbo-prefetch="false">
         <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710027362/torch_wevpmx.png" alt="Quests" class="hub-image hub-img-footer">
         Quests
     </a>
-    <a href="<%= missions_path %>" role="menuitem">
+    <a href="<%= missions_path %>" role="menuitem" data-turbo-prefetch="false">
         <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017027/law_xvt7in.png" alt="Missions" class="hub-image hub-img-footer">
         Missions
     </a>
-    <a href="<%= root_path %>" role="menuitem">
+    <a href="<%= root_path %>" role="menuitem" data-turbo-prefetch="false">
         <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710029365/compass_1_nkqi9x.png" alt="Hub/Map" class="hub-image hub-img-footer">
         Hub
     </a>
-    <a href="<%= events_path %>" role="menuitem">
+    <a href="<%= events_path %>" role="menuitem" data-turbo-prefetch="false">
         <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017027/event-schedule_js6bke.png" alt="Calendar" class="hub-image hub-img-footer">
         Calendar
     </a>
 
-    <a href="<%= user_signed_in? ? chatroom_path(@chatroom) : '#' %>" role="menuitem">
+    <a class="border border-top-danger" href="<%= user_signed_in? ? chatroom_path(@chatroom) : '#' %>" role="menuitem" data-turbo-prefetch="false">
         <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017026/message_mv2jlh.png" alt="Chat" class="hub-image hub-img-footer">
         Chat
     </a>

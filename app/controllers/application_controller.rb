@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_mailer_host
   before_action :set_chatroom
   before_action :set_couple
+  before_action :set_notifications
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -31,5 +32,11 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
 
     @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+  end
+
+  def set_notifications
+    return unless user_signed_in?
+
+    @notifications = current_user.notifications.unread
   end
 end

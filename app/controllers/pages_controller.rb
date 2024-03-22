@@ -34,6 +34,7 @@ class PagesController < ApplicationController
   def solo_challenges_in_progress
     @my_solo_tasks = current_user.individual_tasks.where(completed: nil)
     @partner_solo_tasks = @partner.individual_tasks.where(completed: nil) if @partner
+
   end
 
   def couples_challenges_in_progress
