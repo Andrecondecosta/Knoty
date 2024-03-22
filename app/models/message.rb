@@ -14,6 +14,7 @@ class Message < ApplicationRecord
     partner = couple.partner_1 == user ? couple.partner_2 : couple.partner_1
     notification = MessageNotifier.with(record: self)
     notification.deliver_later(partner)
+    partner.notifications.update_all(read_at: Time.zone.now) unless partner.current_chatroom.nil?
     NotificationsChannel.broadcast_to(partner, partner.notifications.unread.count)
   end
 end

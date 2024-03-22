@@ -1,5 +1,5 @@
 class ChatroomsController < ApplicationController
-  after_action :set_notifications_to_read, only: :show
+  before_action :set_notifications_to_read, only: :show
 
   def show
     @message = Message.new
