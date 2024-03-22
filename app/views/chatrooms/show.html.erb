@@ -39,14 +39,14 @@
   <% end %>
   </div>
 
-  <%= simple_form_for [@chatroom, @message],
-    html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "e.g. You make me smile 😊💕",
-      wrapper_html: {class: "flex-grow-1 mb-0"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
+<%= simple_form_for [@chatroom, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+  <%= f.input :content,
+    label: false,
+    placeholder: "e.g. You make me smile!",
+    wrapper_html: { class: "flex-grow-1 mb-0" },
+    input_html: { style: "width: 98%" } %>
+  <%= image_submit_tag("message-send.png", alt: "Send", class: "send-wings") %>
+<% end %>
+
 </div>
