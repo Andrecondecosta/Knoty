@@ -3,6 +3,7 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
+    @messages = @chatroom.messages.order(created_at: :asc)
     @message = Message.new
   end
 
