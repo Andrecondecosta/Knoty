@@ -6,8 +6,8 @@
   <div class="d-flex justify-content-center">
     <h1 class="m-0">Timeline</h1>
   </div>
-  <section class="timeline <%= 'no-memories' unless @events.any? %>">
-    <div class="container">
+  <section class="timeline <%= 'no-memories' unless @events.any? %> " style="overflow-y:auto; height:705px;" >
+    <div class="container" >
       <!-- Display memory cards -->
       <% @events.each_with_index do |event, index| %>
         <div class="timeline-item">
@@ -37,7 +37,7 @@
                 <%= link_to edit_event_path(event, origin: 'timeline'), class: 'icon-button-timeline' do %>
                   <i class="fas fa-pen-square m-2 fa-lg "></i>
                 <% end %>
-                <%= button_to event_path(event, origin: 'timeline'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon-button-timeline' do %>
+                <%= button_to event_path(event, origin: 'timeline'), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'icon-button-timeline' do %>
                   <i class="fas fa-trash-alt m-2 fa-lg"></i>
                 <% end %>
               </div>
