@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # Couple challenges/tasks
   resources :couple_challenges, only: [:show] do
-    resources :couple_tasks, only: [:create]
+    resources :couple_tasks, only: [:new, :create]
   end
   resources :couple_tasks, only: [:show, :edit, :update] do
     member do

@@ -10,7 +10,7 @@
           <% @couple_challenges.each_with_index do |couple_challenge, index| %>
 
             <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= render 'shared/cards_couple_briefing', couple_challenge: couple_challenge %>
+              <%= render 'shared/cards_couple_briefing', couple_challenge: couple_challenge, couple_task: CoupleTask.new %>
             </div>
           <% end %>
         </div>
