@@ -3,13 +3,11 @@ import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   static values = { chatroomId: Number, currentUserId: Number, currentUserAvatarUrl: String, partnerAvatarUrl: String, lastMessageDate: String }
-  static targets = ["messages"]
+  static targets = ["messages", "form", "input"]
 
   lastMessage = new Date(this.lastMessageDateValue)
 
   connect() {
-    const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
-    this.insertDate(today)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     this.subscription = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
@@ -71,9 +69,12 @@ export default class extends Controller {
         ${currentMessageDate}
       </div>
     `;
-
-    if (this.lastMessageDateValue.length === 0 || currentMessageDate > this.lastMessage)
+    if (this.lastMessageDateValue.length === 0) {
+      this.messagesTarget.insertAdjacentHTML('beforeend', dateElem)
+      window.location.reload();
+    } else if (currentMessageDate > this.lastMessage) {
       return this.messagesTarget.insertAdjacentHTML('beforeend', dateElem)
+    }
   }
 
   justifyClass(currentUserIsSender) {
@@ -82,5 +83,12 @@ export default class extends Controller {
 
   userStyleClass(currentUserIsSender) {
     return currentUserIsSender ? "sender-style" : "receiver-style";
+  }
+
+  sendMessage(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      this.formTarget.requestSubmit()
+    }
   }
 }

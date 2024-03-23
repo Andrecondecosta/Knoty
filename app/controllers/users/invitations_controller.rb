@@ -14,8 +14,9 @@ class Users::InvitationsController < Devise::InvitationsController
     resource_invited = resource.errors.empty?
 
     if resource_invited
-      # Create a Couple instance if the invite was successful
+      # Create a Couple instance & memory Event if the invite was successful
       create_couple
+      create_first_memory
 
       if is_flashing_format? && self.resource.invitation_sent_at
         set_flash_message :notice, :send_instructions, email: self.resource.email
@@ -63,5 +64,13 @@ class Users::InvitationsController < Devise::InvitationsController
       couple.save!
       Chatroom.create(couple:)
     end
+  end
+
+  def create_first_memory
+    Event.create(date: current_user.created_at,
+                 name: "Welcome!",
+                 details: "The start of an",
+                 location: "Amazing adventure!",
+                 is_memory: true)
   end
 end
