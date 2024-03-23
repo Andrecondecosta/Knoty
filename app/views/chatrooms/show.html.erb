@@ -1,7 +1,10 @@
 <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
+  data-chatroom-subscription-current-user-avatar-url-value="<%= current_user.avatar_url %>"
+  data-chatroom-subscription-partner-avatar-url-value="<%= @partner.avatar_url %>"
+  data-chatroom-subscription-last-message-date-value="<%= @chatroom.messages.last.created_at.to_date unless @chatroom.messages.empty? %>">
 
   <!-- <%= @chatroom.name %> -->
   <div class="chatroom-board">
@@ -9,31 +12,38 @@
   </div>
 
   <div class="messages" data-chatroom-subscription-target="messages">
-    <% current_date = nil %>
-    <% @chatroom.messages.each do |message| %>
-      <% if current_date != message.created_at.to_date %>
-        <!-- Display common header for the day -->
+    <% current_date = @chatroom.messages.first.created_at.to_date unless @chatroom.messages.empty?%>
+    <% @chatroom.messages.order(:created_at).each_with_index do |message, index| %>
+      <% if index.zero? %><!-- Display common header for the day -->
+        <div class="common-header">
+          <%= current_date.strftime("%B %e") %>
+        </div>
+      <% elsif current_date > message.created_at.to_date%>
+        <% current_date = message.created_at.to_date %>
         <div class="common-header">
           <%= message.created_at.strftime("%B %e") %>
         </div>
-        <% current_date = message.created_at.to_date %>
       <% end %>
 
-  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-    <% if message.sender?(current_user) %>
-      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-        <%= render "messages/message", message: message %>
-      </div>
-      <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-left: 10px;" %>
-    <% else %>
-      <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-right: 10px;" %>
-      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-        <%= render "messages/message", message: message %>
-      </div>
-    <% end %>
-  </div>
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+        <% if message.sender?(current_user) %>
 
-  <% end %>
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+          <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-left: 10px;" %>
+
+        <% else %>
+
+          <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-right: 10px;" %>
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        <% end %>
+
+      </div>
+
+    <% end %>
   </div>
 
 <%= simple_form_for [@chatroom, @message],
