@@ -12,10 +12,10 @@
       <%= simple_form_for(@event) do |f| %>
         <!-- Personal information -->
         <div class="container" data-toggle-target="toggleableElem">
-          <%= f.input :name, input_html: { maxlength: 15, placeholder: 'e.g:Birthday Party!!' } %>
-          <%= f.input :details %>
-          <%= f.input :date, html5: true, input_html: { class: "mb-3" } %>
-          <%= f.input :location %>
+          <%= f.input :name, input_html: { maxlength: 9, placeholder: 'e.g:Birthday!', required: true } %>
+          <%= f.input :details, input_html: { maxlength: 18, placeholder: 'e.g:Loved this day!', required: true } %>
+          <%= f.input :date, html5: true, input_html: { class: "mb-3", required: true } %>
+          <%= f.input :location, input_html: { maxlength: 18, placeholder: 'e.g:Lisbon', required: true } %>
           <%= f.input :is_memory, wrapper_html:{class: "d-none" }, input_html: {checked: true} %>
           <%= link_to 'Back', timeline_events_path, class: "btn btn-white", style: "color: black; " %>
           <%= f.button :submit, "Add memory", class: "btn btn-secondary", style: "border: 1px solid black; float: right;" %>
