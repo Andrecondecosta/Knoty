@@ -18,7 +18,13 @@
           </div>
 
           <div class="timeline-card-product mb-5 <%= 'flex-row-reverse' if index.even? %>">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"/>
+              <!-- Memory image -->
+            <% if event.image.attached? %>
+              <%= cl_image_tag event.image.key %>
+            <% else %>
+              <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711227662/How_happy_memories_can_boost_your_mood_hudtsk.jpg"/>
+            <% end %>
+
             <div class="timeline-card-product-infos <%= index.even? ? 'text-align-right' : 'text-align-left' %>" style="padding: 8px; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
                 <h4 style="word-wrap: break-word;"><%= event.name %></h4>
