@@ -22,21 +22,21 @@ h3 {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  height: 763px;
-  margin-top: 13px;
+  height: 714px;
+  margin-top: -2px;
+  position: relative;
 }
+
 .briefing-card-body {
   background-color: transparent;
   border-radius: 25px;
   margin: 0px 10px 9px 10px;
-  height: 324px;
+  height: 265px;
 }
 .fa-user-friends {
   padding-left: 25px;
 }
-.rating {
-  border-radius: 50px;
-}
+
 .card-text {
   padding: 19px 15px 0px 22px;
   color: rgb(34, 20, 20);
@@ -59,22 +59,22 @@ h3 {
 
 .card-footer-briefing {
   border: none;
-  margin: 0px;
-  margin-left: 6px;
-  margin-right: 27px;
+  margin: 0px 65px;
 }
 
 .begin-quest {
+  position: absolute;
+  top: 612px;
+  right: 39px;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
 
   background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png');
-  background-size: cover;
-  width: 221px;
+  background-size: 100% 100%;
+  width: 142px;
   height: 50px;
-  opacity: 0.8;
   margin-left: 161px;
 
   color: rgb(6, 6, 6);
@@ -83,8 +83,8 @@ h3 {
   text-align: center;
 
   &:hover {
-    opacity: 1;
-    filter: brightness(80%);
+    width: 146px;
+    height: 54px;
   }
 }
 

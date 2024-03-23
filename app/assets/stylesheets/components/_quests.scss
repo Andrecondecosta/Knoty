@@ -161,16 +161,24 @@
 
 .arrow-back-explore {
   position: absolute;
-  top: 623px;
-  left: 12px;
+  top: 727px;
+  left: 16px;
+  cursor: pointer;
+  width: 83px;
+  height: 52px;
 }
 
 .go-back-text {
   position: absolute;
-  top: 628px;
-  left: 1px;
-  font-weight: bold;
-  font-size: 24px;
+  top: 726px;
+  left: 20px;
+  font-weight: lighter;
+  font-size: 17px;
   text-decoration: none;
-  color: rgb(41, 0, 0);
+  color: #422929;
+  font-family: Berkshire Swash, serif;
+
+  &:hover {
+    color: black;
+  }
 }
