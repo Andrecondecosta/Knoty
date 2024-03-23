@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Users
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions', invitations: "users/invitations" }
   patch "users/update_profile" => "users#update_profile", as: :update_profile
+  patch 'users/update_existing_profile', to: 'users#update_existing_profile', as: :update_existing_profile
 
   # Love Languages
   resources :love_languages, only: [:new, :create]
@@ -46,7 +47,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "edit_profile" => "users#edit_profile"
   get 'edit_existing_profile', to: 'users#edit_existing_profile'
-  patch 'users/update_existing_profile', to: 'users#update_existing_profile'
   get '/quest_log', to: 'pages#quests'
   get '/explore_couples_challenges', to: 'pages#explore_couples_challenges'
   get '/explore_solo_challenges', to: 'pages#explore_solo_challenges'

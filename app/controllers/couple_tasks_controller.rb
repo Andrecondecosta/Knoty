@@ -1,6 +1,5 @@
 class CoupleTasksController < ApplicationController
   before_action :set_couple, only: %i[show edit create mark_as_completed]
-  before_action :set_couple_task, only: %i[show edit update]
   before_action :set_partner, only: %i[show create]
   before_action :set_pending_tasks, only: %i[show]
   before_action :set_invited_partner, only: %i[show edit]
@@ -63,10 +62,6 @@ class CoupleTasksController < ApplicationController
     params.require(:couple_task).permit(:date_option_1, :date_option_2, :date_option_3, :completion_date)
   end
 
-  def set_couple
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
-  end
-
   def set_couple_task
     @couple_task = CoupleTask.find(params[:id])
   end
@@ -79,14 +74,9 @@ class CoupleTasksController < ApplicationController
     CoupleTask.find_by(couple_challenge_id: params[:couple_challenge_id], couple: @couple, completed: nil)
   end
 
-  def belongs_to_couple?(user)
-
-  end
-
   def set_pending_tasks
     return unless signed_in?
 
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
     @pending_tasks = @couple.couple_tasks.where(active: false)
     @pending_tasks_notif = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
   end

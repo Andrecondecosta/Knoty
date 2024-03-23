@@ -1,17 +1,16 @@
 class ChatroomsController < ApplicationController
-  before_action :set_couple, only: %i[show]
+  before_action :set_notifications_to_read, only: :show
 
   def show
-    @chatroom = Chatroom.find(params[:id])
+
     @messages = @chatroom.messages.order(created_at: :asc)
     @message = Message.new
   end
 
   private
 
-  def set_couple
-    return unless signed_in?
-
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+  def set_notifications_to_read
+    notifications = current_user.notifications.unread
+    notifications.update_all(read_at: Time.zone.now)
   end
 end

@@ -14,13 +14,8 @@ class MessagesController < ApplicationController
       )
       head :ok
     else
-      render "chatrooms/show", status: :unprocessable_entity
+      render "chatrooms/show"
     end
-  end
-
-  def show
-    @chatroom = Chatroom.find(params[:chatroom_id])
-    @messages = @chatroom.messages.order(created_at: :asc)
   end
 
   private

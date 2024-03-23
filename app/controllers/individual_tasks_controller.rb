@@ -1,5 +1,4 @@
 class IndividualTasksController < ApplicationController
-  before_action :set_couple, only: %i[create mark_as_completed]
   before_action :set_partner, only: %i[create]
 
   def show
@@ -42,10 +41,6 @@ class IndividualTasksController < ApplicationController
 
   def individual_task_params
     params.require(:individual_task).permit(:date)
-  end
-
-  def set_couple
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
   end
 
   def similar_task_exists?

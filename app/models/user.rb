@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :missions, dependent: :destroy
   has_one :love_language, dependent: :destroy
   has_many :events, dependent: :destroy
+  belongs_to :current_chatroom, class_name: 'Chatroom', foreign_key: 'current_chatroom_id', optional: true
+  has_many :notifications, as: :recipient, dependent: :destroy, class_name: 'Noticed::Notification'
 
   validates_presence_of :first_name
 end

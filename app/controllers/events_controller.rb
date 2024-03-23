@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_couple, only: [:index, :create, :update]
 
   # GET /events
   def index
@@ -8,22 +7,16 @@ class EventsController < ApplicationController
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
-
-
   def show
     @day_events = Event.where(date: @event.date)
   end
-
 
   def new
     @event = Event.new
   end
 
-
   def edit
   end
-
-
 
   def create
     @event = Event.new(event_params)
@@ -49,39 +42,32 @@ class EventsController < ApplicationController
     end
   end
 
-
-
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully deleted.'
+    if params[:origin] == 'timeline'
+      redirect_to timeline_events_path
+    else
+      redirect_to events_path
+    end
   end
 
   def timeline
     @events = Event.all
+    @events = Event.where(is_memory: true).order(date: :desc)
   end
 
   def add_memory
     @event = Event.new
   end
 
-
-
   private
 
-    def set_event
-      @event = Event.find(params[:id])
-    end
-
-
-    def event_params
-      params.require(:event).permit(:name, :date, :details, :location, :is_memory)
-    end
-
-    def set_couple
-      return unless signed_in?
-
-      @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
-    end
-
+  def set_event
+    @event = Event.find(params[:id])
   end
+
+  def event_params
+    params.require(:event).permit(:name, :date, :details, :location, :is_memory)
+  end
+end
