@@ -2,23 +2,16 @@
   <div class="profile-icon-container">
     <%= image_tag(@user.avatar_url.presence || 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710005027/403017_avatar_default_head_person_unknown_icon_z3rkhi.png', class: 'avatar large', data: { avatar_target: "avatar", action: "click->avatar#toggleOverlay" }, style: "cursor: pointer;") %>
   </div>
-  <% names_1 = ["Ivan", "Ana", "Ahmed", "André", "Smokey", "Jasper", "Sheba", "Flower", "Peanut", "Trouble", "Simon", "Cuddles", "Lucky", "Bear", "Trump", "George", "Joe Bi", "Luna", "Cami", "Maggie"] %>
-  <% names_2 = ["Bandit", "Jimmy", "Be", "B", "Smokey", "Sheba", "Iter", "adada", "Dusty", "Oliver", "Loki", "Shadow", "Garfield", "Sugar", "Socks", "Daisy", "Harley", "Pumpkin", "Hello", "Snowball"] %>
-  <% names_3 = ["Sophie", "Lilly", "Buddy", "Bear", "Simon", "Chester", "Cuddles", "Toby", "Bubba", "Oscar", "Salem", "Sammy", "Bailey", "Princess", "Cali", "Fluffy", "Snickers", "Lola", "Pepper", "Tinkerbell"] %>
-  <% names_4 = ["Garfield", "Cookie", "Baby", "Daisy", "Sam", "dadef", "Milo", "Oreo", "Lola", "Precious", "Buddy", "Fluffy", "Salem", "Jasper", "Sophie", "Trouble", "Scooter", "Sassy", "Max", "Lilly"] %>
+  <% avatar_paths = %w[avataaars-1711152138461_urxgov avataaars-1711152201666_ujiesm avataaars-1711152196623_an39is avataaars-1711152113371_ufekll
+avataaars-1711152173441_il7fbp avataaars-1711152168047_sjh1ud avataaars-1711152154476_janftb avataaars-1711152148702_peusy9 avataaars-1711152116548_jfxd1w avataaars-1711152091605_yffgbt
+avataaars-1711152096771_feedxi avataaars-1711152102557_zf4mfe avataaars-1711152099250_kylxkd avataaars-1711152143144_te1tg1 avataaars-1711152107997_hdlz9y avataaars-1711152058213_znsc7n
+avataaars-1711152020226_tzlbnx avataaars-1711152064833_dyzssv avataaars-1711152069960_ehykou avataaars-1711152087873_spat2y avataaars-1711152094101_dr5t2j avataaars-1711151992027_f6vwgr
+avataaars-1711151985201_dtdhk7 avataaars-1711152004754_yuikov avataaars-1711151999389_rbgn6c avataaars-1711152053259_qrymxz avataaars-1711152009900_s2h5d3 avataaars-1711151938160_dskywc
+avataaars-1711151948747_kwruva avataaars-1711151943958_xojwim avataaars-1711151962416_j2qmvk avataaars-1711151973730_jnrcls avataaars-1711151979427_aqe6hn avataaars-1711151880719_weeec6 avataaars-1711151906996_rjnffq avataaars-1711151955496_wfojvh avataaars-1711151913154_btt0vx avataaars-1711151923667_zptp2a avataaars-1711151929563_s4giop avataaars-1711155890493_omrfrr.png] %>
 
   <div class="scrollable-content box col-10 rounded-4 p-3 bg-white position-absolute top-50 start-50 d-none d-flex flex-wrap justify-content-center" data-avatar-target="overlay" style="height: 59vh; top: 55%; transform: translate(-50%, -44%); z-index: 50;">
-    <% names_1.each do |name| %>
-      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&accessoriesProbability=50&eyebrows=raisedExcited&eyes=squint,wink,winkWacky&mouth=smile&topProbability=80", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <% end %>
-    <% names_2.each do |name| %>
-      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&eyes=closed,cry,default,eyeRoll,happy,hearts,side,squint,surprised,wink,winkWacky&mouth=concerned,default,disbelief,grimace,sad,serious,smile,tongue,twinkle", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <% end %>
-    <% names_3.each do |name| %>
-      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&eyebrows=default,defaultNatural,flatNatural,frownNatural,raisedExcited,raisedExcitedNatural,unibrowNatural,upDown,upDownNatural&eyes=closed,default,eyeRoll,happy,hearts,side,squint,surprised,wink,winkWacky&mouth=serious,smile,tongue,twinkle,eating,default", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
-    <% end %>
-    <% names_4.each do |name| %>
-      <%= image_tag "https://api.dicebear.com/8.x/avataaars/svg?seed=#{name}&eyebrows=default,defaultNatural,flatNatural,frownNatural,raisedExcited,raisedExcitedNatural,unibrowNatural,upDown,upDownNatural&eyes=cry,default,happy,hearts,side,squint,surprised,wink,winkWacky&mouth=concerned,default,disbelief,eating,serious,smile,tongue,twinkle,grimace", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
+    <% avatar_paths.each do |path| %>
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711152239/#{path}", alt: "text", class: "col-5 avatar-edit-overlay avatar-hover m-1", data: { action: "click->avatar#selectAvatar" }, style:"cursor:pointer;" %>
     <% end %>
 
   </div>
