@@ -1,4 +1,5 @@
- #calendar table {
+    #calendar table {
+      margin-top: 35px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -15,25 +16,36 @@
       color: #666;
       text-align: center;
       width: 14.2857142857143%;
+          height: 45px;
+    font-size: 18px;
+    font-family: Berkshire Swash, serif;
     }
 
     #calendar td {
-      background: #FFF;
-      color: #777;
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      background-color: rgba(255, 255, 255, 0.76);
+      color: black;
       height: 80px;
       vertical-align: top;
       font-size: 16px;
     }
 
     #calendar .notmonth {
-      color: #CCC;
+      color: #969696;
     }
 
     #calendar #month {
-      margin: 0;
+      margin-top: 54px;
       padding-top: 10px;
       padding-bottom: 10px;
       text-align: center;
+        font-size: 30px;
+        font-family: Berkshire Swash, serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        color: rgb(47, 47, 47)
     }
 
     #calendar #month a, #calendar #month a:hover {
@@ -64,10 +76,26 @@
       position: relative;
       height: 100%
     }
-    .gray-link {
+
+    .event-show{
+      font-family: Berkshire Swash, serif;
+    }
+
+
+    .scrollable-content-show {
+      height: 696px;
+      overflow: auto;
+      scrollbar-width: none;
+    }
+
+    .events-body{
+      opacity: 0.8;
+    }
+
+    .icon-show {
       color: gray;
     }
 
-    .gray-link:hover {
+    .icon-show:hover {
       color: darkgray;
     }
