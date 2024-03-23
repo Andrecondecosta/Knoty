@@ -54,11 +54,16 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully deleted.'
+    if params[:origin] == 'timeline'
+      redirect_to timeline_events_path
+    else
+      redirect_to events_path
+    end
   end
 
   def timeline
     @events = Event.all
+    @events = Event.where(is_memory: true).order(date: :desc)
   end
 
   def add_memory
