@@ -53,8 +53,9 @@ class EventsController < ApplicationController
   end
 
   def timeline
-    @events = Event.all
-    @events = Event.where(is_memory: true).order(date: :desc)
+    @events = Event.where(is_memory: true).to_a
+    @events << Event.new(date: current_user.created_at, name: "Welcome!", details: "The start of an", location: "Amazing adventure!")
+    @events.sort_by! { |event| -event.date.to_time.to_i }
   end
 
   def add_memory

@@ -29,17 +29,23 @@ section {
 .timeline-img {
   width: 52px;
   height: 37px;
-  position: absolute;
-  left: 8%;
-  margin-top: -12px;
+  position:relative;
+  left: 5%;
+  margin-top: 0;
   margin-left: -26px;
   font-size: 10px;
   z-index: 2;
+  flex-shrink: 0;
+}
+
+.timeline-item {
+  display: flex;
 }
 
 .timeline-card-product {
   overflow: hidden;
   height: 162px;
+  width: 300px;
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   background-color: rgba(255, 255, 255, 0.76);
@@ -47,18 +53,18 @@ section {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin-left: 80px;
   padding: 10px;
   border-radius: 5px;
-
+  margin-left: 38px;
+  flex-shrink: 0;
 }
 
 .timeline-card-product img {
   height: 110%;
   width: 130px;
   object-fit: cover;
-  margin-right: -5px;
   border-radius: 5px;
+  margin-right: -6px;
 }
 
 .timeline_card-product h2 {
@@ -83,20 +89,40 @@ section {
   flex-direction: row-reverse;
 }
 
+.timeline-card-product .card-product-infos:not(.flex-row-reverse) {
+  margin-left: 0;
+}
+
+.timeline-card-product.flex-row-reverse .card-product-infos {
+  margin-left: 80px;
+}
+
+.timeline-card-product.flex-row-reverse img {
+  margin-left: -5px;
+}
+
+.timeline-card-product:not(.flex-row-reverse) img {
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
 .timeline.no-memories::before {
   display: none;
 }
 
-.timeline::after {
-  content: '';
-  background: hsl(209, 77%, 71%);
-  width: 10px;
-  height: 550px;
-  position: absolute;
-  left: 11%;
-  top: 20%;
-  transform: translateX(-50%);
-  z-index: 0;
+.timeline-card-product-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.timeline-card-product .d-flex {
+  justify-content: flex-start; /* align the buttons to the left */
+}
+
+.timeline-card-product.flex-row-reverse .d-flex {
+  justify-content: flex-end; /* align the buttons to the right when the card is reversed */
 }
 
 .text-align-right {
@@ -132,7 +158,7 @@ section {
 		}
 
 		.timeline-img {
-			left: 50px;
+			left: 25px;
 		}
 
 		.timeline-content {
