@@ -9,7 +9,7 @@
         <div class="timeline-item">
           <div class="timeline-img">
             <strong>
-            <%= event.date.strftime("%d %b %Y") %>
+            <%= event.date.strftime("%d %b %Y") if event.date %>
             </strong>
           </div>
 
