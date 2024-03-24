@@ -21,7 +21,7 @@ class IndividualTasksController < ApplicationController
     if @individual_task.save
       redirect_to individual_task_path(@individual_task), notice: "Challenge accepted!"
     else
-      render "individual_challenges/show"
+      render "individual_challenges/show", status: :unprocessable_entity
     end
   end
 

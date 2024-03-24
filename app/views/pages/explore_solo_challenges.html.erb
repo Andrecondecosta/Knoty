@@ -10,7 +10,7 @@
           <% @individual_challenges.each_with_index do |individual_challenge, index| %>
 
             <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= render 'shared/cards_individual_briefing', individual_challenge: individual_challenge %>
+              <%= render 'shared/cards_individual_briefing', individual_challenge: individual_challenge%>
             </div>
           <% end %>
         </div>

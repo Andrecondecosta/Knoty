@@ -1,10 +1,31 @@
-<div class="container" data-controller="toggle">
+<div class="container" data-controller="toggle challenges">
 
   <div style="position: relative;" data-quests-target="exploreQuestsTab">
     <div class="container">
       <div class="briefing-card">
         <h3 class="briefing-title ms-0 ps-0 text-center"><%= @couple_challenge.title %></h3>
         <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+
+
+        <div class="d-flex flex-row align-items-center bg-transparent pe-4" style="padding-left: 63px;">
+            <div class="rating">
+              <% @couple_challenge.difficulty.times do %>
+                <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
+              <% end %>
+            </div>
+            <div style="padding-left: 29px;">
+              <% if @couple_challenge.estimated_time == 1 %>
+                &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
+              <% elsif @couple_challenge.estimated_time == 2 %>
+                &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
+              <% elsif @couple_challenge.estimated_time == 3 %>
+                &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
+              <% end %>
+            </div>
+            <div style="padding-left: 29px;">
+              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710808418/person_1_cfasae.png" alt="couple">
+            </div>
+        </div>
 
         <div class="briefing-card-body p-4 pt-3" style="background-colour: transparent;">
           <h4 class="make-happen">Let's make it happen!</h4>
