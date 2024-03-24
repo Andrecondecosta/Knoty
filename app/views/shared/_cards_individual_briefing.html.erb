@@ -29,6 +29,8 @@
       &nbsp;&nbsp;&nbsp; <%= individual_challenge.details %>
     </p>
   </div>
+  <%= link_to individual_challenge_path(individual_challenge) do %>
+    <button type="button" class="begin-quest">Begin</button>
+  <% end %>
 
-  <button type="button" class="begin-quest" data-action="click->challenges#beginChallenge">Begin</button>
 </div>

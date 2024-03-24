@@ -22,14 +22,16 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.couple = @couple
     @event.user = current_user
-    if @event.save
-      if @event.is_memory
+    if @event.is_memory == true
+      if @event.save
         redirect_to timeline_events_path
       else
-        redirect_to @event
+        render :add_memory, status: :unprocessable_entity
       end
+    elsif @event.save
+      redirect_to @event
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -53,9 +55,7 @@ class EventsController < ApplicationController
   end
 
   def timeline
-    @events = Event.where(is_memory: true).to_a
-    @events << Event.new(date: current_user.created_at, name: "Welcome!", details: "The start of an", location: "Amazing adventure!")
-    @events.sort_by! { |event| -event.date.to_time.to_i }
+    @events = Event.where(is_memory: true).order(:date)
   end
 
   def add_memory
@@ -69,6 +69,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :date, :details, :location, :is_memory)
+    params.require(:event).permit(:name, :date, :details, :location, :is_memory, :image)
   end
 end

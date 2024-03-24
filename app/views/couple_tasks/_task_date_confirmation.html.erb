@@ -1,40 +1,49 @@
-  <!-- Date picking and submitting challenge -->
-  <div class="container" data-controller="form">
-    <div class="briefing-card">
-      <h3 class="briefing-title ms-0 ps-0 text-center"><%= challenge.title %></h3>
-      <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+<div class="container" data-controller="toggle">
 
-      <div class="briefing-card-body bg-light bg-opacity-25 p-4 pt-3">
-        <h4>Let's make it happen</h4>
-        <%= simple_form_for task,
-          data:{form_target: 'form'} do |f| %>
+  <div style="position: relative;" data-quests-target="exploreQuestsTab">
 
-          <!-- date options -->
-          <div data-form-target="radios" id="radiosForm" >
-            <input type="radio" class="btn-check" name="options" id="option1" value="<%= task.date_option_1 %>">
-            <label class="btn btn-outline-dark w-100 fs-5 my-1" for="option1"><%= task.date_option_1 %></label>
+    <!-- Date picking and submitting challenge -->
+    <div class="container" data-controller="form">
+      <div class="briefing-card">
+        <h3 class="briefing-title ms-0 ps-0 text-center"><%= challenge.title %></h3>
+        <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
 
-            <% unless task.date_option_2.nil? %>
-              <input type="radio" class="btn-check" name="options" id="option2" value="<%= task.date_option_2 %>">
-              <label class="btn btn-outline-dark w-100 fs-5 my-1" for="option2"><%= task.date_option_2 %></label>
-            <% end %>
+        <div class="briefing-card-body p-4 pt-3">
+          <h4>Let's make it happen</h4>
+          <%= simple_form_for task,
+            data:{form_target: 'form'} do |f| %>
 
-            <% unless task.date_option_3.nil? %>
-              <input type="radio" class="btn-check" name="options" id="option3" value="<%= task.date_option_3 %>">
-              <label class="btn btn-outline-dark w-100 fs-5 my-1" for="option3"><%= task.date_option_3 %></label>
-            <% end %>
-          </div>
+            <!-- date options -->
+            <div data-form-target="radios" id="radiosForm" >
+              <input type="radio" class="btn-check" name="options" id="option1" value="<%= task.date_option_1 %>">
+              <label class="btn btn-outline-dark w-100 fs-5 my-1" for="option1"><%= task.date_option_1 %></label>
 
-          <%= f.input :completion_date,
-                      wrapper_html: {class: "d-none"},
-                      input_html: {data: {form_target:"completionDateInput"}} %>
-          <!-- submit button -->
-          <div class="d-flex align-self-end justify-content-between mt-3 me-1">
-            <%= link_to "Back", quest_log_path, class: "btn btn-secondary ms-2" %>
-            <%= f.button :submit,value: "Accept", class:"btn btn-success", data: {action: "click->form#chooseDate"} %>
-          </div>
-        <% end %>
+              <% unless task.date_option_2.nil? %>
+                <input type="radio" class="btn-check" name="options" id="option2" value="<%= task.date_option_2 %>">
+                <label class="btn btn-outline-dark w-100 fs-5 my-1" for="option2"><%= task.date_option_2 %></label>
+              <% end %>
 
+              <% unless task.date_option_3.nil? %>
+                <input type="radio" class="btn-check" name="options" id="option3" value="<%= task.date_option_3 %>">
+                <label class="btn btn-outline-dark w-100 fs-5 my-1" for="option3"><%= task.date_option_3 %></label>
+              <% end %>
+            </div>
+
+            <%= f.input :completion_date,
+                        wrapper_html: {class: "d-none"},
+                        input_html: {data: {form_target:"completionDateInput"}} %>
+            <!-- submit button -->
+            <div class="d-flex align-self-end justify-content-between mt-3 me-1">
+              <%= f.button :submit,value: "Accept", class:"begin-quest", data: {action: "click->form#chooseDate"} %>
+            </div>
+          <% end %>
+
+        </div>
       </div>
     </div>
   </div>
+    <%= link_to couples_challenges_in_progress_path do %>
+    <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore">
+    <h5 class="go-back-text">back</h5>
+  <% end %>
+</div>

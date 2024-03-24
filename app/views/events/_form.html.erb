@@ -1,7 +1,7 @@
 <div class="h-60 row justify-content-center align-items-end">
   <div class="box col-10 p-3 glass-morph-card">
     <div class="container" data-controller= "toggle">
-      <%= simple_form_for(@event) do |f| %>
+      <%= simple_form_for(event) do |f| %>
         <!-- Personal information -->
         <div class="container" data-toggle-target="toggleableElem">
           <%= f.input :name %>
