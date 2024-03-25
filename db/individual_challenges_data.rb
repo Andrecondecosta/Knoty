@@ -10,7 +10,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: true,
     physical_touch: false,
     quality_time: false,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367921/You-are-Coded-1_oabmrt.jpg'
   },
   {
     title: "Snail Mails Shenanigans",
@@ -23,7 +24,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: true,
     physical_touch: false,
     quality_time: false,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367920/razvan-dumitrasconiu-Dd079V8Letk-unsplash_bjk2ep.jpg'
   },
   {
     title: "Compliment Carnival",
@@ -36,7 +38,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: true,
     physical_touch: false,
     quality_time: false,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367920/pawel-czerwinski-IKZg31SuNqU-unsplash_fqmtg3.jpg'
   },
   {
     title: "Movie Palooza",
@@ -49,7 +52,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: false,
     physical_touch: false,
     quality_time: true,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367920/jag-cz-movie-theater-retro-shutterstock-594132752___20094541619-ezgif.com-webp-to-jpg-converter_gjhidv.jpg'
   },
   {
     title: "Picnic Bonanza",
@@ -62,7 +66,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: false,
     physical_touch: false,
     quality_time: true,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367920/evangelina-silina-BzLUmuRDMWE-unsplash_dhvru8.jpg'
   },
   {
     title: "Bubbly Retreat",
@@ -75,7 +80,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: false,
     physical_touch: true,
     quality_time: false,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367919/maddi-bazzocco-TOZqUHD8L38-unsplash_u8t5dc.jpg'
   },
   {
     title: "Namaste",
@@ -88,7 +94,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: false,
     physical_touch: true,
     quality_time: true,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367920/scott-webb-hDyO6rr3kqk-unsplash_gn4d3p.jpg'
   },
   {
     title: "Chore-o-saurus Rex Challenge",
@@ -101,7 +108,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: false,
     physical_touch: true,
     quality_time: false,
-    receiving_gifts: false
+    receiving_gifts: false,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367920/planetcare-23coWmkTNSg-unsplash_zn9fvn.jpg'
   },
   {
     title: "Morning Munchie",
@@ -115,6 +123,7 @@ INDIVIDUAL_CHALLENGES = [
     physical_touch: false,
     quality_time: false,
     receiving_gifts: true,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367922/cocobols-6d6IE2AMszs-unsplash_r2ysty.jpg'
   },
   {
     title: "Treasure Hunt",
@@ -127,7 +136,8 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: true,
     physical_touch: false,
     quality_time: false,
-    receiving_gifts: true
+    receiving_gifts: true,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711368196/n-RFId0_7kep4-unsplash_oi4oh9.jpg'
   },
   {
     title: "You're my special one",
@@ -140,6 +150,7 @@ INDIVIDUAL_CHALLENGES = [
     words_of_affirmation: false,
     physical_touch: false,
     quality_time: false,
-    receiving_gifts: true
+    receiving_gifts: true,
+    img_url: 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1711367918/jess-bailey-f94JPVrDbnY-unsplash_jdqss4.jpg'
   },
 ]
