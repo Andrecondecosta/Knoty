@@ -6,7 +6,8 @@
         <div>
           <h3 class="briefing-title ms-0 ps-0 text-center"><%= @individual_challenge.title %></h3>
         </div>
-        <img class="briefing-card-img-top" src="https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Card image cap">
+          <%= image_tag @individual_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
+
 
         <div class="d-flex flex-row align-items-center bg-transparent pe-4" style="padding-left: 63px;">
             <div class="rating">
