@@ -3,6 +3,9 @@ section {
   padding: 30px 0;
 }
 
+.timeline {
+  background-color: rgba(245, 245, 245, 0.5);
+}
 
 .time-h1 {
   font-size: 100%;
@@ -11,31 +14,19 @@ section {
   font-weight: 400;
 }
 
-.timeline {
-  position: relative;
-
-  &::before {
-    content: '';
-    background: hsl(209, 77%, 71%);
-    width: 10px;
-    height: 95%;
-    position: absolute;
-    left: 11%;
-    transform: translateX(-50%);
-    z-index: 1;
-  }
+.title-timeline {
+  font-family: Berkshire Swash;
+  font-size: 38px;
+  color: black;
 }
 
-.timeline-img {
-  width: 52px;
-  height: 37px;
-  position:relative;
-  left: 5%;
-  margin-top: 0;
-  margin-left: -26px;
-  font-size: 10px;
-  z-index: 2;
-  flex-shrink: 0;
+.ropeknot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .timeline-item {
@@ -43,28 +34,49 @@ section {
 }
 
 .timeline-card-product {
-  overflow: hidden;
-  height: 162px;
-  width: 300px;
+  height: 171px;
+  width: 323px;
   backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  background-color: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(209, 213, 219, 0.3);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-image: url('paper_seven.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   padding: 10px;
-  border-radius: 5px;
-  margin-left: 38px;
-  flex-shrink: 0;
+  margin-top: 65px;
+  position: absolute;
+  left: 60px;
 }
 
 .timeline-card-product img {
-  height: 110%;
-  width: 130px;
+  height: 85%;
+  width: 104px;
   object-fit: cover;
   border-radius: 5px;
-  margin-right: -6px;
+  margin-right: 11px;
+}
+
+.filter-timeline-img {
+  box-shadow: 0 0 20px rgba(236, 223, 181, 0.767);
+  position: relative;
+}
+
+.overlay-image {
+  position: absolute;
+  top: -4px;
+  left: -7px;
+}
+
+.rope-date-display {
+  position: absolute;
+  top: 30px;
+  right: 56px;
+  left: 68px;
+  width: 300px;
+  font-family: Berkshire Swash;
+  font-size: 19px;
+  color: #270b0b;
 }
 
 .timeline_card-product h2 {
@@ -102,8 +114,8 @@ section {
 }
 
 .timeline-card-product:not(.flex-row-reverse) img {
-  margin-right: -5px;
-  margin-left: -5px;
+  margin-right: -2px;
+  margin-left: 7px;
 }
 
 .timeline.no-memories::before {
@@ -147,6 +159,34 @@ section {
   i {
     color: inherit;
   }
+}
+
+.new-memory-title {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: Berkshire Swash;
+}
+
+.new-memory-form {
+  background-image: url('paper_seven.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 690px;
+  padding-top: 57px;
+}
+
+.arrow-back-new-memory {
+  color: black;
+  position: absolute;
+  top: 600px;
+  background-image: url('wooden-arrow.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Berkshire Swash;
 }
 
 @media screen and (max-width: 768px) {

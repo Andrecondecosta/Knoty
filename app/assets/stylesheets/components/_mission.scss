@@ -129,7 +129,6 @@ input[type=radio]:checked + .icon-container {
   width: 200px;
   height: 50px;
   padding-top: -10px;
-  opacity: 0.8;
 
   color: rgb(6, 6, 6);
   font-weight: bolder;
@@ -137,8 +136,7 @@ input[type=radio]:checked + .icon-container {
   text-align: center;
 
   &:hover {
-    opacity: 1;
-    filter: brightness(80%);
+    height: 55px;
   }
 }
 

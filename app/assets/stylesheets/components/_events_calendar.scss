@@ -36,16 +36,16 @@
     }
 
     #calendar #month {
-      margin-top: 54px;
+      margin-top: 2px;
       padding-top: 10px;
-      padding-bottom: 10px;
+      padding-bottom: -3px;
       text-align: center;
-        font-size: 30px;
-        font-family: Berkshire Swash, serif;
-        font-weight: 400;
-        font-style: normal;
-        text-align: center;
-        color: rgb(47, 47, 47)
+      font-size: 30px;
+      font-family: Berkshire Swash, serif;
+      font-weight: 400;
+      font-style: normal;
+      text-align: center;
+      color: rgb(47, 47, 47)
     }
 
     #calendar #month a, #calendar #month a:hover {
@@ -101,6 +101,15 @@
 
     .icon-show:hover {
       color: darkgray;
+    }
+
+    .timeline-arrow-up {
+      position: absolute;
+      top: 720px;
+      left: 358px;
+      transform: translateX(-48%) rotate(-31deg);
+      width: 100px;
+      height: 50px;
     }
 
     .card-event-show{
