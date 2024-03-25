@@ -1,11 +1,19 @@
 class CoupleTasksController < ApplicationController
   before_action :set_couple, only: %i[show edit create mark_as_completed]
   before_action :set_partner, only: %i[show create]
+  before_action :set_couple_task, only: %i[show edit update mark_as_completed]
   before_action :set_pending_tasks, only: %i[show]
   before_action :set_invited_partner, only: %i[show edit]
 
   def show
+    return redirect_to edit_couple_task_path(@couple_task) if current_user == @invited_partner && @couple_task.active == false # ==========> Set in PUNDIT
+
     @couple_challenge = @couple.couple_challenges.find(@couple_task.couple_challenge_id)
+  end
+
+  def new
+    @couple_challenge = CoupleChallenge.find(params[:couple_challenge_id])
+    @couple_task = CoupleTask.new
   end
 
   def create
@@ -45,7 +53,6 @@ class CoupleTasksController < ApplicationController
   end
 
   def mark_as_completed
-    @couple_task = CoupleTask.find(params[:id])
     if @couple_task.update(completed: true)
       @couple.total_exp = 0 if @couple.total_exp.nil?
       @couple.total_exp += @couple_task.couple_challenge.exp

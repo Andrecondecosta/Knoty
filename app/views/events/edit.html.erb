@@ -7,7 +7,7 @@
 </div>
 
 <% if @event.is_memory %>
-  <%= render 'memory_form' %>
+  <%= render 'memory_form', event: @event %>
 <% else %>
-  <%= render 'form' %>
+  <%= render 'form', event: @event %>
 <% end %>

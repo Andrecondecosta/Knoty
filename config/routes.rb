@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :missions, only: [:index, :new, :create, :destroy, :edit, :update]
 
   # Couple challenges/tasks
-  resources :couple_challenges, only: [:show] do
-    resources :couple_tasks, only: [:create]
+  resources :couple_challenges, only: [] do
+    resources :couple_tasks, only: [:new, :create]
   end
   resources :couple_tasks, only: [:show, :edit, :update] do
     member do

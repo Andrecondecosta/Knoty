@@ -47,12 +47,14 @@
   </div>
 
 <%= simple_form_for [@chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+  html: { data: {chatroom_subscription_target: 'form',
+                 action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
   <%= f.input :content,
     label: false,
     placeholder: "e.g. You make me smile!",
     wrapper_html: { class: "flex-grow-1 mb-0" },
-    input_html: { style: "width: 98%" } %>
+    input_html: { style: "width: 98%; resize:none;", rows: 1, wrap: 'hard',
+    data: {action: 'keydown->chatroom-subscription#sendMessage'}, chatroom_subscription_target: 'input' } %>
   <%= image_submit_tag("message-send.png", alt: "Send", class: "send-wings") %>
 <% end %>
 
