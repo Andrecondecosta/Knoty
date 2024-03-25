@@ -1,14 +1,16 @@
 <div class="container">
-  <div class="add-memory d-flex justify-content-between">
-  <%= button_to 'New event', new_event_path, method: :get, class: 'btn btn-outline-dark' %>
-  <%= button_to 'Timeline', timeline_events_path, method: :get, class: 'btn btn-outline-dark' %>
-</div>
-  <div id="calendar">
+  <div class="add-memory mt-3 d-flex justify-content-end">
+    <%= link_to new_event_path do %>
+      <%= image_tag("https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png", alt: "add_mission", class: "mission_plus", style:"margin-right: 20px;") %>
+    <% end %>
+  </div>
+  <div id="calendar" style="position: relative;">
     <h2 id="month">
       <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
       <%=h @date.strftime("%B %Y") %>
       <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
     </h2>
+
     <%= calendar_for @event, @date, :year => @date.year, :month => @date.month do |t| %>
         <%= t.head('S','M', 'T', 'W', 'T', 'F', 'S') %>
         <%= t.day do |day, event| %>
@@ -38,4 +40,9 @@
         <% end %>
     <% end %>
   </div>
+
+  <%= link_to timeline_events_path do %>
+    <%= image_tag('arrow-up.png', alt: "arrow-up", class:'timeline-arrow-up') %>
+    <p style="position: absolute; top: 695px; right: 41px; font-size: 23px; font-family: Berkshire Swash, serif; text-decoration: none; color: black; line-height: 1px;">Odyssey<br>Timeline</p>
+  <% end %>
 </div>

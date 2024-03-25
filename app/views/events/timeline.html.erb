@@ -1,44 +1,66 @@
 <div class="container">
-  <div class="d-flex justify-content-between mb-1">
-    <%= button_to 'Add Memory', add_memory_events_path, method: :get, class: 'btn btn-outline-dark' %>
-    <%= link_to 'Calendar', events_path, class: 'btn btn-outline-dark' %>
+
+  <div class="d-flex mt-3 justify-content-between mb-1">
+    <%= link_to events_path do %>
+      <%= image_tag('wooden-arrow.png', alt: "go-back-arrow", style:'width: 75px; height: 44px; margin-left: 10px;') %>
+    <% end %>
+
+    <%= link_to add_memory_events_path do %>
+      <%= image_tag("https://res.cloudinary.com/dvgcwuo68/image/upload/v1710244537/sign_lighter_igvbsa.png", alt: "add_mission", class: "mission_plus", style:"margin-right: 20px;") %>
+    <% end %>
   </div>
-  <div class="d-flex justify-content-center">
-    <h1 class="m-0">Timeline</h1>
+
+  <div class="d-flex mb-4 mt-3 justify-content-center">
+    <h1 class="title-timeline m-0">Timeline</h1>
   </div>
-  <section class="timeline <%= 'no-memories' unless @events.any? %> " style="overflow-y:auto; height:705px;" >
-    <div class="container" >
-      <!-- Display memory cards -->
-      <% @events.each_with_index do |event, index| %>
-        <div class="timeline-item">
-          <div class="timeline-img bg-primary text-white text-center d-flex align-items-center justify-content-center" style="width: 75px; height: 30px; border-radius: 15px; margin-top: 0px; font-size: 11px; box-shadow: 0 0 10px rgba(0, 123, 255, 1);">
-            <strong>
-              <%= event.date.strftime("%d %b %Y") %>
-            </strong>
+
+  <section class="timeline <%= 'no-memories' unless @events.any? %> "style="overflow-y:auto; height:640px; margin-top: -11px; padding-top: 5px; border-radius: 10px;" >
+
+    <div class="container">
+      <% @events.sort_by(&:date).reverse.each_with_index do |event, index| %>
+        <div class="row" style="position: relative">
+
+          <div class="col-2 rope-side" style="position: relative;">
+            <%= image_tag "ropeknot.png", alt: "rope", class: "ropeknot" %>
+
+                <div>
+                  <% if event.date %>
+                    <div class="rope-date-display">
+                      <%= event.date.strftime("%e %B %Y") %>
+                    </div>
+                  <% end %>
+                </div>
           </div>
 
-          <div class="timeline-card-product mb-5 <%= 'flex-row-reverse' if index.even? %>">
-              <!-- Memory image -->
+          <div class="col-10 timeline-card-product <%= 'flex-row-reverse' if index.even? %>">
+
             <% if event.image.attached? %>
-              <%= cl_image_tag event.image.key %>
+              <div class="filter-timeline-img">
+                <%= cl_image_tag event.image.key, style: "width: 116px; height: 116px;" %>
+                <%= image_tag('frame.png', alt: 'littering', style:'width: 129px; height: 129px;', class:'overlay-image') %>
+              </div>
             <% else %>
-              <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711227662/How_happy_memories_can_boost_your_mood_hudtsk.jpg"/>
+              <div class="filter-timeline-img">
+                <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711227662/How_happy_memories_can_boost_your_mood_hudtsk.jpg" style="width: 116px; height: 116px;"/>
+                <%= image_tag('frame.png', alt: 'littering', style:'width: 129px; height: 129px;', class:'overlay-image') %>
+              </div>
             <% end %>
 
-            <div class="timeline-card-product-infos <%= index.even? ? 'text-align-right' : 'text-align-left' %>" style="padding: 8px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="timeline-card-product-infos <%= index.even? ? 'text-align-right me-1' : 'text-align-left ms-1' %>" style="padding: 8px; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <h4 style="word-wrap: break-word;"><%= event.name %></h4>
-                <p style="word-wrap: break-word;"><%= event.details %></p>
-                <p style="word-wrap: break-word;"><%= event.location %></p>
+                <h4 style="align-items: flex-start; max-width: 170px; overflow-wrap: break-word; word-wrap: break-word; font-size: 16px; font-weight: bold;"><%= event.name %></h4>
+                <p style="max-width: 170px; overflow-wrap: break-word; word-wrap: break-word; font-size: 15px; margin-top: 0px; line-height: 1;"><%= event.details %></p>
+                <p style="max-width: 170px; overflow-wrap: break-word; word-wrap: break-word;"><%= event.location %></p>
               </div>
             </div>
+
             <% unless event.name == "Welcome!" %>
               <div class="d-flex <%= index.even? ? 'flex-row' : 'flex-row-reverse' %> justify-content-start" style="position: absolute; bottom: 0; <%= index.even? ? 'left' : 'right' %>: 0;">
                 <%= link_to edit_event_path(event, origin: 'timeline'), class: 'icon-button-timeline' do %>
-                  <i class="fas fa-pen-square m-2 fa-lg "></i>
+                  <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: "#{index.even? ? 'filter: sepia(90%); filter: contrast(80%); width: 24px; height: 25px; padding-bottom: 1px; margin-left: 21px; margin-bottom: 9px; margin-right: 5px;' : 'filter: sepia(90%); filter: contrast(80%); width: 24px; height: 25px; padding-bottom: 1px; margin-right: 13px; margin-bottom: 13px; margin-left: 3px;'}") %>
                 <% end %>
                 <%= button_to event_path(event, origin: 'timeline'), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'icon-button-timeline' do %>
-                  <i class="fas fa-trash-alt m-2 fa-lg"></i>
+                  <%= image_tag('delete.png', alt: 'littering', style:'width: 20px; height: 20px; margin-bottom: 5px;') %>
                 <% end %>
               </div>
             <% end %>
@@ -47,4 +69,5 @@
       <% end %>
     </div>
   </section>
+
 </div>

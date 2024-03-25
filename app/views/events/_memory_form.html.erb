@@ -1,17 +1,22 @@
 <div class="h-60 row justify-content-center align-items-end">
-  <div class="box col-10 p-3 glass-morph-card">
+  <div class="box col-10 p-3">
     <div class="container" data-controller= "toggle">
       <%= simple_form_for(event) do |f| %>
         <!-- Personal information -->
-        <div class="container" data-toggle-target="toggleableElem">
-          <%= f.input :name, input_html: { maxlength: 9, placeholder: 'e.g: Birthday!', required: true } %>
-          <%= f.input :details, input_html: { maxlength: 18, placeholder: 'e.g: Loved this day!', required: true } %>
+        <div class="container" style="position: relative;" data-toggle-target="toggleableElem">
+          <%= f.input :name, input_html: { maxlength: 35, placeholder: 'e.g: Birthday!', required: true } %>
+          <%= f.input :details, input_html: { maxlength: 75, placeholder: 'e.g: Loved this day!', required: true } %>
           <%= f.input :date, html5: true, input_html: { class: "mb-3", required: true } %>
           <%= f.input :location, input_html: { maxlength: 18, placeholder: 'e.g: Lisbon', required: true } %>
           <%= f.input :is_memory, wrapper_html:{class: "d-none" }, input_html: {checked: true} %>
           <%= f.input :image, as: :file %>
-          <%= link_to 'Back', timeline_events_path, class: "btn btn-white", style: "color: black; " %>
-          <%= f.button :submit, "Edit memory", class: "btn btn-secondary", style: "border: 1px solid black; float: right;" %>
+          <%= f.button :submit, "Forge your memory!", class: 'wood-plaque-button', style: "position: absolute; top: 470px; right: 25px; width: 235px;" %>
+
+          <%= link_to timeline_events_path do %>
+            <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore" style="top: 600px; left: -57px;">
+            <h5 class="go-back-text" style="top: 598px; left: -51px;">back</h5>
+          <% end %>
+
           <% end %>
         </div>
     </div>
