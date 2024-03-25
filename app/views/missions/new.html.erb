@@ -1,11 +1,9 @@
   <%= simple_form_for @mission, html: { class: 'container mt-4 ps-3 pe-3 py-5 d-flex flex-column paper-form' } do |form| %>
-    <%= link_to missions_path, class: "arrow-back" do %>
-      <%= image_tag "direction-sign.png", alt: "direction", style: "width: 35px; margin-left: 20px;" %>
-    <% end %>
+
 
     <!-- still need to add font to add-mission -->
     <div class="add-mission d-flex justify-content-center mb-2 p-1 ps-0 d-f">
-      <h3 style="padding-left: 3px; padding-top: 0"><b>Add a mission to your board!</b></h3>
+      <h3 style="padding-left: 3px; padding-top: 0; font-family: Berkshire Swash, serif; font-size: 30px;"><b>Add a mission to your board!</b></h3>
     </div>
 
     <div class="d-flex flex-wrap justify-content-center">
@@ -61,3 +59,7 @@
       <% end %>
 
   </div>
+  <%= link_to missions_path, class: "arrow-back" do %>
+      <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore">
+    <h5 class="go-back-text">back</h5>
+  <% end %>
