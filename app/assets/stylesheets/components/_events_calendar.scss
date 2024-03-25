@@ -83,7 +83,7 @@
 
 
     .scrollable-content-show {
-      height: 696px;
+      height: 645px;
       overflow: auto;
       scrollbar-width: none;
     }
@@ -94,6 +94,9 @@
 
     .icon-show {
       color: gray;
+      position: absolute;
+      top: -34px;
+      right: 10px;
     }
 
     .icon-show:hover {
@@ -107,4 +110,16 @@
       transform: translateX(-48%) rotate(-31deg);
       width: 100px;
       height: 50px;
+    }
+
+    .card-event-show{
+      background: url('paper_seven.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      min-height: 110px;
+      padding-left: 15px;
+      border-radius: 15px;
+    }
+    .events-details{
+      padding-right: 20px;
     }

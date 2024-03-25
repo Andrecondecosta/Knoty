@@ -6,7 +6,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Hey Chef Extraordinaire! Your mission, should you choose to accept it, is to select an ingredient that's not just funny but also a bit bizarre. Think outside the box! Let your creativity run wild, and let's see what kind of culinary chaos you can stir up!",
     prompt_2: "Hey Kitchen Maestro! How about preparing a themed playlist to accompany your cooking adventure? Choose songs that match the vibe of the mystery ingredient you're planning to suprise your partner with and play it in the background as you cook together!",
-    exp: 20
+    exp: 20,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711282525/tamanna-rumee-B_bx1oKI5kg-unsplash_l3wmzu.jpg"
   },
   {
     title: "Creative Date Night",
@@ -15,7 +16,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Hey Rodin! While sculpting your partner's clay portrait, you must sneak in a tiny love message or inside joke, and hide it within the folds of your masterpiece. Include a playful instruction 'In case of emergency, break me open for a heartfelt surprise!",
     prompt_2: "Hey Sculpting Savant! As you craft your partner's clay portrait, consider adding a detachable feature that allows them to engage with the piece in a unique and meaningful way. Think along the lines of interchangeable facial expressions or accessories that enable your partner to customize the sculpture. Get ready for a pottery session that's as interactive as it is inventive!",
-    exp: 30
+    exp: 30,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711286279/tom-crew-NUUjVj4YQLA-unsplash_cgroy8.jpg"
   },
   {
     title: "Bonjour, Hola, Ciao!",
@@ -24,7 +26,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Here's a fun twist for your challenge: every time you use your chosen language, you must insert a fictional character's name or reference into the conversation. Whether it's a superhero or a literary figure, sneak them into your dialogue and see if, at the end of the day, your partner can catch the nods!",
     prompt_2: "Here's a twist to spice up your challenge: every time you use your chosen language to communicate with your partner, you must incorporate one animal noise into the conversation. Whether it's a meow, a bark, or a quack, add a wild touch to your linguistic adventure! At the end, try to understand if your partner got that funny twist!",
-    exp: 30
+    exp: 30,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281778/jon-tyson-8MMtYM_3xMY-unsplash_ul783u.jpg"
   },
   {
     title: "Lights, Camera, Adventure!",
@@ -33,7 +36,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Alongside capturing those iconic movie quotes themed photos, here's your unique task: incorporate, casually yet meaningfully, these 4 words into your conversations with your partner: 1) Serendipity; 2) Mellifluous; 3) Fandango; and 4) Quixotic. Whether you're describing the serendipitous discoveries you've made, discussing the mellifluous sounds of the city, or planning our next quixotic escapade, let these words add an extra layer of fun!",
     prompt_2: "While capturing those iconic movie quotes themed photos, here's your unique task: incorporate, casually yet meaningfully, these 4 traditional sayings into your conversations with your partner: 1) 'Hit the hay.'; 2) 'Raining cats and dogs.'; 3) 'I'm on cloud nine.'; and 4) 'A bird in the hand is worth two in the bush.'.  Feel free to directly translate these into your native language while enjoying your partner's confused look when you apply them!",
-    exp: 30
+    exp: 30,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281776/nordwood-themes-F3Dde_9thd8-unsplash_ogxbbz.jpg"
   },
   {
     title: "Guess Who's Smoochy!",
@@ -61,6 +65,7 @@ COUPLE_CHALLENGES =[
     9. If your partner could have any fictional character as a best friend, who would it be?
     10. What was the most heartwarming moment you've shared with your partner?",
     exp: 10,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281777/kelly-sikkema-CynAjQl3ISk-unsplash_rfykiw.jpg"
   },
   {
     title: "Hollywood Hijinks",
@@ -69,7 +74,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Before you unveil your transformed movie character during your dinner date, I challenge you to elevate the dining experience by decorating your partners' plate using the food items provided. Experiment with patterns, shapes, and designs, turning your partners' dinner plate into a work of art! Make it meaningfull!",
     prompt_2: "Your side-kick mission is to prepare a cocktail for your partner during your special dinner date. But here's the kicker – your cocktail must be more than just a drink. It should be a reflection of your creativity and love! Whether you opt for an alcoholic concoction or a refreshing mocktail, roll up your sleeves, grab your shaker, and get ready to mix up something magical!",
-    exp: 20
+    exp: 20,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281776/jon-tyson-A-obUh61bKw-unsplash_smhd2l.jpg"
   },
   {
     title: "Spa Staycation",
@@ -78,7 +84,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 2,
     prompt_1: "It's time to treat yourselfs to some well-deserved self-care with our'Face Mask Fiesta' challenge! Your task is to either make or buy a face mask that suits your skins' needs and indulge in a rejuvenating pampering session! Don't miss the opportunity to take photos!",
     prompt_2: "Surprise your partner with an organic tea or smothie. Indulge in this special treat and let it be a reminder of the love and care you share.",
-    exp: 10
+    exp: 10,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281775/hans-vivek-UiMkBvDQSAA-unsplash_hpintl.jpg"
   },
   {
     title: "Compliment Showdown",
@@ -87,7 +94,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 1,
     prompt_1: "Your mission before the challenge start is to put together an outfit that is as wacky as possible. Raid your wardrobe for the most mismatched, colorful, and eccentric pieces you can find! Make it hard for your partner to keep a straight expression!",
     prompt_2: "Your mission before the challenge starts is to create an eye-catching makeup look. Think flashy lipstick, vibrant eyeliner, and maybe even a faux beard for a playful twist. Get ready to bring laughter to the showdown with your bold style!",
-    exp: 10
+    exp: 10,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281774/denise-johnson-siRbJlln-xA-unsplash_rngw97.jpg"
   },
   {
     title: "Surprise factor",
@@ -96,7 +104,8 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Hi, you kisser. Its time to unleash your creativity in the realm of kisses. From sweet pecks to bold smooches, from quick bursts to lingering embraces, let your imagination run wild! Throughout the week, surprise your partner with an array of funny kiss-types. Keep track of your numbers and, at the end of the week, reveal your tally!",
     prompt_2: "This week, get ready to astonish your partner with an array of diverse hugs! From warm bear hugs to playful twirls and every hug in between, let your creativity shine. Remember, no two hugs should be the same type! Keep track of your hugs secretly, and at the end of the week, reveal your tally.",
-    exp: 20
+    exp: 20,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281777/jordis-small-_bp4-WG8rx4-unsplash_xgngvv.jpg"
   },
   {
     title: "Love Coupons",
@@ -105,6 +114,7 @@ COUPLE_CHALLENGES =[
     estimated_time: 3,
     prompt_1: "Craft a special secret coupon that fulfills one of your partner's desires or wishes, ensuring it's visually stunning and uniquely personalized. Then, present it to your partner as an extra-coupon surprise!",
     prompt_2: "Craft a special secret coupon that fulfills one of your partner's desires or wishes, ensuring it's visually stunning and uniquely personalized. Then, present it to your partner as an extra-coupon surprise!",
-    exp: 30
+    exp: 30,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281772/perry-merrity-ii-UmPS8Zf6FB0-unsplash_lz0eku.jpg"
   }
 ]
