@@ -16,6 +16,10 @@ class PagesController < ApplicationController
     @current_score = @couple.total_exp if signed_in? && @couple
   end
 
+  def landing
+    return redirect_to home_path if user_signed_in? # ===============> set in Pundit
+  end
+
   def quests
     # current_user solo tasks
     @my_solo_tasks = current_user.individual_tasks.where(completed: nil)

@@ -3,8 +3,7 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
   data-chatroom-subscription-current-user-avatar-url-value="<%= current_user.avatar_url %>"
-  data-chatroom-subscription-partner-avatar-url-value="<%= @partner.avatar_url %>"
-  data-chatroom-subscription-last-message-date-value="<%= @chatroom.messages.last.created_at.to_date unless @chatroom.messages.empty? %>">
+  data-chatroom-subscription-partner-avatar-url-value="<%= @partner.avatar_url %>">
 
   <!-- <%= @chatroom.name %> -->
   <div class="chatroom-board">
@@ -46,16 +45,16 @@
     <% end %>
   </div>
 
-<%= simple_form_for [@chatroom, @message],
-  html: { data: {chatroom_subscription_target: 'form',
-                 action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
-  <%= f.input :content,
-    label: false,
-    placeholder: "e.g. You make me smile!",
-    wrapper_html: { class: "flex-grow-1 mb-0" },
-    input_html: { style: "width: 98%; resize:none;", rows: 1, wrap: 'hard',
-    data: {action: 'keydown->chatroom-subscription#sendMessage'}, chatroom_subscription_target: 'input' } %>
-  <%= image_submit_tag("message-send.png", alt: "Send", class: "send-wings") %>
-<% end %>
+  <%= simple_form_for [@chatroom, @message],
+    html: { data: {chatroom_subscription_target: 'form',
+                  action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "e.g. You make me smile!",
+      wrapper_html: { class: "flex-grow-1 mb-0" },
+      input_html: { style: "width: 98%; resize:none;", rows: 1, wrap: 'hard',
+      data: {action: 'keydown->chatroom-subscription#sendMessage'}, chatroom_subscription_target: 'input' } %>
+    <%= image_submit_tag("message-send.png", alt: "Send", class: "send-wings") %>
+  <% end %>
 
 </div>

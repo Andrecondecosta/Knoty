@@ -1,77 +1,86 @@
 
-  <div class="container-progressing" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -620%);" data-controller="progress-bar"
-  data-progress-bar-current-score-value="<%= @current_score %>">
-    <div class="progress-container" style="width: 370px;">
-      <div class="progress" data-progress-bar-target="progress"> </div>
-      <div class="circle" data-progress-bar-target="circle"></div>
-      <div class="circle" data-progress-bar-target="circle"></div>
-      <div class="circle" data-progress-bar-target="circle"></div>
-      <div class="circle" data-progress-bar-target="circle"></div>
-    </div>
+<div class="container-progressing" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -620%);" data-controller="progress-bar"
+data-progress-bar-current-score-value="<%= @current_score %>">
+  <div class="progress-container" style="width: 370px;">
+    <div class="progress" data-progress-bar-target="progress"> </div>
+    <div class="circle" data-progress-bar-target="circle"></div>
+    <div class="circle" data-progress-bar-target="circle"></div>
+    <div class="circle" data-progress-bar-target="circle"></div>
+    <div class="circle" data-progress-bar-target="circle"></div>
   </div>
+</div>
 
-<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto" data-controller="island-slide overlay" data-island-slide-target="parentElem"
-  data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave">
+<div class="container islands-container p-0 m-0 h-100 w-100 overflow-auto" data-controller="island-slide overlay island-progress" data-island-slide-target="parentElem"
+  data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave"
+  data-island-progress-target="scrollContainer">
 
-  <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711404034/hub-bg.jpg", alt: "islands", class: "p-0", style:"height: 100%;",
-    data: {overlay_target: "islandsImage"} %>
+  <canvas data-island-progress-target="gridCanvas" data-overlay-target= "islandsImage"></canvas>
+
+  <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711404034/hub-bg.jpg", id:"backgroundImage", alt: "islands", class: "d-none", style:"height: 100%;",
+    data: {island_progress_target:"backgroundImage"} %>
+
+  <img class="d-none border border-dark" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711152239/avataaars-1711151929563_s4giop.png" data-island-progress-target="characterIcon"/>
+
+  <img class="d-none border border-dark"  src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711155904/avataaars-1711155890493_omrfrr.png" data-island-progress-target="characterIcon"/>
+
+
+
 
   <%= link_to '#', class: "book-icon", data: { action: "click->overlay#toggleOverlay click->modal#toggle" } do %>
-
     <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/open-book_ea66sn.png" alt="Book" class="book book-inactive" data-overlay-target= "bookButton">
   <% end %>
 
   <div class="overlay d-none rounded-4" id="overlay" data-overlay-target="overlay" data-island-slide-target="overlay">
-  <h3 class="text-center my-3" style="font-family: Berkshire Swash, serif; font-weight: 400; font-style: normal; padding-top: 10px">The start of a journey</h3>
-  <div class="overlay-content px-4 fs-5" style="font-family: Playfair; font-style: normal; font-weight: 400; font-size: 15px;">
-    <div class="scrollable-content">
-      <p>&nbsp;It wasn’t soon until the news arrived at
-        <%= signed_in? && current_user.first_name && @partner.first_name ? "#{@couple.partner_1.first_name} and #{@couple.partner_2.first_name}'s": "the heroes'" %>
-          house. Long
-          before that day, they’d only heard of it in ancient tales. From time to time, in
-          the village, couples claimed that they had encountered these feared
-          creatures. However, as no one else could see them except for the couples
-          themselves, they were often dismissed as figments of their own imagination.
-          Yet, this time was different.</p>
-      <p>Boredoom and his faithful henchman, Chorebrutus, had been viciously
-          spreading their venom among couples from nearby villages. Stealthily
-          prowling through the surrounding communities, they sowed chaos and fear
-          among the couples. Boredoom was determined to tear every couple apart,
-          revelling in the malicious pride of being the orchestrator of love’s downfall.
-          Anca and Ahmed had been living in Heartshire since they fell in love. Having
-          a kind and thoughtful way with each other, both being dreamers and eager
-          to build their lives together, they embarked on each day with commitment
-          and devotion. Now, to protect their love, they would have to confront the
-          looming threat of Boredoom and Chorebrutus.</p>
-      <p>Determined to protect their love against these malevolent forces, Anca and
-          Ahmed sought guidance from an elder, known to be the sole survivor of a
-          couple whose love had withstood the trials imposed by these creatures.
-          The elder, a venerable figure with eyes that seemed to hold centuries of
-          wisdom, explained that Boredoom and Chorebrutus were embodiments of
-          discord and envy and thrived on the pain and suffering they caused. Legend
-          had it that the key to defeating these creatures lay hidden within the seven
-          islands of Venus Archipelago. It was said that on each island, a different type
-          of love seed flourished, possessing unparalleled strength and resilience.
-          Once nurtured and cared for daily, these seeds possessed the remarkable
-          ability to render the creatures to insignificance, causing them to shrink and
-          ultimately disintegrate into ashes.</p>
-      <p>Driven by the hope ignited by this legend, Anca and Ahmed resolved to
-          embark on a journey to Venus Archipelago. They knew that only by finding
-          and harnessing the power of these extraordinary seeds could they vanquish
-          the malevolent forces threatening their love.</p>
+    <h3 class="text-center my-3" style="font-family: Berkshire Swash, serif; font-weight: 400; font-style: normal; padding-top: 10px">The start of a journey</h3>
+    <div class="overlay-content px-4 fs-5" style="font-family: Playfair; font-style: normal; font-weight: 400; font-size: 15px;">
+      <div class="scrollable-content">
+        <p>&nbsp;It wasn’t soon until the news arrived at
+          <%= signed_in? && current_user.first_name && @partner.first_name ? "#{@couple.partner_1.first_name} and #{@couple.partner_2.first_name}'s": "the heroes'" %>
+            house. Long
+            before that day, they’d only heard of it in ancient tales. From time to time, in
+            the village, couples claimed that they had encountered these feared
+            creatures. However, as no one else could see them except for the couples
+            themselves, they were often dismissed as figments of their own imagination.
+            Yet, this time was different.</p>
+        <p>Boredoom and his faithful henchman, Chorebrutus, had been viciously
+            spreading their venom among couples from nearby villages. Stealthily
+            prowling through the surrounding communities, they sowed chaos and fear
+            among the couples. Boredoom was determined to tear every couple apart,
+            revelling in the malicious pride of being the orchestrator of love’s downfall.
+            Anca and Ahmed had been living in Heartshire since they fell in love. Having
+            a kind and thoughtful way with each other, both being dreamers and eager
+            to build their lives together, they embarked on each day with commitment
+            and devotion. Now, to protect their love, they would have to confront the
+            looming threat of Boredoom and Chorebrutus.</p>
+        <p>Determined to protect their love against these malevolent forces, Anca and
+            Ahmed sought guidance from an elder, known to be the sole survivor of a
+            couple whose love had withstood the trials imposed by these creatures.
+            The elder, a venerable figure with eyes that seemed to hold centuries of
+            wisdom, explained that Boredoom and Chorebrutus were embodiments of
+            discord and envy and thrived on the pain and suffering they caused. Legend
+            had it that the key to defeating these creatures lay hidden within the seven
+            islands of Venus Archipelago. It was said that on each island, a different type
+            of love seed flourished, possessing unparalleled strength and resilience.
+            Once nurtured and cared for daily, these seeds possessed the remarkable
+            ability to render the creatures to insignificance, causing them to shrink and
+            ultimately disintegrate into ashes.</p>
+        <p>Driven by the hope ignited by this legend, Anca and Ahmed resolved to
+            embark on a journey to Venus Archipelago. They knew that only by finding
+            and harnessing the power of these extraordinary seeds could they vanquish
+            the malevolent forces threatening their love.</p>
+      </div>
+    </div>
+
+    <div class="overlay-button" data-controller="audio">
+
+      <% if signed_in? && @couple.audio.attached? %>
+        <%= audio_tag @couple.audio, data: {audio_target: "storyAudio"}%>
+      <% else %>
+        <%= audio_tag "https://res.cloudinary.com/dvgcwuo68/video/upload/v1710779454/development/2az0g93jjfghblihys3bq6s7fhz9.mp3",
+          data: {audio_target: "storyAudio"}%>
+      <% end %>
+
+      <button data-action="click->audio#playAudio"><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-bottom: 15px;"></i></button>
     </div>
   </div>
-  <div class="overlay-button" data-controller="audio">
-
-    <% if signed_in? && @couple.audio.attached? %>
-      <%= audio_tag @couple.audio, data: {audio_target: "storyAudio"}%>
-    <% else %>
-      <%= audio_tag "https://res.cloudinary.com/dvgcwuo68/video/upload/v1710779454/development/2az0g93jjfghblihys3bq6s7fhz9.mp3",
-        data: {audio_target: "storyAudio"}%>
-    <% end %>
-
-
-    <button data-action="click->audio#playAudio"><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-bottom: 15px;"></i></button>
-  </div>
-</div>
 </div>

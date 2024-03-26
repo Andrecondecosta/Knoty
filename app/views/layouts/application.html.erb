@@ -26,15 +26,15 @@
 
   <body class="d-flex justify-content-center bg-dark">
     <!-- App container -->
-    <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) || current_page?(new_love_language_path) %>
+    <% clear_pages = current_page?('/edit_profile') || current_page?('/users/invitation/new') || current_page?(accept_user_invitation_path) || current_page?(new_love_language_path) || current_page?(root_path) %>
 
 
     <% if clear_pages %> <!-- Clear pages -->
-      <div class="content-box border border-dark bg-clear-page">
+      <div class="content-box border border-dark <%= 'bg-clear-page' unless current_page?(root_path) %> ">
         <%= yield %>
       </div>
 
-    <% elsif current_page?(root_path) %>  <!-- Home page -->
+    <% elsif current_page?(home_path) %>  <!-- Home page -->
       <div class="content-box border border-dark position-relative">
         <%= render "shared/navbar"%>
         <%= render 'shared/flashes' %>
