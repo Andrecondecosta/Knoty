@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :set_partner, only: %i[create]
 
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
@@ -22,5 +23,11 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def set_partner
+    return unless signed_in? && @couple
+
+    @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
   end
 end

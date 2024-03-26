@@ -44,7 +44,8 @@ Rails.application.routes.draw do
   end
 
   # Pages
-  root to: "pages#home"
+  root to: "pages#landing"
+  get '/home', to: "pages#home"
   get "edit_profile" => "users#edit_profile"
   get 'edit_existing_profile', to: 'users#edit_existing_profile'
   get '/quest_log', to: 'pages#quests'

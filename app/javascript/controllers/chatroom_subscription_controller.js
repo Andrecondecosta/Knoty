@@ -2,10 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
-  static values = { chatroomId: Number, currentUserId: Number, currentUserAvatarUrl: String, partnerAvatarUrl: String, lastMessageDate: String }
+  static values = { chatroomId: Number, currentUserId: Number, currentUserAvatarUrl: String, partnerAvatarUrl: String }
   static targets = ["messages", "form", "input"]
-
-  lastMessage = new Date(this.lastMessageDateValue)
 
   connect() {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
@@ -13,7 +11,6 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       {
         received: data => {
-          this.insertDate(data.date)
           this.insertMessage(data.message, data.sender_id)
         }
       }
@@ -60,21 +57,6 @@ export default class extends Controller {
       ${senderImageElem}
     </div>
     `;
-  }
-
-  insertDate(messageDate) {
-    const currentMessageDate = new Date(messageDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
-    const dateElem = `
-      <div class="common-header">
-        ${currentMessageDate}
-      </div>
-    `;
-    if (this.lastMessageDateValue.length === 0) {
-      this.messagesTarget.insertAdjacentHTML('beforeend', dateElem)
-      window.location.reload();
-    } else if (currentMessageDate > this.lastMessage) {
-      return this.messagesTarget.insertAdjacentHTML('beforeend', dateElem)
-    }
   }
 
   justifyClass(currentUserIsSender) {

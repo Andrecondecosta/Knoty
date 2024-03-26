@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="progress-bar"
 export default class extends Controller {
-  static targets = ["progress", "circle"]
+  static targets = ["progress", "circle", "gridCanvas", "backgroundImage"]
   static values = { currentScore: String }
 
   score = Number(this.currentScoreValue)
