@@ -1,36 +1,37 @@
-<div class="briefing-card">
-  <div>
-    <h3 class="briefing-title ms-0 ps-0 text-center"><%= individual_challenge.title %></h3>
-  </div>
-  <%= image_tag individual_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
+<div>
+  <div class="briefing-card" style="margin-top: -10px;">
+    <div>
+      <h3 class="briefing-title ms-0 ps-0 text-center"><%= individual_challenge.title %></h3>
+    </div>
+    <%= image_tag individual_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
 
-  <div class="d-flex flex-row card-footer-briefing bg-transparent pe-3">
-      <div class="col-6 ps-2">
-        <% individual_challenge.difficulty.times do %>
-          <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
-        <% end %>
-      </div>
-      <div class="col-3">
-        <% if individual_challenge.estimated_time == 1 %>
-          &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
-        <% elsif individual_challenge.estimated_time == 2 %>
-          &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
-        <% elsif individual_challenge.estimated_time == 3 %>
-          &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
-        <% end %>
-      </div>
-      <div class="col-3 d-flex justify-content-end">
-        <img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710808418/person_1_cfasae.png" alt="individual">
-      </div>
-  </div>
+    <div class="d-flex flex-row card-footer-briefing bg-transparent pe-3">
+        <div class="col-6 ps-2">
+          <% individual_challenge.difficulty.times do %>
+            <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
+          <% end %>
+        </div>
+        <div class="col-3">
+          <% if individual_challenge.estimated_time == 1 %>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
+          <% elsif individual_challenge.estimated_time == 2 %>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
+          <% elsif individual_challenge.estimated_time == 3 %>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
+          <% end %>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710808418/person_1_cfasae.png" alt="individual">
+        </div>
+    </div>
 
-  <div class="briefing-card-body">
-    <p class="card-text" style="font-size:18px;">
-      &nbsp;&nbsp;&nbsp; <%= individual_challenge.details %>
-    </p>
+    <div class="briefing-card-body">
+      <p class="card-text scrollable-content" style="font-size:18px; max-height: 295px !important;">
+        &nbsp;&nbsp;&nbsp; <%= individual_challenge.details %>
+      </p>
+    </div>
+    <%= link_to individual_challenge_path(individual_challenge) do %>
+      <button type="button" class="begin-quest">Begin</button>
+    <% end %>
   </div>
-  <%= link_to individual_challenge_path(individual_challenge) do %>
-    <button type="button" class="begin-quest">Begin</button>
-  <% end %>
-
 </div>

@@ -1,40 +1,39 @@
-<div>
-  <div class="briefing-card">
-    <div>
-      <h3 class="briefing-title ms-0 ps-0 text-center"><%= couple_challenge.title %></h3>
-    </div>
 
-
-    <%= image_tag couple_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
-
-    <div class="d-flex flex-row card-footer-briefing bg-transparent pe-3">
-        <div class="col-6 ps-2">
-          <% couple_challenge.difficulty.times do %>
-            <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
-          <% end %>
-        </div>
-        <div class="col-3">
-          <% if couple_challenge.estimated_time == 1 %>
-            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
-          <% elsif couple_challenge.estimated_time == 2 %>
-            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
-          <% elsif couple_challenge.estimated_time == 3 %>
-            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
-          <% end %>
-        </div>
-        <div class="col-3 d-flex justify-content-end">
-          <img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710809106/couples_ey70h2.png" style="width: 50px; height: 30px;" alt="Couple">
-        </div>
-    </div>
-
-    <div class="briefing-card-body">
-      <p class="card-text" style="font-size:18px;">
-        &nbsp;&nbsp;&nbsp; <%= couple_challenge.details %>
-      </p>
-    </div>
-    <%= link_to  new_couple_challenge_couple_task_path(couple_challenge) do %>
-      <button type="button" class="begin-quest">Begin</button>
-    <% end %>
-
+<div class="briefing-card" style="margin-top: -10px">
+  <div>
+    <h3 class="briefing-title ms-0 ps-0 text-center"><%= couple_challenge.title %></h3>
   </div>
+
+
+  <%= image_tag couple_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
+
+  <div class="d-flex flex-row card-footer-briefing bg-transparent pe-3">
+      <div class="col-6 ps-2">
+        <% couple_challenge.difficulty.times do %>
+          <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
+        <% end %>
+      </div>
+      <div class="col-3">
+        <% if couple_challenge.estimated_time == 1 %>
+          &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
+        <% elsif couple_challenge.estimated_time == 2 %>
+          &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
+        <% elsif couple_challenge.estimated_time == 3 %>
+          &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
+        <% end %>
+      </div>
+      <div class="col-3 d-flex justify-content-end">
+        <img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710809106/couples_ey70h2.png" style="width: 50px; height: 30px;" alt="Couple">
+      </div>
+  </div>
+
+  <div class="briefing-card-body">
+    <p class="card-text scrollable-content" style="font-size:18px; max-height: 295px !important;">
+      &nbsp;&nbsp;&nbsp; <%= couple_challenge.details %>
+    </p>
+  </div>
+  <%= link_to  new_couple_challenge_couple_task_path(couple_challenge) do %>
+    <button type="button" class="begin-quest">Begin</button>
+  <% end %>
+
 </div>
