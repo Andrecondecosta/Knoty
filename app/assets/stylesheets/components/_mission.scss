@@ -5,10 +5,11 @@
   align-items: center;
   width: 400px;
   height: 130px;
-  background-image: image-url('Burnpaper.png');
+  background-image: url('paper_three.png');
   background-repeat: no-repeat;
-  background-size: 419px 132px;
+  background-size: 412px 132px;
   background-position: -9px;
+  margin: 4px;
 
   &:hover {
     .thumb {
@@ -98,7 +99,7 @@ input[type=radio]:checked + .icon-container {
 .arrow-back {
   margin-top: 0px;
   margin-left: 0px;
-}
+  }
 
 .sub-label {
   font-size: 0.8em;
@@ -111,8 +112,10 @@ input[type=radio]:checked + .icon-container {
   width: 50px;
   height: 50px;
   opacity: 0.8;
+  transition: transform 0.1s ease;
 
-  &:hover {
+    &:hover {
+    transform: scale(1.07);
     opacity: 1;
     filter: brightness(80%);
   }

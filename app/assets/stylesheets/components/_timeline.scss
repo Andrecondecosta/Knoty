@@ -1,3 +1,12 @@
+.wooden-arrow-timeline {
+  width: 75px;
+  height: 44px;
+  margin-left: 10px;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: scale(1.08);
+  }
+}
 
 section {
   padding: 30px 0;

@@ -6,9 +6,9 @@
   </div>
   <div id="calendar" style="position: relative;">
     <h2 id="month">
-      <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+      <%= link_to image_tag("wooden-arrow.png", style: "width: 38px; height: 30px;"), :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
       <%=h @date.strftime("%B %Y") %>
-      <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+      <%= link_to image_tag("wood-arrow.png", style: "width: 38px; height: 30px;"), :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
     </h2>
 
     <%= calendar_for @event, @date, :year => @date.year, :month => @date.month do |t| %>
@@ -42,7 +42,8 @@
   </div>
 
   <%= link_to timeline_events_path do %>
-    <%= image_tag('arrow-up.png', alt: "arrow-up", class:'timeline-arrow-up') %>
-    <p style="position: absolute; top: 695px; right: 41px; font-size: 23px; font-family: Berkshire Swash, serif; text-decoration: none; color: black; line-height: 1px;">Odyssey<br>Timeline</p>
+    <%= image_tag('calendar-plaque.png', alt: "calendar-plaque", class:'calendar-plaque') %>
+    <p class="odyssey-timeline-label">forge your</p>
+    <p class="odyssey-timeline">Odyssey Timeline</p>
   <% end %>
 </div>

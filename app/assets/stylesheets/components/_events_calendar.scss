@@ -103,13 +103,39 @@
       color: darkgray;
     }
 
-    .timeline-arrow-up {
+    .calendar-plaque {
       position: absolute;
-      top: 720px;
-      left: 358px;
-      transform: translateX(-48%) rotate(-31deg);
-      width: 100px;
-      height: 50px;
+      top: 703px;
+      left: 99px;
+      width: 230px;
+      height: 74px;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: rgb(238, 216, 156) 0px 0px 20px 2px;
+      }
+    }
+
+    .odyssey-timeline {
+      position: absolute;
+      top: 737px;
+      right: 120px;
+      font-size: 25px;
+      font-family: Berkshire Swash, serif;
+      text-decoration: none;
+      color: black;
+      line-height: 26px;
+    }
+
+    .odyssey-timeline-label {
+      position: absolute;
+      top: 709px;
+      right: 175px;
+      font-size: 17px;
+      font-family: Berkshire Swash, serif;
+      text-decoration: none;
+      color: black;
+      line-height: 26px;
     }
 
     .card-event-show{
