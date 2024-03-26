@@ -28,7 +28,7 @@
       <% unless @active_tasks.nil? || @active_tasks.empty?  %>
         <% @active_tasks.each do |task| %>
 
-          <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+          <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
             <%= render 'shared/cards_ongoing_active_couple', task: task %>
           <% end %>
 
@@ -46,11 +46,11 @@
         <% @pending_tasks.each do |task| %>
 
           <% if current_user == User.find(task.invited_id) && task.active == false %>
-            <%= link_to edit_couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+            <%= link_to edit_couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
               <%= render 'shared/cards_ongoing_pending_couple', task: task %>
             <% end %>
           <% else %>
-            <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+            <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
               <%= render 'shared/cards_ongoing_pending_couple', task: task %>
             <% end %>
           <% end %>
