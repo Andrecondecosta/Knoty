@@ -103,41 +103,46 @@
       color: darkgray;
     }
 
-    .calendar-plaque {
-      position: absolute;
-      top: 703px;
-      left: 99px;
-      width: 230px;
-      height: 74px;
-      transition: transform 0.3s ease;
-      &:hover {
-        transform: scale(1.03);
-        box-shadow: rgb(238, 216, 156) 0px 0px 20px 2px;
-      }
-    }
+   .hoverable {
+    bottom: 26px;
+    position: absolute;
+    right: 98px;
+    transition: transform 0.3s ease;
 
-    .odyssey-timeline {
-      position: absolute;
-      top: 737px;
-      right: 120px;
-      font-size: 25px;
-      font-family: Berkshire Swash, serif;
-      text-decoration: none;
-      color: black;
-      line-height: 26px;
-    }
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: rgb(238, 216, 156) 0px 0px 20px 2px;
+  }
 
-    .odyssey-timeline-label {
-      position: absolute;
-      top: 709px;
-      right: 175px;
-      font-size: 17px;
-      font-family: Berkshire Swash, serif;
-      text-decoration: none;
-      color: black;
-      line-height: 26px;
-    }
+  .calendar-plaque {
+    top: 703px;
+    left: 99px;
+    width: 230px;
+    height: 74px;
+  }
 
+  .odyssey-timeline {
+    position: absolute;
+    top: 38px;
+    right: 21px;
+    font-size: 25px;
+    font-family: Berkshire Swash, serif;
+    text-decoration: none;
+    color: black;
+    line-height: 26px;
+  }
+
+  .odyssey-timeline-label {
+    position: absolute;
+    top: 8px;
+    right: 69px;
+    font-size: 17px;
+    font-family: Berkshire Swash, serif;
+    text-decoration: none;
+    color: black;
+    line-height: 26px;
+  }
+}
     .card-event-show{
       background: url('paper_seven.png');
       background-size: 100% 100%;
