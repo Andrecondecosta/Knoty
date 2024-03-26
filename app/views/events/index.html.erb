@@ -42,8 +42,10 @@
   </div>
 
   <%= link_to timeline_events_path do %>
-    <%= image_tag('calendar-plaque.png', alt: "calendar-plaque", class:'calendar-plaque') %>
-    <p class="odyssey-timeline-label">forge your</p>
-    <p class="odyssey-timeline">Odyssey Timeline</p>
+    <div class="hoverable">
+      <%= image_tag('calendar-plaque.png', alt: "calendar-plaque", class:'calendar-plaque') %>
+      <p class="odyssey-timeline-label">forge your</p>
+      <p class="odyssey-timeline">Odyssey Timeline</p>
+    </div>
   <% end %>
 </div>
