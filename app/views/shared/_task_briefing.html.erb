@@ -1,13 +1,13 @@
 <div class="container" data-controller="toggle">
 
   <div style="position: relative;" data-quests-target="exploreQuestsTab">
-    <div class="container">
-      <div class="briefing-card d-flex flex-column">
+    <div class="briefing-card" >
+      <div class="d-flex flex-column">
         <div class="mb-auto">
-          <h3 class="briefing-title ms-0 ps-0 text-center"><%= challenge.title %></h3>
+          <h3 class="briefing-title ms-0 ps-0 text-center" style="margin-top: 0px;"><%= challenge.title %></h3>
             <%= image_tag challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
           <div class="overflow-y-auto mx-2">
-            <p class="card-text text-secondary-emphasis" style="font-size:18px;">
+            <p class="card-text text-secondary-emphasis scrollable-content" style="font-size:18px; max-height: 340px !important;">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= prompt %>
             </p>
           </div>

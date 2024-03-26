@@ -11,7 +11,7 @@ h3 {
   border-radius: 20%;
   height: 184px;
   width: 342px;
-  margin-left: 24px;
+  margin-left: 16px;
   margin-top: 20px;
   opacity: 0.8;
 }
@@ -38,12 +38,12 @@ h3 {
 }
 
 .card-text {
-  padding: 19px 15px 0px 22px;
-  color: rgb(34, 20, 20);
-  font-family: "Vidaloka", serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
+  padding: 19px 15px 0px 22px !important;
+  color: rgb(34, 20, 20) !important;
+  font-family: "Vidaloka", serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 16px !important;
 }
 
 .briefing-title {
@@ -82,9 +82,9 @@ h3 {
   font-size: 20px;
   text-align: center;
 
+  transition: transform 0.3s ease;
   &:hover {
-    width: 146px;
-    height: 54px;
+    transform: scale(1.04);
   }
 }
 
