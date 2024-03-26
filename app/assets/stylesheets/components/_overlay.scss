@@ -1,22 +1,25 @@
 .overlay {
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -55%);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url(parchment3.png);
+  background-size: 99% 100%;
+  background-repeat: no-repeat;
   text-align: center;
-  width: 93%;
-  height: 88%;
+  width: 97%;
+  height: 92%;
 }
 
 .overlay-content {
-  max-width: 100%;
+  max-width: 108%;
   word-wrap: break-word;
-  padding: 0 5px;
+  padding: -1px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  max-height: 85%;
 }
 
 .hidden {
@@ -29,7 +32,7 @@
 
 .overlay-button {
   position: absolute;
-  bottom: 0px;
+  bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
@@ -48,15 +51,15 @@
 }
 
 .scrollable-content {
-  height: 550px; /* Adjust this value as needed */
+  height: 500px;
   overflow: auto;
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   font-family: "Slabo 27px", serif;
 }
 
 .scrollable-content::-webkit-scrollbar {
-  width: 0px; /* For Chrome, Safari, and Opera */
+  width: 0px;
 }
 
 #overlay, #overlay * {

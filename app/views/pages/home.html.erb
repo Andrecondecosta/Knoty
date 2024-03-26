@@ -10,7 +10,7 @@
     </div>
   </div>
 
-<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto" data-controller="island-slide overlay" data-island-slide-target="parentElem"
+<div class="container islands-container p-0 m-0 h-100 w-100 overflow-x-auto" style="position: relative;" data-controller="island-slide overlay" data-island-slide-target="parentElem"
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave">
 
   <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711404034/hub-bg.jpg", alt: "islands", class: "p-0", style:"height: 100%;",
@@ -21,11 +21,13 @@
     <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/open-book_ea66sn.png" alt="Book" class="book book-inactive" data-overlay-target= "bookButton">
   <% end %>
 
-  <div class="overlay d-none rounded-4" id="overlay" data-overlay-target="overlay" data-island-slide-target="overlay">
-  <h3 class="text-center my-3" style="font-family: Berkshire Swash, serif; font-weight: 400; font-style: normal; padding-top: 10px">The start of a journey</h3>
-  <div class="overlay-content px-4 fs-5" style="font-family: Playfair; font-style: normal; font-weight: 400; font-size: 15px;">
-    <div class="scrollable-content">
-      <p>&nbsp;It wasn’t soon until the news arrived at
+  <div class="overlay d-none rounded-4 overlay-parchment" id="overlay" data-overlay-target="overlay" data-island-slide-target="overlay">
+    <h3 class="text-center mb-3" style="font-family: Berkshire Swash, serif; font-weight: 400; font-style: normal; padding-top: 10px; padding-left: 0px; margin-top: 67px;">The start of a journey</h3>
+
+    <div class="overlay-content px-5" style="font-family: Playfair; font-style: normal; font-weight: 400; font-size: 18px;">
+
+      <div class="scrollable-content">
+        <p>&nbsp;It wasn’t soon until the news arrived at
         <%= signed_in? && current_user.first_name && @partner.first_name ? "#{@couple.partner_1.first_name} and #{@couple.partner_2.first_name}'s": "the heroes'" %>
           house. Long
           before that day, they’d only heard of it in ancient tales. From time to time, in
@@ -33,7 +35,7 @@
           creatures. However, as no one else could see them except for the couples
           themselves, they were often dismissed as figments of their own imagination.
           Yet, this time was different.</p>
-      <p>Boredoom and his faithful henchman, Chorebrutus, had been viciously
+        <p>Boredoom and his faithful henchman, Chorebrutus, had been viciously
           spreading their venom among couples from nearby villages. Stealthily
           prowling through the surrounding communities, they sowed chaos and fear
           among the couples. Boredoom was determined to tear every couple apart,
@@ -43,7 +45,7 @@
           to build their lives together, they embarked on each day with commitment
           and devotion. Now, to protect their love, they would have to confront the
           looming threat of Boredoom and Chorebrutus.</p>
-      <p>Determined to protect their love against these malevolent forces, Anca and
+        <p>Determined to protect their love against these malevolent forces, Anca and
           Ahmed sought guidance from an elder, known to be the sole survivor of a
           couple whose love had withstood the trials imposed by these creatures.
           The elder, a venerable figure with eyes that seemed to hold centuries of
@@ -55,23 +57,25 @@
           Once nurtured and cared for daily, these seeds possessed the remarkable
           ability to render the creatures to insignificance, causing them to shrink and
           ultimately disintegrate into ashes.</p>
-      <p>Driven by the hope ignited by this legend, Anca and Ahmed resolved to
+        <p>Driven by the hope ignited by this legend, Anca and Ahmed resolved to
           embark on a journey to Venus Archipelago. They knew that only by finding
           and harnessing the power of these extraordinary seeds could they vanquish
           the malevolent forces threatening their love.</p>
+      </div>
+
     </div>
-  </div>
-  <div class="overlay-button" data-controller="audio">
 
-    <% if signed_in? && @couple.audio.attached? %>
-      <%= audio_tag @couple.audio, data: {audio_target: "storyAudio"}%>
-    <% else %>
-      <%= audio_tag "https://res.cloudinary.com/dvgcwuo68/video/upload/v1710779454/development/2az0g93jjfghblihys3bq6s7fhz9.mp3",
+    <div class="overlay-button" data-controller="audio">
+
+      <% if signed_in? && @couple.audio.attached? %>
+        <%= audio_tag @couple.audio, data: {audio_target: "storyAudio"}%>
+      <% else %>
+        <%= audio_tag "https://res.cloudinary.com/dvgcwuo68/video/upload/v1710779454/development/2az0g93jjfghblihys3bq6s7fhz9.mp3",
         data: {audio_target: "storyAudio"}%>
-    <% end %>
+      <% end %>
 
+      <button data-action="click->audio#playAudio"><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-top: -145px;"></i></button>
+    </div>
 
-    <button data-action="click->audio#playAudio"><img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/speaker_t7n9gw.png" style="height: 40px; width: 40px; margin-bottom: 15px;"></i></button>
   </div>
-</div>
 </div>
