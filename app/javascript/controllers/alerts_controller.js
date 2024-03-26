@@ -18,7 +18,7 @@ export default class extends Controller {
         showConfirmButton: false,
         timer: 1500,
         customClass: {
-          popup: 'rounded-5 d-flex p-0 bg-light bg-opactiy-10',
+          popup: ' d-flex p-0 bg-light bg-opactiy-10',
           title: 'fs-5',
           icon: 'alert-icon no-border d-inline ps-3 bg-transparent my-1 d-flex align-items-center',
           title: 'd-inline align-self-center fs-5 ps-0 alert-bold text-dark w-100 pb-3'

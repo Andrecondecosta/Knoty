@@ -1,1 +1,64 @@
-<h1>hi</h1>
+<div class="container mt-5" data-controller="quests">
+  <div class="content bg-light bg-opacity-50 rounded-4" style="height:700px;">
+    <!-------------------------- Tab LINKS -------------------------->
+    <div class="logs_plaques">
+      <div class="mt-0 mb-2 pt-4 w-100">
+        <div class="d-flex justify-content-center p-0 fs-5 position-relative">
+          <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png' %>" class="position-absolute background-image-1">
+          <div class="position-relative" style="z-index: 3; font-weight: bold;">Couples' Quests</div>
+        </div>
+      </div>
+      <div class="row p-0 mb-4 pt-4">
+        <div class="col-6 d-flex justify-content-end pe-2 position-relative">
+          <input type="radio" class="btn-check" name="inprogresstab" id="btnradio1" checked>
+          <label class="btn btn-outline-success rounded-pill sign-button-active w-100" for="btnradio1" data-action="click->quests#activeQuests" style="z-index: 1; padding-top: 3px;">Active</label>
+          <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/3cb5c6ac-b9c7-4a64-b071-ef4d3cf61091-removebg-preview_gdhoda.png' %>" class="position-absolute wooden-sign-active">
+        </div>
+        <div class="col-6 d-flex justify-content-start p-0 position-relative">
+          <input type="radio" class="btn-check" name="inprogresstab" id="btnradio2">
+          <label class="btn btn-outline-warning rounded-pill sign-button-pending w-100" for="btnradio2" data-action="click->quests#pendingQuests" style="z-index: 1; padding-top: 3px;">Pending</label>
+          <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/3cb5c6ac-b9c7-4a64-b071-ef4d3cf61091-removebg-preview_gdhoda.png' %>" class="position-absolute wooden-sign-pending">
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------- ACTIVE COUPLES' QUESTS TAB CONTENT -------------------------->
+    <div class="row justify-content-center"
+      data-quests-target="activeQuestsTab">
+      <% unless @active_tasks.nil? || @active_tasks.empty?  %>
+        <% @active_tasks.each do |task| %>
+
+          <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+            <%= render 'shared/cards_ongoing_active_couple', task: task %>
+          <% end %>
+
+        <% end %>
+      <% else %>
+        <h4 class="text-center text-secondary">You have no active couple challenges! 🥹</h4>
+      <% end %>
+    </div>
+
+    <!-------------------------- PENDING COUPLE QUESTS TAB CONTENT -------------------------->
+    <div class="row justify-content-center d-none"
+      data-quests-target="pendingQuestsTab">
+
+      <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
+        <% @pending_tasks.each do |task| %>
+
+          <% if current_user == User.find(task.invited_id) && task.active == false %>
+            <%= link_to edit_couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+              <%= render 'shared/cards_ongoing_pending_couple', task: task %>
+            <% end %>
+          <% else %>
+            <%= link_to couple_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
+              <%= render 'shared/cards_ongoing_pending_couple', task: task %>
+            <% end %>
+          <% end %>
+
+        <% end %>
+      <% else %>
+        <h4 class="text-center text-secondary">You have no pending couple quests! 🥳</h4>
+      <% end %>
+    </div>
+  </div>
+</div>
