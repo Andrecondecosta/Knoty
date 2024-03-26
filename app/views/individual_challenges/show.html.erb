@@ -1,42 +1,37 @@
 <div class="container" data-controller="quests">
 
-  <div style="position: relative;" data-quests-target="exploreQuestsTab">
-    <div class="briefing-card" style="margin-top: -3px;">
-      <div>
-        <h3 class="briefing-title ms-0 ps-0 text-center" style="margin-top: 1px;"><%= @individual_challenge.title %></h3>
-      </div>
-        <%= image_tag @individual_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
+  <div class="briefing-card" style="margin-top: -3px;">
+    <h3 class="briefing-title ms-0 ps-0 text-center" style="margin-top: 1px;"><%= @individual_challenge.title %></h3>
+    <%= image_tag @individual_challenge.img_url, alt: "Card image cap", class:"briefing-card-img-top" %>
 
+    <div class="d-flex flex-row card-footer-briefing bg-transparent pe-3">
+        <div class="col-6 ps-2">
+          <% @individual_challenge.difficulty.times do %>
+            <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
+          <% end %>
+        </div>
+        <div class="col-3">
+          <% if @individual_challenge.estimated_time == 1 %>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
+          <% elsif @individual_challenge.estimated_time == 2 %>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
+          <% elsif @individual_challenge.estimated_time == 3 %>
+            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
+          <% end %>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710808418/person_1_cfasae.png" alt="individual">
+        </div>
+    </div>
 
-      <div class="d-flex flex-row align-items-center bg-transparent pe-4" style="padding-left: 63px;">
-          <div class="rating">
-            <% @individual_challenge.difficulty.times do %>
-              <img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988762/fire_lfcpg7.png" alt="Flame">
-            <% end %>
-          </div>
-          <div style="padding-left: 29px;">
-            <% if @individual_challenge.estimated_time == 1 %>
-              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_2_yksq6u.png" alt="Timer">
-            <% elsif @individual_challenge.estimated_time == 2 %>
-              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_1_jye271.png" alt="Timer">
-            <% elsif @individual_challenge.estimated_time == 3 %>
-              &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1709988688/chronometer_3_yujw23.png" alt="Timer">
-            <% end %>
-          </div>
-          <div style="padding-left: 29px;">
-            &nbsp;&nbsp;&nbsp;<img class="icon-challenge-card ms-3" src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710808418/person_1_cfasae.png" alt="individual">
-          </div>
-      </div>
+    <div class="briefing-card-body">
+      <h4 class="make-happen ms-3 mt-4 mb-0">Let's make it happen!</h4>
+      <%= simple_form_for [@individual_challenge, @individual_task] do |f| %>
+        <%= f.input :date, html5: true, label_html: {class:"d-none"},
+          wrapper_html: {class:"p-3"}, input_html: {min: Time.current} %>
+        <%= f.button :submit,value: 'Begin', class:"begin-quest"%>
+      <% end %>
 
-      <div class="briefing-card-body">
-        <h4 class="make-happen ms-3 mt-4 mb-0">Let's make it happen!</h4>
-        <%= simple_form_for [@individual_challenge, @individual_task] do |f| %>
-          <%= f.input :date, html5: true, label_html: {class:"d-none"},
-            wrapper_html: {class:"p-3"}, input_html: {min: Time.current} %>
-          <%= f.button :submit,value: 'Begin', class:"begin-quest"%>
-        <% end %>
-
-      </div>
     </div>
   </div>
 

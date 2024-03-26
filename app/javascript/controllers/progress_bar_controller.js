@@ -6,6 +6,7 @@ export default class extends Controller {
   static values = { currentScore: String }
 
   score = Number(this.currentScoreValue)
+  scoreToDisplay = (this.score / 3) > 100 ? (this.score / 3 - 100) : this.score / 3
   progressBar = this.progressTarget
   stepCircles = this.circleTargets
   currentActive = 1
@@ -24,17 +25,16 @@ export default class extends Controller {
       }
     });
 
-    // const activeCircles = document.querySelectorAll(".activated");
-    this.progressBar.style.width = `${this.score / 2}%`;
+    this.progressBar.style.width = `${this.scoreToDisplay}%`;
   }
 
   // private
   #changeCurrentActive() {
-    if (this.score / 2 === 100) {
+    if (this.scoreToDisplay >= 100) {
       this.currentActive = 4;
-    } else if (this.score / 2 >= 66) {
+    } else if (this.scoreToDisplay >= 66) {
       this.currentActive = 3;
-    } else if (this.score / 2 >= 33) {
+    } else if (this.scoreToDisplay >= 33) {
       this.currentActive = 2;
     }
   }

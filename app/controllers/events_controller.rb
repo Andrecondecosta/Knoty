@@ -24,12 +24,12 @@ class EventsController < ApplicationController
     @event.user = current_user
     if @event.is_memory == true
       if @event.save
-        redirect_to timeline_events_path
+        redirect_to timeline_events_path, notice: "Memory forged!"
       else
         render :add_memory, status: :unprocessable_entity
       end
     elsif @event.save
-      redirect_to @event
+      redirect_to @event, notice: 'Event saved to Calendar'
     else
       render :new, status: :unprocessable_entity
     end
