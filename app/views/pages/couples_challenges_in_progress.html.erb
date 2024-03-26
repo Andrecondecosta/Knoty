@@ -1,4 +1,4 @@
-<div class="container mt-5" data-controller="quests">
+<div class="container mt-3" data-controller="quests">
   <div class="content bg-light bg-opacity-50 rounded-4" style="height:700px;--bs-bg-opacity: 0.6;">
     <!-------------------------- Tab LINKS -------------------------->
     <div class="logs_plaques">
@@ -23,7 +23,7 @@
     </div>
 
     <!-------------------------- ACTIVE COUPLES' QUESTS TAB CONTENT -------------------------->
-    <div class="row justify-content-center"
+    <div class="row justify-content-center scrollable-content"
       data-quests-target="activeQuestsTab">
       <% unless @active_tasks.nil? || @active_tasks.empty?  %>
         <% @active_tasks.each do |task| %>
@@ -34,12 +34,12 @@
 
         <% end %>
       <% else %>
-        <h4 class="text-center text-secondary mt-5">You have no active couple challenges! 🥹</h4>
+        <h4 class="text-center text-secondary mt-3">You have no active couple challenges! 🥹</h4>
       <% end %>
     </div>
 
     <!-------------------------- PENDING COUPLE QUESTS TAB CONTENT -------------------------->
-    <div class="row justify-content-center d-none"
+    <div class="row justify-content-center d-none scrollable-content"
       data-quests-target="pendingQuestsTab">
 
       <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
@@ -57,8 +57,12 @@
 
         <% end %>
       <% else %>
-        <h4 class="text-center text-secondary mt-5">You have no pending couple quests! 🥳</h4>
+        <h4 class="text-center text-secondary mt-3">You have no pending couple quests! 🥳</h4>
       <% end %>
     </div>
   </div>
+    <%= link_to quest_log_path do %>
+      <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore">
+      <h5 class="go-back-text">back</h5>
+    <% end %>
 </div>

@@ -8,7 +8,7 @@ class IndividualTasksController < ApplicationController
 
   def create
     if @partner.created_by_invite? && @partner.invitation_accepted_at.nil?    # ==========> Set in PUNDIT
-      return redirect_to quest_log_path, alert: "Your partner has not accepted the invitation yet."
+      return redirect_to quest_log_path, alert: "Your partner hasn't joined <em>Knoty</em> yet.".html_safe
     end
     return redirect_to quest_log_path, alert: "You have already started this challenge." if similar_task_exists?  # ==========> Set in PUNDIT
 

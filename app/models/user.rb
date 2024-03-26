@@ -16,5 +16,5 @@ class User < ApplicationRecord
   belongs_to :current_chatroom, class_name: 'Chatroom', foreign_key: 'current_chatroom_id', optional: true
   has_many :notifications, as: :recipient, dependent: :destroy, class_name: 'Noticed::Notification'
 
-  validates_presence_of :first_name
+  # validates_presence_of :first_name
 end
