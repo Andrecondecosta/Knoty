@@ -1,9 +1,13 @@
-<%= simple_form_for @mission, html: { class: 'container mt-4 ps-3 pe-3 py-5 d-flex flex-column paper-form' } do |form| %>
+<%= simple_form_for @mission, html: { class: 'container mt-5 ps-3 pe-3 py-5 d-flex flex-column paper-form' } do |form| %>
 
 
     <!-- still need to add font to add-mission -->
     <div class="add-mission d-flex justify-content-center mb-2 p-1 ps-0 d-f">
-      <h3 style="padding-left: 3px; padding-top: 0; font-family: Berkshire Swash, serif; font-size: 30px;"><b>Add a mission to your board!</b></h3>
+      <%if current_page?(new_mission_path(mission))%>
+        <h3 style="padding-left: 3px; padding-top: 0; font-family: Berkshire Swash, serif; font-size: 30px;"><b>Add a mission to your board!</b></h3>
+      <%else%>
+        <h3 style="padding-left: 3px; padding-top: 0; font-family: Berkshire Swash, serif; font-size: 30px;"><b>Edit your mission!</b></h3>
+      <%end%>
     </div>
 
     <div class="d-flex flex-wrap justify-content-center">
@@ -46,7 +50,7 @@
       <p class="sub-label text-muted mb-1">Make it fun!<span class=" text-secondary ms-1" style = "margin-top: -10px;">(Max: 65 chars)</span></p>
 
       <%= form.input :title, as: :text, label: false, maxlength: 65, placeholder: 'e.g: Trash Fashion Parade!',
-        input_html: { id: 'title', rows: 2,
+        input_html: { id: 'title', rows: 2, style: 'resize: none;',
         data: {char_counter_target: 'input', action: "keyup->char-counter#updateCounter"} } %>
       <div class="d-flex justify-content-between">
         <p class="fs-6 text-secondary ms-3 mb-0" data-char-counter-target="counterDisplay" style = "margin-top: -10px; height:24px;"></p>
@@ -54,7 +58,11 @@
     </div>
 
     <div class="d-flex justify-content-end">
-      <%= form.button :submit, 'Add Mission', class: 'wood-plaque-button' %>
+      <%if current_page?(new_mission_path(mission))%>
+        <%= form.button :submit, 'Add Mission', class: 'wood-plaque-button' %>
+      <%else%>
+        <%= form.button :submit, 'Edit Mission', class: 'wood-plaque-button' %>
+      <%end%>
     </div>
       <% end %>
 

@@ -30,12 +30,12 @@
 
 
     <% if clear_pages %> <!-- Clear pages -->
-      <div class="content-box border border-dark bg-clear-page" data-controller="alerts" data-alerts-target="subContentBox">
+      <div class="content-box border border-dark bg-clear-page">
         <%= yield %>
       </div>
 
     <% elsif current_page?(root_path) %>  <!-- Home page -->
-      <div class="content-box border border-dark position-relative" data-controller="alerts" data-alerts-target="subContentBox">
+      <div class="content-box border border-dark position-relative">
         <%= render "shared/navbar"%>
         <%= render 'shared/flashes' %>
         <div class="sub-content-box" >
@@ -45,7 +45,7 @@
       </div>
 
     <% else %>  <!-- Other pages -->
-      <div class="content-box border border-dark" style="background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1711404272/pages-bg_final_1_ms9zoo.jpg');" data-controller="alerts" data-alerts-target="subContentBox">
+      <div class="content-box border border-dark" style="background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1711404272/pages-bg_final_1_ms9zoo.jpg');">
 
         <%= render "shared/navbar" %>
         <%= render 'shared/flashes' %>

@@ -1,16 +1,31 @@
-<div class="h-60 row justify-content-center align-items-end">
-  <div class="box col-10 p-3 glass-morph-card">
-    <div class="container" data-controller= "toggle">
-      <%= simple_form_for(event) do |f| %>
-        <!-- Personal information -->
-        <div class="container" data-toggle-target="toggleableElem">
-          <%= f.input :name %>
-          <%= f.input :details %>
-            <%= f.input :date, html5: true, input_html: { class: "mb-3" } %>
-          <%= link_to 'Back', events_path, class: "btn btn-white", style: "color: black; " %>
-          <%= f.button :submit, class: "btn btn-secondary", style: "border: 1px solid black; float: right;" %>
-          <% end %>
-        </div>
+<div class="new-event-form mx-4 mt-3">
+  <div class="row justify-content-center">
+      <div class="text-center " >
+        <% if  current_page?(new_event_path(event))%>
+          <h1 class="title-new-event" >New Event</h1>
+        <% else %>
+          <h1 class="title-new-event" >Edit</h1>
+        <% end %>
+      </div>
+  </div>
+  <div class="h-60 row justify-content-center align-items-end">
+    <div class="box col-10 p-3">
+      <div class="container" data-controller= "toggle">
+        <%= simple_form_for(event) do |f| %>
+          <!-- Personal information -->
+          <div class="container" data-toggle-target="toggleableElem">
+            <%= f.input :name, input_html: { maxlength: 35, placeholder: 'e.g: Birthday!', required: true } %>
+            <%= f.input :details, input_html: { style: 'resize: none;',maxlength: 75, placeholder: 'e.g: Loved this day!', required: true } %>
+              <%= f.input :date, html5: true, input_html: { class: "mb-3" } %>
+            <%= f.button :submit, class: 'wood-plaque-button', style: "position: absolute; top: 470px; right: 94px; width: 235px;" %>
+            <% end %>
+          </div>
+      </div>
     </div>
   </div>
+
+    <%= link_to events_path, class: "arrow-back" do %>
+        <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore">
+      <h5 class="go-back-text">back</h5>
+    <% end %>
 </div>

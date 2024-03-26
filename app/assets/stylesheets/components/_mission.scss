@@ -128,7 +128,7 @@ input[type=radio]:checked + .icon-container {
   cursor: pointer;
 
   background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/log2-removebg-preview_jeecey.png');
-  background-size: cover;
+  background-size: 100% 100%;
   width: 200px;
   height: 50px;
   padding-top: -10px;
@@ -138,14 +138,15 @@ input[type=radio]:checked + .icon-container {
   font-size: 20px;
   text-align: center;
 
+  transition: transform 0.3s ease;
   &:hover {
-    height: 55px;
+    transform: scale(1.03);
   }
 }
 
 .paper-form {
   background-image: image-url("paper_seven.png");
-  background-size: 100% 100%;
+  background-size: 98% 103%;
   background-repeat: no-repeat;
   background-position: center;
   padding-right: 20px;
