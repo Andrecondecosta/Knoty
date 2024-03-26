@@ -1,5 +1,4 @@
-<div class="container mt-5" data-controller="quests">
-
+<div class="container mt-3" data-controller="quests">
   <div class="content bg-light rounded-4"  style="height:700px;--bs-bg-opacity: 0.6;">
     <!-------------------------- Tab LINKS -------------------------->
     <div class="logs_plaques">
@@ -36,7 +35,7 @@
             <% end %>
           <% end %>
         <% else %>
-          <h4 class="text-center text-secondary mt-5">At the moment, you haven't embarked on a solo adventure quest. 🧭</h4>
+          <h4 class="text-center text-secondary mt-3">At the moment, you haven't embarked on a solo adventure quest. 🧭</h4>
         <% end %>
     </div>
 
@@ -51,8 +50,12 @@
           <% end %>
         <% end %>
       <% else %>
-        <h4 class="text-center text-secondary mt-5">At the moment, your partner hasn't embarked on a solo adventure quest. 🧭</h4>
+        <h4 class="text-center text-secondary mt-3">At the moment, your partner hasn't embarked on a solo adventure quest. 🧭</h4>
       <% end %>
     </div>
   </div>
+    <%= link_to quest_log_path do %>
+      <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710412462/wooden-arrow_xccyom.png' %>" class="arrow-back-explore">
+      <h5 class="go-back-text">back</h5>
+    <% end %>
 </div>
