@@ -1,4 +1,4 @@
-<div class="container chatroom"
+<div class="container chatroom glass-morph-card"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
@@ -15,14 +15,14 @@
     <% current_date = @chatroom.messages.first.created_at.to_date unless @chatroom.messages.empty?%>
     <% @chatroom.messages.order(:created_at).each_with_index do |message, index| %>
       <% if index.zero? %><!-- Display common header for the day -->
-        <div class="common-header">
+        <p class="common-header text-center">
           <%= current_date.strftime("%B %e") %>
-        </div>
+        </p>
       <% elsif current_date > message.created_at.to_date%>
         <% current_date = message.created_at.to_date %>
-        <div class="common-header">
+        <p class="common-header text-center">
           <%= message.created_at.strftime("%B %e") %>
-        </div>
+        </p>
       <% end %>
 
       <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -31,11 +31,11 @@
           <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
             <%= render "messages/message", message: message %>
           </div>
-          <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-left: 10px;" %>
+          <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-left: 10px;", class:"bg-light" %>
 
         <% else %>
 
-          <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-right: 10px;" %>
+          <%= image_tag message.user.avatar_url, style:"width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin-right: 10px;", class:"bg-light" %>
           <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
             <%= render "messages/message", message: message %>
           </div>

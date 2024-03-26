@@ -1,6 +1,6 @@
 <div class="container mt-5" data-controller="quests">
 
-  <div class="content bg-light bg-opacity-50 rounded-4"  style="height:700px;">
+  <div class="content bg-light rounded-4"  style="height:700px;--bs-bg-opacity: 0.6;">
     <!-------------------------- Tab LINKS -------------------------->
     <div class="logs_plaques">
       <div class="mt-0 mb-2 pt-4 w-100">
@@ -36,7 +36,7 @@
             <% end %>
           <% end %>
         <% else %>
-          <h4 class="text-center text-secondary">At the moment, you haven't embarked on a solo adventure quest. 🧭</h4>
+          <h4 class="text-center text-secondary mt-5">At the moment, you haven't embarked on a solo adventure quest. 🧭</h4>
         <% end %>
     </div>
 
@@ -44,14 +44,14 @@
     <div class="row justify-content-center d-none"
       data-quests-target="indivQuestsTab2">
 
-      <% unless @partner_solo_tasks.nil? || @partner_solo_tasks.empty?  %>
+      <% unless @partner_solo_tasks.nil? || @partner_solo_tasks.empty? %>
         <% @partner_solo_tasks.each do |task| %>
           <%= link_to individual_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 ps-1 pe-3" do %>
             <%= render 'shared/cards_individual_active', task: task %>
           <% end %>
         <% end %>
       <% else %>
-        <h4 class="text-center text-secondary">At the moment, your partner hasn't embarked on a solo adventure quest. 🧭</h4>
+        <h4 class="text-center text-secondary mt-5">At the moment, your partner hasn't embarked on a solo adventure quest. 🧭</h4>
       <% end %>
     </div>
   </div>
