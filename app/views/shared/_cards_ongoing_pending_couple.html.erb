@@ -1,17 +1,17 @@
 <div class="col-11 card-ongoing-quests d-flex flex-row">
   <div class="col-3 py-1 image-container-ongoing d-flex justify-content-center align-items-center">
-    <%= image_tag task.couple_challenge.img_url, alt: "image", class:"card-img-rounded" %>
+    <%= image_tag task.couple_challenge.img_url, alt: "image", class:"card-img-rounded ms-4" %>
   </div>
   <div class="col-9 pt-2 pb-3">
     <div class="d-flex justify-content-end mb-0 me-4">
       <% if task.invited_id == current_user.id %>
-        <p><strong>Received on: <%= task.created_at.strftime("%b %e, %l:%M %p") %></strong></p>
+        <p><strong><em>received on <%= task.created_at.strftime("%b %e") %></em></strong></p>
       <% else %>
-        <p>Sent on: <%= task.created_at.strftime("%b %e, %l:%M %p") %></p>
+        <p><em>sent on <%= task.created_at.strftime("%b %e") %></em></p>
       <% end %>
     </div>
-    <div class="d-flex justify-content-start">
-      <h4><%= task.couple_challenge.title %></h4>
+    <div class="d-flex justify-content-start ms-2">
+      <h4 style="font-family: Berkshire Swash, serif;"><%= task.couple_challenge.title %></h4>
     </div>
     <div>
       <div class="d-flex justify-content-end align-items-end">

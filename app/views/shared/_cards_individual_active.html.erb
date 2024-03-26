@@ -1,6 +1,6 @@
 <div class="col-11 card-ongoing-quests d-flex flex-row">
   <div class="col-3 py-1 image-container-ongoing d-flex justify-content-center align-items-center">
-    <%= image_tag task.individual_challenge.img_url, alt: "Card image cap", class:"card-img-rounded" %>
+    <%= image_tag task.individual_challenge.img_url, alt: "Card image cap", class:"card-img-rounded ms-4" %>
   </div>
   <div class="col-9 pt-2 pb-3">
     <div class="d-flex justify-content-end align-items-end mb-0">
@@ -8,7 +8,7 @@
         <%= (task.date - Date.current).round %> days remaining.
       </p>
     </div>
-    <div class="d-flex justify-content-start align-items-start">
+    <div class="d-flex justify-content-start align-items-start ms-2">
       <h4><%= task.individual_challenge.title %></h4>
     </div>
   </div>

@@ -8,16 +8,16 @@
               <div class="position-relative" style="z-index: 3; font-weight: bold; padding-left: 14px">Solo Quests</div>
             </div>
       </div>
-      <div class="row p-0 mb-4 pt-4">
+      <div class="row p-0 mb-3 pt-4">
         <div class="col-6 d-flex justify-content-center p-0 position-relative">
           <input type="radio" class="btn-check" name="solo-in-progress" id="btnradio3" checked>
-          <label class="btn btn-outline-secondary rounded-pill sign-button-mine" for="btnradio3" data-action="click->quests#indivQuests1" style="z-index: 1; padding-top: 3px;">Yours</label>
+          <label class="btn btn-outline-secondary rounded-pill sign-button-mine" for="btnradio3" data-action="click->quests#indivQuests1" style="z-index: 1; padding-top: 3px; font-size: 18px;">Yours</label>
           <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/3cb5c6ac-b9c7-4a64-b071-ef4d3cf61091-removebg-preview_gdhoda.png' %>" class="position-absolute wooden-sign-mine">
         </div>
         <div class="col-6 d-flex justify-content-center ps-2  position-relative">
           <input type="radio" class="btn-check" name="solo-in-progress" id="btnradio4">
 
-          <label class="btn btn-outline-secondary rounded-pill sign-button-name ps-1" for="btnradio4" data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 3px;">
+          <label class="btn btn-outline-secondary rounded-pill sign-button-name ps-1" for="btnradio4" data-action="click->quests#indivQuests2" style="z-index: 1; padding-top: 3px; font-size: 18px;">
             His/Hers
           </label>
           <img src="<%= asset_path 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710202587/3cb5c6ac-b9c7-4a64-b071-ef4d3cf61091-removebg-preview_gdhoda.png' %>" class="position-absolute wooden-sign-name">
@@ -27,7 +27,8 @@
 
     <!-------------------------- CURRENT USER INDIVIDUAL QUESTS TAB CONTENT -------------------------->
     <div class="row justify-content-center"
-      data-quests-target="indivQuestsTab1">
+      data-quests-target="indivQuestsTab1"
+      style="height: 540px;">
         <% unless @my_solo_tasks.nil? || @my_solo_tasks.empty?  %>
           <% @my_solo_tasks.each do |task| %>
             <%= link_to individual_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
@@ -35,13 +36,14 @@
             <% end %>
           <% end %>
         <% else %>
-          <h4 class="text-center text-secondary mt-3">At the moment, you haven't embarked on a solo adventure quest. 🧭</h4>
+          <h4 class="text-center text-secondary" style="margin-top: 150px;">At the moment,<br> you haven't embarked on a <br>solo adventure quest. 🧭</h4>
         <% end %>
     </div>
 
       <!-------------------------- PARTNERS INDIVIDUAL QUESTS TAB CONTENT -------------------------->
     <div class="row justify-content-center d-none"
-      data-quests-target="indivQuestsTab2">
+      data-quests-target="indivQuestsTab2"
+      style="height: 540px;">
 
       <% unless @partner_solo_tasks.nil? || @partner_solo_tasks.empty? %>
         <% @partner_solo_tasks.each do |task| %>
@@ -50,7 +52,7 @@
           <% end %>
         <% end %>
       <% else %>
-        <h4 class="text-center text-secondary mt-3">At the moment, your partner hasn't embarked on a solo adventure quest. 🧭</h4>
+        <h4 class="text-center text-secondary" style="margin-top: 150px;">At the moment,<br> your partner hasn't embarked on a <br>solo adventure quest. 🧭</h4>
       <% end %>
     </div>
   </div>
