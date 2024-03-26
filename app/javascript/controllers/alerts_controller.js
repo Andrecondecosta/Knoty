@@ -3,45 +3,37 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="alerts"
 export default class extends Controller {
   static values = { notice: String, alert: String }
-  static targets = ["subContentBox"]
 
   connect() {
-    // console.log(this.subContentBoxTarget)
     const content = this.noticeValue || this.alertValue;
 
     if (content) {
-      // const Toast = Swal.mixin({
-      //   toast: true,
-      //   position: "bottom",
-      //   showConfirmButton: false,
-      //   timer: 1000,
-      //   didOpen: (toast) => {
-      //     toast.onmouseenter = Swal.stopTimer;
-      //     toast.onmouseleave = Swal.resumeTimer;
-      //   }
-      // });
-      // Toast.fire({
-      //   target: this.subContentBoxTarget,
-      //   icon: content === this.noticeValue ? "success" : "error",
-      //   title: content,
-      //   width: '350px',
-      //   customClass: {
-      //     popup: 'rounded-pill bg-info text-light'
-      //   }
-      // });
+
       Swal.fire({
-        title: "Custom animation with Animate.css",
+        title: content,
+        width: '350px',
+        background: '#fff url(https://res.cloudinary.com/dvgcwuo68/image/upload/v1711411020/rsz_1pexels-fwstudio-139312_e78y5j.jpg)',
+        iconHtml: content === this.noticeValue ? `<img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711410815/icons8-check-ezgif.com-gif-maker_oqogow.gif">` :
+          `<img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711410816/icons8-error1-ezgif.com-gif-maker_fmdjtp.gif">`,
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'rounded-5 d-flex p-0 bg-light bg-opactiy-10',
+          title: 'fs-5',
+          icon: 'alert-icon no-border d-inline ps-3 bg-transparent my-1 d-flex align-items-center',
+          title: 'd-inline align-self-center fs-5 ps-0 alert-bold text-dark w-100 pb-3'
+        },
         showClass: {
           popup: `
             animate__animated
-            animate__fadeInUp
+            animate__zoomInDown
             animate__faster
           `
         },
         hideClass: {
           popup: `
             animate__animated
-            animate__fadeOutDown
+            animate__zoomOutUp
             animate__faster
           `
         }

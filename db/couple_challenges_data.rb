@@ -29,16 +29,16 @@ COUPLE_CHALLENGES =[
     exp: 30,
     img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281778/jon-tyson-8MMtYM_3xMY-unsplash_ul783u.jpg"
   },
-  # {
-  #   title: "Lights, Camera, Adventure!",
-  #   details: "Plan an adventure to explore a nearby town. During the day, there will be plenty of photo opportunities! We've selected some iconic movie quotes for you to capture in your photos. Channel your inner movie stars and bring these famous lines to life: 'He's looking at you, kid.' - Casablanca; 'May the Force be with you.' - Star Wars; 'To infinity and beyond!' - Toy Story; 'You had me at hello.' - Jerry Maguire; 'Just keep swimming.' - Finding Nemo; 'Nobody puts Baby in a corner.' - Dirty Dancing. Get ready to strike a pose, recreate a scene, or find the perfect backdrop to capture the essence of each movie quote!",
-  #   difficulty: 3,
-  #   estimated_time: 3,
-  #   prompt_1: "Alongside capturing those iconic movie quotes themed photos, here's your unique task: incorporate, casually yet meaningfully, these 4 words into your conversations with your partner: 1) Serendipity; 2) Mellifluous; 3) Fandango; and 4) Quixotic. Whether you're describing the serendipitous discoveries you've made, discussing the mellifluous sounds of the city, or planning our next quixotic escapade, let these words add an extra layer of fun!",
-  #   prompt_2: "While capturing those iconic movie quotes themed photos, here's your unique task: incorporate, casually yet meaningfully, these 4 traditional sayings into your conversations with your partner: 1) 'Hit the hay.'; 2) 'Raining cats and dogs.'; 3) 'I'm on cloud nine.'; and 4) 'A bird in the hand is worth two in the bush.'.  Feel free to directly translate these into your native language while enjoying your partner's confused look when you apply them!",
-  #   exp: 30,
-  #   img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281776/nordwood-themes-F3Dde_9thd8-unsplash_ogxbbz.jpg"
-  # },
+  {
+    title: "Lights, Camera, Adventure!",
+    details: "Plan an adventure to explore a nearby town. During the day, there will be plenty of photo opportunities! We've selected some iconic movie quotes for you to capture in your photos. Channel your inner movie stars and bring these famous lines to life: 'He's looking at you, kid.' - Casablanca; 'May the Force be with you.' - Star Wars; 'To infinity and beyond!' - Toy Story; 'You had me at hello.' - Jerry Maguire; 'Just keep swimming.' - Finding Nemo; 'Nobody puts Baby in a corner.' - Dirty Dancing. Get ready to strike a pose, recreate a scene, or find the perfect backdrop to capture the essence of each movie quote!",
+    difficulty: 3,
+    estimated_time: 3,
+    prompt_1: "Alongside capturing those iconic movie quotes themed photos, here's your unique task: incorporate, casually yet meaningfully, these 4 words into your conversations with your partner: 1) Serendipity; 2) Mellifluous; 3) Fandango; and 4) Quixotic. Whether you're describing the serendipitous discoveries you've made, discussing the mellifluous sounds of the city, or planning our next quixotic escapade, let these words add an extra layer of fun!",
+    prompt_2: "While capturing those iconic movie quotes themed photos, here's your unique task: incorporate, casually yet meaningfully, these 4 traditional sayings into your conversations with your partner: 1) 'Hit the hay.'; 2) 'Raining cats and dogs.'; 3) 'I'm on cloud nine.'; and 4) 'A bird in the hand is worth two in the bush.'.  Feel free to directly translate these into your native language while enjoying your partner's confused look when you apply them!",
+    exp: 30,
+    img_url: "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711281776/nordwood-themes-F3Dde_9thd8-unsplash_ogxbbz.jpg"
+  },
   {
     title: "Guess Who's Smoochy!",
     details: "Here's how 'Guess Who's Smoochy!' works: each of you will be presented with a series of questions about your loved one. Take your time to answer honestly. Once you've both completed the questions, it's time to compare your answers! Prepare to be amazed by how well you know each other... or perhaps discover some delightful surprises along the way!",
