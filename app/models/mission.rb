@@ -6,6 +6,6 @@ class Mission < ApplicationRecord
   private
 
   def set_default_icon
-    self.icon ||= "https://res.cloudinary.com/dvgcwuo68/image/upload/v1709838344/clipboard-list-solid_wrk3r2.png"
+    self.icon ||= "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711398800/to-do-list_v0d8nl.png"
   end
 end

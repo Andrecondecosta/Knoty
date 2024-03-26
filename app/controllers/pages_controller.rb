@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     # 2=33%
     # 3=66%
     # 4=100%
-    @current_score = @couple.total_exp if signed_in?
+    @current_score = @couple.total_exp if signed_in? && @couple
   end
 
   def quests
@@ -49,20 +49,20 @@ class PagesController < ApplicationController
   private
 
   def set_partner
-    return unless signed_in?
+    return unless signed_in? && @couple
 
     @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
   end
 
   def set_pending_tasks
-    return unless signed_in?
+    return unless signed_in? && @couple
 
     @pending_tasks_notif = @couple.couple_tasks.where(active: false).select { |task| task.invited_id == current_user.id }
     @pending_tasks = @couple.couple_tasks.where(active: false)
   end
 
   def set_active_tasks
-    return unless signed_in?
+    return unless signed_in? && @couple
 
     @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
     @active_tasks = @couple.couple_tasks.where(active: true, completed: nil)

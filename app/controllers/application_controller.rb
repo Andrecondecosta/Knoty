@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
 
     couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
-    @chatroom = couple.chatroom
+    @chatroom = couple.chatroom unless couple.nil?
   end
 
   def set_couple
