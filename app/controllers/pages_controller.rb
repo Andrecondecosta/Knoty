@@ -64,7 +64,6 @@ class PagesController < ApplicationController
   def set_active_tasks
     return unless signed_in? && @couple
 
-    @couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
     @active_tasks = @couple.couple_tasks.where(active: true, completed: nil)
   end
 
