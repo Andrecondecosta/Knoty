@@ -1,7 +1,7 @@
 
 <div class="container-progressing" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -620%);" data-controller="progress-bar"
 data-progress-bar-current-score-value="<%= @current_score %>">
-  <div class="progress-container" style="width: 370px;">
+  <div class="progress-container" style="width: 370px; margin-bottom: 34px;">
     <div class="progress" data-progress-bar-target="progress"> </div>
     <div class="circle" data-progress-bar-target="circle"></div>
     <div class="circle" data-progress-bar-target="circle"></div>
@@ -13,7 +13,7 @@ data-progress-bar-current-score-value="<%= @current_score %>">
 <div class="container islands-container p-0 m-0 h-100 w-100 overflow-auto" data-controller="island-slide overlay island-progress" data-island-slide-target="parentElem"
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave"
   data-island-progress-target="scrollContainer">
-  
+
   <canvas data-island-progress-target="gridCanvas" data-overlay-target= "islandsImage"></canvas>
 
   <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711404034/hub-bg.jpg", id:"backgroundImage", alt: "islands", class: "d-none", style:"height: 100%;",

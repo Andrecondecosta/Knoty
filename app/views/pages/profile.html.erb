@@ -30,26 +30,40 @@
 
 
     <div class="content-profile mx-auto row w-100 justify-content-center align-items-center bg-white rounded-bottom-4" data-toggle-target="currentUserElem">
-      <p class="text-center col-10 fs-3 pt-3 pb-2 ">Character Stats</p>
-      <% unless @my_love_language.nil? %>
-        <canvas class="col-10  h-75"
-          data-chart-target="myChart">
-        </canvas>
-      <% else %>
-        <h4 class="col-10 text-body-tertiary">You don't have Love language stats yet 😭</h4>
-      <% end %>
+
+        <p class="text-center col-10 pt-3">
+          <strong style="font-family: Berkshire Swash; font-size: 30px;"><%= current_user.first_name %></strong><br>
+          <span style="font-family: Vidaloka; font-size: 20px; font-style: italic; color: #888; margin-top: 1px;">= Warrior Attributes =</span>
+        </p>
+
+
+      <div style="margin-top: -157px;">
+        <% unless @my_love_language.nil? %>
+          <canvas class="col-10"
+            data-chart-target="myChart">
+          </canvas>
+        <% else %>
+          <h4 class="col-10 text-body-tertiary">You don't have any Love language Stats yet 😭</h4>
+        <% end %>
+      </div>
     </div>
 
 
     <div class="content-profile mx-auto row w-100 justify-content-center align-items-center bg-white d-none rounded-bottom-4" data-toggle-target="partnerUserElem">
-      <p class="text-center col-10 fs-3 pt-3 pb-2 ">Character Stats</p>
-      <% unless @partner_love_language.nil? %>
-      <canvas class="col-10 h-75"
-        data-chart-target = "partnerChart">
-      </canvas>
-      <% else %>
-        <h4 class="col-10 text-body-tertiary">Your partner doesn't have Love language stats yet 😭</h4>
-      <% end %>
+      <p class="text-center col-10 fs-3 pt-3">
+        <strong style="font-family: Berkshire Swash; font-size: 30px;"><%= @partner.first_name %></strong><br>
+        <span style="font-family: Vidaloka; font-size: 20px; font-style: italic; color: #888;">= Warrior Attributes =</span>
+      </p>
+
+      <div style="margin-top: -157px;">
+        <% unless @partner_love_language.nil? %>
+        <canvas class="col-10"
+          data-chart-target = "partnerChart">
+        </canvas>
+        <% else %>
+          <h4 class="col-10 text-body-tertiary"><strong><%= @partner.first_name %></strong> doesn't have Love language Stats yet 😭</h4>
+        <% end %>
+      </div>
     </div>
 
   </div>
