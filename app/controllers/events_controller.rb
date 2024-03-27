@@ -38,6 +38,8 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
+      return redirect_to timeline_events_path, notice: 'Memory updated' if event_params[:is_memory] == "1"
+
       redirect_to events_path, notice: 'Event was successfully update.'
     else
       render :edit
@@ -55,7 +57,7 @@ class EventsController < ApplicationController
   end
 
   def timeline
-    @events = Event.where(is_memory: true).order(:date)
+    @events = @couple.events.where(is_memory: true).order(:date)
   end
 
   def add_memory
