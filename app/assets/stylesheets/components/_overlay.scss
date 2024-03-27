@@ -51,6 +51,14 @@
 }
 
 .scrollable-content {
+  height: 500px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  font-family: "Slabo 27px", serif;
+}
+
+.scrollable-content-quest-tab {
   height: 550px;
   overflow: auto;
   scrollbar-width: none;

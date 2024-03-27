@@ -26,9 +26,8 @@
     </div>
 
     <!-------------------------- CURRENT USER INDIVIDUAL QUESTS TAB CONTENT -------------------------->
-    <div class="row justify-content-center"
-      data-quests-target="indivQuestsTab1"
-      style="height: 540px;">
+    <div class="justify-content-center scrollable-content-quest-tab"
+      data-quests-target="indivQuestsTab1">
         <% unless @my_solo_tasks.nil? || @my_solo_tasks.empty?  %>
           <% @my_solo_tasks.each do |task| %>
             <%= link_to individual_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
@@ -41,9 +40,8 @@
     </div>
 
       <!-------------------------- PARTNERS INDIVIDUAL QUESTS TAB CONTENT -------------------------->
-    <div class="row justify-content-center d-none"
-      data-quests-target="indivQuestsTab2"
-      style="height: 540px;">
+    <div class="justify-content-center scrollable-content-quest-tab d-none"
+      data-quests-target="indivQuestsTab2">
 
       <% unless @partner_solo_tasks.nil? || @partner_solo_tasks.empty? %>
         <% @partner_solo_tasks.each do |task| %>

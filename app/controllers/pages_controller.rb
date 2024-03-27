@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: %i[home landing]
   before_action :set_pending_tasks, only: %i[home profile quests couples_challenges_in_progress]
   before_action :set_active_tasks, only: %i[quests couples_challenges_in_progress]
   before_action :set_partner, only: %i[home profile quests solo_challenges_in_progress couples_challenges_in_progress explore_couples_challenges]
