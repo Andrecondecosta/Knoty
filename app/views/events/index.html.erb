@@ -21,17 +21,17 @@
             <%= day.day %>
             <div class="icons-container">
               <% if day_individual_tasks.any? %>
-                <%= link_to individual_task_path(day_individual_tasks.first), class: 'gray-link' do %>
+                <%= link_to individual_task_path(day_individual_tasks.first), class: 'link-underline link-underline-opacity-0' do %>
                   <%= image_tag("https://res.cloudinary.com/dvgcwuo68/image/upload/v1710899360/diamond_zkjjtt.png", alt: "Individual task icon", size: "18x18") %>
                 <% end %>
               <% end %>
               <% if day_events.any? %>
-                <%= link_to event_path(day_events.first), class: 'gray-link' do %>
+                <%= link_to event_path(day_events.first), class: 'link-underline link-underline-opacity-0' do %>
                   <%= image_tag("https://res.cloudinary.com/dvgcwuo68/image/upload/v1710899360/notes_1_zrvluy.png", alt: "event icon", size: "18x18") %>
                 <% end %>
               <% end %>
               <% if day_couple_tasks.any? %>
-                <%= link_to couple_task_path(day_couple_tasks.first), class: 'gray-link' do %>
+                <%= link_to couple_task_path(day_couple_tasks.first), class: 'link-underline link-underline-opacity-0' do %>
                   <%= image_tag("https://res.cloudinary.com/dvgcwuo68/image/upload/v1710899360/gem_xdcqpa.png", alt: "Couple task icon", size: "18x18") %>
                 <% end %>
               <% end %>

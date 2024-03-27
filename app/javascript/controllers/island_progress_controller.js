@@ -22,20 +22,21 @@ export default class extends Controller {
     ctx.drawImage(backgroundImage, 0, 0);
 
     ctx.beginPath();
-    for (let x = 0; x <= canvas.width; x += gridWidth) {
+    for (let x = 0; x < canvas.width; x += gridWidth) {
       ctx.moveTo(x, 0);
       ctx.lineTo(x, canvas.height);
     }
-    for (let y = 0; y <= canvas.height; y += gridHeight) {
+    for (let y = 0; y < canvas.height; y += gridHeight) {
       ctx.moveTo(0, y);
       ctx.lineTo(canvas.width, y);
     }
     ctx.strokeStyle = "rgba(0, 0, 0, 0)";
+    ctx.lineWidth = 3;
     ctx.stroke();
 
     const characters = [
-      { x: 15, y: 8 },
-      { x: 16, y: 8 }
+      { x: 5, y: 8 },
+      { x: 6, y: 8 }
     ];
 
     const characterWidth = gridWidth;
