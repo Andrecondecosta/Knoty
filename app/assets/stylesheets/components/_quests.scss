@@ -108,8 +108,8 @@
 }
 .avatares {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 9px;
+  right: 6px;
 }
 
 .subtitle-quest-list {
@@ -185,4 +185,21 @@
   &:hover {
     color: black;
   }
+}
+.avatar-pending {
+  width: 28px;
+  border-radius: 50%;
+  opacity: 0.4;
+  border-color: #422929;
+  background-color: #ffffff;
+}
+
+.avatar-accepted {
+  width: 28px;
+  border-radius: 50%;
+  border-color: #422929;
+  background-color: #ffffff;
+}
+.blur-filter {
+  filter: blur(2px);
 }

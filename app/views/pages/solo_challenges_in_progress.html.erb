@@ -47,8 +47,10 @@
 
       <% unless @partner_solo_tasks.nil? || @partner_solo_tasks.empty? %>
         <% @partner_solo_tasks.each do |task| %>
-          <%= link_to individual_task_path(task), class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
-            <%= render 'shared/cards_individual_active', task: task %>
+          <%= link_to "#", class:"link-underline link-underline-opacity-0 text-dark my-2 px-2" do %>
+            <div class="blur-filter">
+              <%= render 'shared/cards_individual_active', task: task %>
+            </div>
           <% end %>
         <% end %>
       <% else %>
