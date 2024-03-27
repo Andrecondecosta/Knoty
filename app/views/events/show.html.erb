@@ -7,19 +7,19 @@
       <% @day_events.each do |event| %>
         <div class="card-event-show m-3">
           <div class="details ms-2" style="flex-basis: 70%; max-width: 100%; word-wrap: break-word;">
-            <h4 class="event-title" style="align-self: flex-start; font-size: 20px; margin-bottom: 2px; padding-top: 30px">
+            <h4 class="event-title" style="align-self: flex-start; font-size: 20px; margin-bottom: 2px; padding-top: 30px; font-family: Berkshire Swash">
               <strong><%= event.name %></strong>
               <div class="d-flex justify-content-end align-items-end position-relative mt-1">
                 <%= link_to edit_event_path(@event) do %>
                   <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: 'filter: sepia(90%); filter: contrast(80%); width: 19px; height: 25px; padding-bottom: 2px; margin-left: 6px; position: absolute; top: -37px; right: 55px;') %>
                 <% end %>
                 <%= link_to event_path(@event), data:{turbo_method: :delete, turbo_confirm:"Delete mission?"} do %>
-                  <i class="fas fa-trash-alt m-2 fa-lg icon-show"></i>
+                  <%= image_tag('delete.png', alt: 'littering', class: 'icon-show') %>
                 <% end %>
               </div>
             </h4>
               <div class="events-details">
-                <%= event.details %>
+                <em><%= event.details %></em>
               </div>
           </div>
         </div>

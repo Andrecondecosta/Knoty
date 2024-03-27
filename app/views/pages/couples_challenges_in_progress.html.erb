@@ -24,8 +24,7 @@
 
     <!-------------------------- ACTIVE COUPLES' QUESTS TAB CONTENT -------------------------->
     <div class="row justify-content-center scrollable-content"
-      data-quests-target="activeQuestsTab"
-      style="height: 540px;">
+      data-quests-target="activeQuestsTab">
       <% unless @active_tasks.nil? || @active_tasks.empty?  %>
         <% @active_tasks.each do |task| %>
 
@@ -41,8 +40,7 @@
 
     <!-------------------------- PENDING COUPLE QUESTS TAB CONTENT -------------------------->
     <div class="row justify-content-center d-none scrollable-content"
-      data-quests-target="pendingQuestsTab"
-      style="height: 540px;">
+      data-quests-target="pendingQuestsTab">
 
       <% unless @pending_tasks.nil? || @pending_tasks.empty?  %>
         <% @pending_tasks.each do |task| %>

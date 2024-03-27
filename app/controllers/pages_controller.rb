@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   before_action :set_pending_tasks, only: %i[home profile quests couples_challenges_in_progress]
   before_action :set_active_tasks, only: %i[quests couples_challenges_in_progress]
-  before_action :set_partner, only: %i[home profile quests solo_challenges_in_progress]
+  before_action :set_partner, only: %i[home profile quests solo_challenges_in_progress couples_challenges_in_progress explore_couples_challenges]
   before_action :set_couple_challenges, only: %i[quests explore_couples_challenges]
   before_action :set_individual_challenges, only: %i[quests explore_solo_challenges]
 
@@ -33,6 +33,7 @@ class PagesController < ApplicationController
   end
 
   def explore_solo_challenges
+
   end
 
   def solo_challenges_in_progress
