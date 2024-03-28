@@ -1,5 +1,4 @@
 class MissionsController < ApplicationController
-  before_action :set_pending_tasks, only: %i[index edit]
 
   def index
     @missions = current_user.missions
