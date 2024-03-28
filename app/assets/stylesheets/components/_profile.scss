@@ -1,5 +1,9 @@
 .content-profile {
   height: 631px;
+  background-color: rgb(192, 238, 228);
+  background-image: url('https://res.cloudinary.com/dvgcwuo68/image/upload/v1711583008/profile-plants_l3c6au.png');
+  background-size: 107%;
+  background-position: -13px;;
 }
 .tabs-profile {
   display: flex;
@@ -13,7 +17,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-bottom: none;
-  background-color: #ddd;
+  background-color: #A0D6A9;
   margin-bottom: -1px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -22,10 +26,10 @@
 }
 
 .tab-profile:hover {
-  background-color: #ddd;
+  background-color: #A0D6A9;
 }
 .tab-profile.active {
-  background-color: white;
+  background-color: rgb(192, 238, 228);
     border-bottom: none;
 }
 
@@ -45,4 +49,26 @@
 .avatar.large {
   width: 125px;
   height: 125px;
+}
+
+.profile-edit-word {
+  position: absolute;
+  bottom: 211px;
+  right: 168px;
+  font-size: 21px;
+  font-family: Berkshire Swash, serif;
+  text-decoration: none;
+  color: black;
+  line-height: 26px;
+}
+
+.profile-love-word {
+  position: absolute;
+  bottom: 183px;
+  right: 141px;
+  font-size: 21px;
+  font-family: Berkshire Swash, serif;
+  text-decoration: none;
+  color: black;
+  line-height: 26px;
 }

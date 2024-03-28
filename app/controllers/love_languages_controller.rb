@@ -7,7 +7,6 @@ class LoveLanguagesController < ApplicationController
     @number_of_questions = @love_language_questionnaire.size
     @love_language = LoveLanguage.new
   end
-
   def create
     # redirect_to home_path if current_user.love_language    # ==========> Set in PUNDIT
     if current_user.love_language
@@ -23,9 +22,7 @@ class LoveLanguagesController < ApplicationController
       end
     end
   end
-
   private
-
   def love_language_params
     params.require(:love_language).permit(:acts_of_service,
                                           :words_of_affirmation,
