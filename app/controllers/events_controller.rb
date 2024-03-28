@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    return redirect_to events_path unless @event.user == current_user
+    return redirect_to events_path unless @event.user == current_user || @partner
 
     @day_events = Event.where(date: @event.date)
   end
