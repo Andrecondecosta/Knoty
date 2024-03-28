@@ -36,5 +36,9 @@
     </div>
 
   </div>
-
+  <% unless !user_signed_in? || user_signed_in? && @pending_tasks_notif.zero? %>
+    <img src=https://res.cloudinary.com/dvgcwuo68/image/upload/v1711644384/bird-ezgif.com-gif-maker_1_mj4s3h.gif alt="Macaw" class="bird-quest">
+    <img src=https://res.cloudinary.com/dvgcwuo68/image/upload/v1711640838/hummingbird-ezgif.com-gif-maker_i6gqs1.gif alt="Macaw" class="bird-quest-1">
+    <img src=https://res.cloudinary.com/dvgcwuo68/image/upload/v1711644384/bullfinch-ezgif.com-gif-maker_1_hugpb3.gif alt="Macaw" class="bird-quest-2">
+  <% end %>
 </div>

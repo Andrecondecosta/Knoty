@@ -203,3 +203,25 @@
 .blur-filter {
   filter: blur(2px);
 }
+
+.bird-quest{
+  position: absolute;
+  width: 40px;
+  top: 495px;
+  left: 172px;
+  transform: scaleX(-1);
+}
+.bird-quest-1{
+  position: absolute;
+  width: 40px;
+  top: 494px;
+  left: 319px;
+  transform: scaleX(-1);
+}
+
+.bird-quest-2{
+  position: absolute;
+  width: 40px;
+  top: 408px;
+  left: 137px;
+}
