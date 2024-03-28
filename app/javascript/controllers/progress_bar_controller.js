@@ -6,7 +6,8 @@ export default class extends Controller {
   static values = { currentScore: String }
 
   score = Number(this.currentScoreValue)
-  scoreToDisplay = (this.score / 3) > 100 ? (this.score / 3 - 100) : this.score / 3
+  // scoreToDisplay = (this.score / 3) > 100 ? (this.score / 3 - 100) : this.score / 3
+  scoreToDisplay = this.score / 3
   progressBar = this.progressTarget
   stepCircles = this.circleTargets
   currentActive = 1

@@ -1,6 +1,5 @@
 class CoupleTasksController < ApplicationController
   before_action :set_couple, only: %i[show edit create mark_as_completed]
-  before_action :set_partner, only: %i[show create]
   before_action :set_couple_task, only: %i[show edit update mark_as_completed]
   before_action :set_invited_partner, only: %i[show edit]
 
@@ -71,10 +70,6 @@ class CoupleTasksController < ApplicationController
 
   def set_couple_task
     @couple_task = CoupleTask.find(params[:id])
-  end
-
-  def set_partner
-    @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
   end
 
   def similar_task_exists?
