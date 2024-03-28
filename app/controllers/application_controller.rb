@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :set_chatroom
   before_action :set_couple
   before_action :set_notifications
+  before_action :set_pending_tasks
+
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -39,5 +41,15 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
 
     @notifications = current_user.notifications.unread
+  end
+
+  def set_pending_tasks
+    return unless user_signed_in?
+
+    couple = current_user.couple_as_partner_1 || current_user.couple_as_partner_2
+    @pending_tasks_notif = couple.couple_tasks.where(active: false)
+                                 .select { |task| task.invited_id == current_user.id }.count
+    puts "@pending_tasks_notif in ApplicationController: #{@pending_tasks_notif}"
+    @pending_tasks = couple.couple_tasks.where(active: false)
   end
 end

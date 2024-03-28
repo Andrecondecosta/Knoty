@@ -16,7 +16,7 @@ class ChatroomsController < ApplicationController
   end
 
   def set_partner
-    return unless signed_in?
+    return unless user_signed_in?
 
     @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
   end

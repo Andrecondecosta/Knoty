@@ -16,15 +16,22 @@
         Calendar
     </a>
 
-    <a href="<%= user_signed_in? ? chatroom_path(@chatroom) : '#' %>" role="menuitem" data-turbo-prefetch="false">
+    <a href="<%=  user_signed_in? ? chatroom_path(@chatroom) : '#' %>" role="menuitem" data-turbo-prefetch="false">
         <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017026/message_mv2jlh.png" alt="Chat" class="hub-image hub-img-footer">
         Chat
     </a>
 
+    <% unless !user_signed_in? || user_signed_in? && @pending_tasks_notif.zero? %>
+      <span class="position-absolute translate-middle badge rounded-pill bg-info border border-light" style="top: 30%; left: 8%; padding-inline:6px;">
+        <%= @pending_tasks_notif %>
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    <% end %>
+
     <!-- Message notifications badge -->
     <span class="position-absolute translate-middle badge rounded-pill bg-info border border-light d-none" style="top: 30%; right: 5%; padding-inline:6px;"
       data-controller="notifications" data-notifications-target="badge"
-      data-notifications-count-value="<%= @notifications.count if user_signed_in?%>">
+      data-notifications-count-value="<%= @notifications.count if  user_signed_in?%>">
       <span class="visually-hidden">unread messages</span>
     </span>
 </nav>

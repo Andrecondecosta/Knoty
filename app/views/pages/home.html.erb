@@ -38,7 +38,7 @@ data-progress-bar-current-score-value="<%= @current_score %>">
 
       <div class="scrollable-content">
         <p>&nbsp;It wasn’t soon until the news arrived at
-        <%= signed_in? && current_user.first_name && @partner.first_name ? "#{@couple.partner_1.first_name} and #{@couple.partner_2.first_name}'s": "the heroes'" %>
+        <%= user_signed_in? && current_user.first_name && @partner.first_name ? "#{@couple.partner_1.first_name} and #{@couple.partner_2.first_name}'s": "the heroes'" %>
           house. Long
           before that day, they’d only heard of it in ancient tales. From time to time, in
           the village, couples claimed that they had encountered these feared
@@ -77,7 +77,7 @@ data-progress-bar-current-score-value="<%= @current_score %>">
 
     <div class="overlay-button" data-controller="audio">
 
-      <% if signed_in? && @couple.audio.attached? %>
+      <% if user_signed_in? && @couple.audio.attached? %>
         <%= audio_tag @couple.audio, data: {audio_target: "storyAudio"}%>
       <% else %>
         <%= audio_tag "https://res.cloudinary.com/dvgcwuo68/video/upload/v1710779454/development/2az0g93jjfghblihys3bq6s7fhz9.mp3",
