@@ -1,19 +1,10 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home landing]
   before_action :set_active_tasks, only: %i[quests couples_challenges_in_progress]
-  before_action :set_partner, only: %i[home profile quests solo_challenges_in_progress couples_challenges_in_progress explore_couples_challenges]
   before_action :set_couple_challenges, only: %i[quests explore_couples_challenges]
   before_action :set_individual_challenges, only: %i[quests explore_solo_challenges]
 
   def home
-    # raise
-    # this defines the progress value on the progress bar:
-    # NOTE CHANGE HERE TO 1-5
-    # 1=0%
-    # 2=33%
-    # 3=66%
-    # 4=100%
-    @current_score = @couple.total_exp if user_signed_in? && @couple
   end
 
   def landing
@@ -52,12 +43,6 @@ class PagesController < ApplicationController
   end
 
   private
-
-  def set_partner
-    return unless user_signed_in? && @couple
-
-    @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
-  end
 
   def set_active_tasks
     return unless user_signed_in? && @couple

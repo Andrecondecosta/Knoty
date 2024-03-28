@@ -1,5 +1,4 @@
 class IndividualTasksController < ApplicationController
-  before_action :set_partner, only: %i[create]
 
   def show
     @individual_task = IndividualTask.find(params[:id])
@@ -45,9 +44,5 @@ class IndividualTasksController < ApplicationController
 
   def similar_task_exists?
     IndividualTask.find_by(user: current_user, individual_challenge_id: params[:individual_challenge_id], completed: nil)
-  end
-
-  def set_partner
-    @partner = @couple.partner_1 == current_user ? @couple.partner_2 : @couple.partner_1
   end
 end

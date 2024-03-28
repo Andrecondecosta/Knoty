@@ -19,9 +19,11 @@ data-progress-bar-current-score-value="<%= @current_score %>">
 
   <canvas data-island-progress-target="gridCanvas" data-overlay-target= "islandsImage"></canvas>
 
-  <%= image_tag current_user.avatar_url, class: "d-none border border-dark", data: { island_progress_target: "characterIcon" } %>
+  <% if user_signed_in? %>
+    <%= image_tag current_user.avatar_url, class: "d-none border border-dark", data: { island_progress_target: "characterIcon" } %>
 
-  <%= image_tag @partner.avatar_url, class: "d-none border border-dark", data: { island_progress_target: "characterIcon" } %>
+    <%= image_tag @partner.avatar_url, class: "d-none border border-dark", data: { island_progress_target: "characterIcon" } %>
+  <% end %>
 
   <%= link_to '#', class: "book-icon", data: { action: "click->overlay#toggleOverlay click->modal#toggle" } do %>
     <img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/open-book_ea66sn.png" alt="Book" class="book book-inactive" data-overlay-target= "bookButton">
