@@ -3,11 +3,13 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all || []
+    @events = @couple.events || []
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
   def show
+    return redirect_to events_path unless @event.user == current_user
+
     @day_events = Event.where(date: @event.date)
   end
 
