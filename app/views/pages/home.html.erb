@@ -16,7 +16,10 @@ data-progress-bar-current-score-value="<%= @current_score %>">
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave"
   data-island-progress-target="scrollContainer"
   data-island-progress-current-score-value="<%= @current_score %>">
-<p class="text-info fs-5 p-2 rounded-4 mb-0 position-absolute"><%= @couple.total_exp/3 %>/100</p>
+
+  <% if user_signed_in? %>
+    <p class="fs-6 py-0 px-1 fw-semibold rounded-4 m-0 text-light position-absolute" style="background-color:#ca3435;; top:-2px; right:42%;"><%= @couple.total_exp/3 %>/100</p>
+  <% end %>
 
   <canvas data-island-progress-target="gridCanvas" data-overlay-target= "islandsImage"></canvas>
 
