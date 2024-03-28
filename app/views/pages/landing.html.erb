@@ -1,0 +1,80 @@
+<div class="bg-clear-page" style="width:100%; height: 100%;">
+
+  <!--LOGIN BUTTON -->
+  <div class="navbar navbar-expand-sm navbar-lewagon <%= 'bg-transparent' unless current_page?(home_path) %>" style="position: relative; background-color: #3db8fe; box-shadow: 0 106px 194px -103px rgb(73 190 255)">
+
+    <div class="container-fluid d-flex justify-content-end mt-1">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if  user_signed_in? %>
+            <li class="nav-item dropdown">
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+              <% unless current_user.avatar_url.nil? %>
+                <%= image_tag current_user.avatar_url, class: "avatar", alt: "dropdown menu" %>
+              <% else %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+              <% end %>
+
+              <i class="fa-solid fa-gear" style="position: absolute; bottom: -5px; right: -5px; color: black;"></i>
+            </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Your Profile", profile_path, class: "dropdown-item" %>
+                <%= link_to "Profile Settings", edit_existing_profile_path, class: "dropdown-item" %>
+                <%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link footer-login" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--LOGO -->
+  <div class="landing-top-logo">
+    <%= image_tag "knoty_option_one.png", style:"width: 251px; height: 79px;" %>
+  </div>
+
+  <!-- Intro text -->
+  <div class="text-center">
+    <h3 class="landing-text-top-one"><strong>Embark on an epic adventure with your partner!</strong></h3>
+    <h5 class="landing-text-top-two">Find all the love seeds and safeguard your love against Boredoom and Chorebrutus! </h5>
+  </div>
+
+
+  <!--ISLAND IMAGES -->
+  <div class="d-flex flex-row position-relative">
+    <div class="landing-island animated-box1" id="islandlupa1">
+      <%= image_tag "ideserted.png", class:"landing-island-images", style:"top: 3px; left: 5px;" %>
+    </div>
+
+    <div class="landing-island animated-box2" id="islandlupa2">
+      <%= image_tag "ivulcanic.png", class:"landing-island-images", style:"top: 3px; left: 5px;" %>
+    </div>
+
+    <div class="landing-island animated-box3" id="islandlupa3">
+      <%= image_tag "ifuturistic.png", class:"landing-island-images", style:"top: 3px; left: 5px;" %>
+    </div>
+
+    <div class="landing-island  animated-box4" id="islandlupa4">
+      <%= image_tag "icloud.png", class:"landing-island-images", style:"top: 3px; left: 5px;" %>
+    </div>
+  </div>
+
+  <!-- Text part two-->
+  <div class="text-center">
+    <h3 class="landing-text-middle-one">Watch your love blossom as you conquer challenges together.</h3>
+    <h5 class="landing-text-middle-two">From romantic adventures to hilarious missions, Knoty offers a variety of opportunities to keep your love thriving. </h5>
+  </div>
+
+
+</div>

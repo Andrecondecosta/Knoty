@@ -14,7 +14,7 @@
       <h4 style="font-family: Berkshire Swash, serif;"><%= task.couple_challenge.title %></h4>
     </div>
       <div class="d-flex justify-content-end align-items-end">
-        <h4 class="avatares pe-3">
+        <h4 class="avatares pe-3" style="padding-top: 5px;">
           <% if current_user == User.find(task.invited_id) && task.active == false %>
             <%= image_tag current_user.avatar_url, alt: "User avatar", class: "avatar-pending" %>
           <% else %>
