@@ -8,15 +8,15 @@ export default class extends Controller {
     const content = this.noticeValue || this.alertValue;
 
     if (content) {
-
       Swal.fire({
         title: content,
+        target: document.querySelector('.content-box'),
         width: '350px',
         background: '#fff url(https://res.cloudinary.com/dvgcwuo68/image/upload/v1711462409/rsz_1rsz_1wooden-floor-background_w3ruiw.jpg)',
         iconHtml: content === this.noticeValue ? `<img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711410815/icons8-check-ezgif.com-gif-maker_oqogow.gif">` :
           `<img src="https://res.cloudinary.com/dvgcwuo68/image/upload/v1711410816/icons8-error1-ezgif.com-gif-maker_fmdjtp.gif">`,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 2000,
         customClass: {
           popup: 'd-flex p-0 bg-light bg-opactiy-10',
           title: 'fs-5',
@@ -27,14 +27,14 @@ export default class extends Controller {
           popup: `
             animate__animated
             animate__zoomInDown
-            animate__faster
+            animate__fast
           `
         },
         hideClass: {
           popup: `
             animate__animated
             animate__zoomOutUp
-            animate__faster
+            animate__fast
           `
         }
       });
