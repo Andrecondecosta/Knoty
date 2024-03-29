@@ -160,7 +160,7 @@
 }
 
 .landing-text-middle-one {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   color: black;
   font-family: Vidaloka;
@@ -170,6 +170,15 @@
 
 .landing-text-middle-two {
   font-size: 15px;
+  font-weight: light;
+  color: black;
+  font-family: Vidaloka;
+  margin: 12px 20px 10px 20px;
+  padding: 2px;
+}
+
+.landing-text-end-one {
+  font-size: 20px;
   font-weight: light;
   color: black;
   font-family: Vidaloka;
@@ -199,9 +208,9 @@
 }
 
 .app-card-active {
-  flex: 2;
-  height:200px;
-  transition: flex 0.7s cubic-bezier(0.05, 0.6, 0.4, 0.9);
+  flex: 7;
+  height: 420px;
+  transition: flex 0.7s cubic-bezier(0.05, 0.6, 0.4, 0.9), height 0.7s cubic-bezier(0.05, 0.6, 0.4, 0.9);
 }
 
 .card-image {
@@ -212,19 +221,20 @@
 }
 
 a.adventure-button{
-  background: linear-gradient(to right, #caba49, #c58d52);
-  color: #fff;
+  background: linear-gradient(to right, #1363a3, #15c0ef);
+  color: #ffd000;
   font-family: Verdana;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 400;
   font-style: italic;
   text-decoration: none;
-  padding: 14px 15px;
-  border: 1px solid #15488b;
+  padding: 9px 39px;
+  border: 6px double #000;
   border-radius: 50px;
   display: inline-block;
-  box-shadow: 3px 3px 15px 5px #15488b;
-  text-shadow: 1px 2px 1px #000;
+  /* box-shadow: 5px 3px 15px 6px #99840a; */
+  text-shadow: -3px 1px 2px #000;
+  margin-top: 20px;
  }
  a.adventure-button:hover{
   background: linear-gradient(to right,#ac9d3d ,#9e6f3c);
@@ -234,44 +244,44 @@ a.adventure-button{
  }
 
  .sign-up-landing{
-  border: 1px solid #0994be;
+  border: 2px solid #0994be;
   color: #0994be;
+  padding: 3px 12px;
+  border-radius: 15px;
  }
 
   .sign-up-landing:hover{
     background: #0fbcf3;
-    border: 1px solid #000000;
-    color: #000000;
+    border: 2px solid rgb(54, 54, 54);
+    color: rgb(54, 54, 54);
   }
 
 .login-landing{
-border: 1px solid #0994be;
-color: #0994be;
+  border: 2px solid #0994be;
+  color: #0994be;
+  padding: 3px 12px;
+  border-radius: 15px;
 }
 
  .login-landing:hover{
   background: #0fbcf3;
-  border: 1px solid #000000;
-  color: #000000;
+  border: 2px solid rgb(54, 54, 54);
+  color: rgb(54, 54, 54);
  }
 
  .credits{
-  background: linear-gradient(to right,#d1bd0f ,#bd7a0d);
-  background-color: #d1bd0f;
-  color: #fff;
-  font-family: Lucida Console;
-  font-size: 12px;
+  background-color: transparent;
+  color: #312f2f;
+  font-family: Roboto;
+  font-size: 16px;
   font-weight: 400;
-  font-style: italic;
   text-decoration: none;
   padding: 12px 15px;
-  border: 2px solid #000;
-  border-radius: 10px;
-  display: inline-block;
+  border: 2px solid transparent;
  }
  .credits:hover{
-  background: linear-gradient(to right,#d6c552 ,#c58d52);
-  background-color: #d6c552;
+  background: transparent;
+  background-color: transparent;
  }
  .credits:active{
   transform: scale(0.95);
