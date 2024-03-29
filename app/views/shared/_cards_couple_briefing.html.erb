@@ -29,8 +29,10 @@
       &nbsp;&nbsp;&nbsp; <%= couple_challenge.details %>
     </p>
   </div>
+
   <%= link_to  new_couple_challenge_couple_task_path(couple_challenge) do %>
     <button type="button" class="begin-quest">Begin</button>
   <% end %>
+    <p class="couple-exp"><em>EXP:  </em><strong><%= couple_challenge.exp %></strong></p>
 
 </div>
