@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def show
     return redirect_to events_path unless @event.user == current_user || @partner
 
-    @day_events = Event.where(date: @event.date)
+    @day_events = @couple.events.where(date: @event.date)
   end
 
   def new
