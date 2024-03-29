@@ -25,9 +25,9 @@
     </div>
   </div>
     <% if current_page?(individual_task_path(task)) %>
-      <p class="couple-exp"><em>EXP:  </em><strong><%= @individual_challenge.exp %></strong></p>
+      <p class="couple-exp"><em>EXP:  </em><strong><%= @individual_challenge.exp/3 %></strong></p>
     <% else %>
-      <p class="couple-exp"><em>EXP:  </em><strong><%= @couple_challenge.exp %></strong></p>
+      <p class="couple-exp"><em>EXP:  </em><strong><%= @couple_challenge.exp/3%></strong></p>
     <% end %>
 
   <% if current_page?(individual_task_path(task)) %>
