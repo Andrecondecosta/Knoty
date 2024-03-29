@@ -2,8 +2,8 @@
 
   <!--LOGIN BUTTON -->
   <div class="d-flex justify-content-between m-2">
-    <%= link_to "Sign Up", new_user_registration_path, class: "nav-link footer-login sign-up-landing" %>
-    <%= link_to "Login", new_user_session_path, class: "nav-link footer-login login-landing" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "nav-link sign-up-landing" %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link login-landing" %>
   </div>
 
   <!--LOGO -->
@@ -45,7 +45,7 @@
 
   <!-- APP CARDS -->
 
-  <div class="card-container" data-controller="app-card">
+  <div class="card-container d-flex flex-row align-items-center" data-controller="app-card">
     <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
       <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667495/Captura_de_ecr%C3%A3_2024-03-28_175821_cvsyeu.png", class:"card-image"%>
     </div>
@@ -74,30 +74,28 @@
 
   <!-- Text part three-->
   <div class="text-center">
-    <h5 class="landing-text-middle-two">Join the thousands of couples already leveling up their love with Knoty's fun and interactive challenges. </h5>
+    <h5 class="landing-text-end-one">Join the thousands of couples already leveling up their love with Knoty's fun and interactive challenges. </h5>
     <%= link_to "Embark on an Adventure!", new_user_registration_path, class: "adventure-button" %>
   </div>
 
   <div>
-    <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710804956/Imagem4_hcfn7v.png', style:"max-width:30%;", class:"col-10 mx-auto d-block mt-5" %>
+    <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710804956/Imagem4_hcfn7v.png', style:"max-width:24%; margin-top: 51px;", class:"col-10 mx-auto d-block" %>
   </div>
 
 
-  <p class="row justify-content-center mt-4">
+  <p class="row justify-content-center mt-4 mb-0">
     <button class="col-3 credits" type="button" data-bs-toggle="collapse" data-bs-target="#aboutUsCollapse" aria-expanded="false" aria-controls="aboutUsCollapse">
       Credits
     </button>
   </p>
   <div class="row justify-content-center">
     <div class="col-10 collapse" id="aboutUsCollapse">
-      <div class="card card-body glass-morph-card" style="margin-left: 20px;">
+      <div style="margin-left: 20px; background: transparent;">
         <!-- About us banner -->
-        <div class="about-us-banner">
           <div>
-            <h4 class="text-center">Credits</h4>
-            <p class="text-center"> Knoty acknowledges the invaluable contributions of Flaticon, for the icons and graphics used in Knoty, and RibiRibiStudios for creating the images and contributing to the Knotys' design elements. </p>
+            <p class="text-center">Welcome to Knoty! Founded by Ana Madeira, André Costa, Ahmed Bouguacha and Ivan Oliynik, <em>Knoty</em> is the result of a dedicated team of junior web developers driven by a shared love for fostering meaningful connections between people.</p>
+            <p class="text-center" style="font-size: 10px;"> Knoty acknowledges the invaluable contributions of <em>Flaticon</em>, for the icons and graphics used in Knoty, and <em>RibiRibiStudios</em> for creating the images and contributing to the Knotys' design elements. </p>
           </div>
-        </div>
       </div>
     </div>
   </div>

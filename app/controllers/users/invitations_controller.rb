@@ -71,8 +71,8 @@ class Users::InvitationsController < Devise::InvitationsController
                  user: current_user,
                  couple:,
                  name: "Welcome!",
-                 details: "The start of an",
-                 location: "Amazing adventure!",
+                 details: "The start of an amazing adventure!",
+                 location: "Knoty app!",
                  is_memory: true)
   end
 end
