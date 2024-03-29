@@ -56,7 +56,8 @@ class CoupleTasksController < ApplicationController
       @couple.total_exp = 0 if @couple.total_exp.nil?
       @couple.total_exp += @couple_task.couple_challenge.exp
       @couple.save
-      redirect_to home_path, notice: "Challenge completed!"
+      exp = @couple_task.couple_challenge.exp
+      redirect_to home_path, notice: "Challenge completed! You earned #{exp / 3} points!"
     else
       render :show, alert: "Something went wrong, please try again."
     end
