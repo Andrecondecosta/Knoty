@@ -30,7 +30,8 @@ class IndividualTasksController < ApplicationController
       @couple.total_exp = 0 if @couple.total_exp.nil?
       @couple.total_exp += @individual_task.individual_challenge.exp
       @couple.save
-      redirect_to home_path, notice: "Challenge completed!"
+      exp = @individual_task.individual_challenge.exp
+      redirect_to home_path, notice: "Challenge completed! You earned #{exp / 3} points!"
     else
       render :show, alert: "Something went wrong, please try again."
     end

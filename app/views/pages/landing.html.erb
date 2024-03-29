@@ -1,42 +1,9 @@
-<div class="bg-clear-page" style="width:100%; height: 100%;">
+<div class="bg-clear-page scrollable-content" style="width:100%; height: 100%;">
 
   <!--LOGIN BUTTON -->
-  <div class="navbar navbar-expand-sm navbar-lewagon <%= 'bg-transparent' unless current_page?(home_path) %>" style="position: relative; background-color: #3db8fe; box-shadow: 0 106px 194px -103px rgb(73 190 255)">
-
-    <div class="container-fluid d-flex justify-content-end mt-1">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <% if  user_signed_in? %>
-            <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-              <% unless current_user.avatar_url.nil? %>
-                <%= image_tag current_user.avatar_url, class: "avatar", alt: "dropdown menu" %>
-              <% else %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-              <% end %>
-
-              <i class="fa-solid fa-gear" style="position: absolute; bottom: -5px; right: -5px; color: black;"></i>
-            </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Your Profile", profile_path, class: "dropdown-item" %>
-                <%= link_to "Profile Settings", edit_existing_profile_path, class: "dropdown-item" %>
-                <%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link footer-login" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+  <div class="d-flex justify-content-between m-2">
+    <%= link_to "Sign Up", new_user_registration_path, class: "nav-link footer-login sign-up-landing" %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link footer-login login-landing" %>
   </div>
 
   <!--LOGO -->
@@ -76,5 +43,63 @@
     <h5 class="landing-text-middle-two">From romantic adventures to hilarious missions, Knoty offers a variety of opportunities to keep your love thriving. </h5>
   </div>
 
+  <!-- APP CARDS -->
+
+  <div class="card-container" data-controller="app-card">
+    <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667495/Captura_de_ecr%C3%A3_2024-03-28_175821_cvsyeu.png", class:"card-image"%>
+    </div>
+
+    <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667501/Captura_de_ecr%C3%A3_2024-03-28_174322_g13yb4.png", class:"card-image"%>
+    </div>
+
+    <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667545/Captura_de_ecr%C3%A3_2024-03-28_231128_mdl5jb.png", class:"card-image"%>
+    </div>
+
+    <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667492/Captura_de_ecr%C3%A3_2024-03-28_164841_yoryrz.png", class:"card-image"%>
+    </div>
+
+    <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667491/Captura_de_ecr%C3%A3_2024-03-28_173722_jlazvs.png", class:"card-image"%>
+    </div>
+
+    <div class="app-card" data-action="click->app-card#toggleCard" data-app-card-target="card" >
+      <%= image_tag "https://res.cloudinary.com/dvgcwuo68/image/upload/v1711667500/Captura_de_ecr%C3%A3_2024-03-28_174428_w2fv12.png", class:"card-image"%>
+    </div>
+
+  </div>
+
+  <!-- Text part three-->
+  <div class="text-center">
+    <h5 class="landing-text-middle-two">Join the thousands of couples already leveling up their love with Knoty's fun and interactive challenges. </h5>
+    <%= link_to "Embark on an Adventure!", new_user_registration_path, class: "adventure-button" %>
+  </div>
+
+  <div>
+    <%= image_tag 'https://res.cloudinary.com/dvgcwuo68/image/upload/v1710804956/Imagem4_hcfn7v.png', style:"max-width:30%;", class:"col-10 mx-auto d-block mt-5" %>
+  </div>
+
+
+  <p class="row justify-content-center mt-4">
+    <button class="col-3 credits" type="button" data-bs-toggle="collapse" data-bs-target="#aboutUsCollapse" aria-expanded="false" aria-controls="aboutUsCollapse">
+      Credits
+    </button>
+  </p>
+  <div class="row justify-content-center">
+    <div class="col-10 collapse" id="aboutUsCollapse">
+      <div class="card card-body glass-morph-card" style="margin-left: 20px;">
+        <!-- About us banner -->
+        <div class="about-us-banner">
+          <div>
+            <h4 class="text-center">Credits</h4>
+            <p class="text-center"> Knoty acknowledges the invaluable contributions of Flaticon, for the icons and graphics used in Knoty, and RibiRibiStudios for creating the images and contributing to the Knotys' design elements. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

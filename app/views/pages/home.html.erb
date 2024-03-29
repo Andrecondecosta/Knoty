@@ -2,7 +2,7 @@
 <div class="container-progressing" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -620%);" data-controller="progress-bar"
 data-progress-bar-current-score-value="<%= @current_score %>">
   <div class="progress-container" style="width: 370px; margin-bottom: 34px;">
-    <div class="progress" data-progress-bar-target="progress"> </div>
+    <div class="progress" data-progress-bar-target="progress"></div>
     <div class="circle" data-progress-bar-target="circle"></div>
     <div class="circle" data-progress-bar-target="circle"></div>
     <div class="circle" data-progress-bar-target="circle"></div>
@@ -16,7 +16,6 @@ data-progress-bar-current-score-value="<%= @current_score %>">
   data-action= "mousedown->island-slide#handleMouseDown mousemove->island-slide#handleMouseMove mouseup->island-slide#handleMouseUp mouseleave->island-slide#handleMouseLeave"
   data-island-progress-target="scrollContainer"
   data-island-progress-current-score-value="<%= @current_score %>">
-<p class="text-info fs-5 p-2 rounded-4 mb-0 position-absolute"><%= @couple.total_exp/3 %>/100</p>
 
   <canvas data-island-progress-target="gridCanvas" data-overlay-target= "islandsImage"></canvas>
 
