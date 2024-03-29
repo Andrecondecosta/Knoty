@@ -6,9 +6,9 @@
   </div>
   <div id="calendar" style="position: relative;">
     <h2 id="month">
-      <%= link_to image_tag("wooden-arrow.png", style: "width: 38px; height: 30px;"), :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+      <%= link_to image_tag("wooden-arrow.png", class: "calendar-arrow"), :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
       <%=h @date.strftime("%B %Y") %>
-      <%= link_to image_tag("wood-arrow.png", style: "width: 38px; height: 30px;"), :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+      <%= link_to image_tag("wood-arrow.png", class: "calendar-arrow"), :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
     </h2>
 
     <%= calendar_for @event, @date, :year => @date.year, :month => @date.month do |t| %>

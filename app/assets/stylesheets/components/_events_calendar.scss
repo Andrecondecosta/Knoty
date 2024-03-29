@@ -168,3 +168,13 @@
       font-weight: bold;
       font-family: Berkshire Swash;
     }
+
+    .calendar-arrow {
+      width: 38px;
+      height: 30px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .calendar-arrow:hover {
+      transform: scale(1.2);
+    }
