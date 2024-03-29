@@ -99,7 +99,7 @@ COUPLE_CHALLENGES =[
   },
   {
     title: "Surprise factor",
-    details: "Each of you will receive different challenge details on how to surprise your partner. At the end of the week, scores should be shared to see who's the champion. But here's the catch: your score will only be valid if your can make it a real surprise. If not: you should try again!",
+    details: "Each of you will receive different challenge details on how to surprise your partner. At the end of the week, scores should be shared to see who's the champion. But here's the catch: your score will only be valid if you can make it a real surprise. If not: you should try again!",
     difficulty: 2,
     estimated_time: 3,
     prompt_1: "Hi, you kisser. Its time to unleash your creativity in the realm of kisses. From sweet pecks to bold smooches, from quick bursts to lingering embraces, let your imagination run wild! Throughout the week, surprise your partner with an array of funny kiss-types. Keep track of your numbers and, at the end of the week, reveal your tally!",

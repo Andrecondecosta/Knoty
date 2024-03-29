@@ -61,18 +61,14 @@ class Users::InvitationsController < Devise::InvitationsController
     if @existing_couple.nil?
       couple = Couple.new(partner_1: current_inviter, partner_2: resource)
       couple.save!
-      create_first_memory(couple)
-      Chatroom.create(couple:)
-    end
-  end
-
-  def create_first_memory(couple)
-    Event.create(date: current_user.created_at,
+      Event.create!(date: current_user.created_at,
                  user: current_user,
                  couple:,
                  name: "Welcome!",
                  details: "The start of an",
                  location: "Amazing adventure!",
                  is_memory: true)
+      Chatroom.create!(couple:)
+    end
   end
 end

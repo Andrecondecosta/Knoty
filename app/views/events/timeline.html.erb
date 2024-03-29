@@ -54,7 +54,7 @@
               </div>
             </div>
 
-            <% unless event.name == "Welcome!" %>
+            <% unless event == @couple.events.order(:created_at).where(is_memory: true).first %>
               <div class="d-flex <%= index.even? ? 'flex-row' : 'flex-row-reverse' %> justify-content-start" style="position: absolute; bottom: 0; <%= index.even? ? 'left' : 'right' %>: 0;">
                 <%= link_to edit_event_path(event, origin: 'timeline'), class: 'icon-button-timeline' do %>
                   <%= image_tag('https://res.cloudinary.com/dvgcwuo68/image/upload/v1710017025/quill-pen_xty0r2.png', alt: 'feather', style: "#{index.even? ? 'filter: sepia(90%); filter: contrast(80%); width: 24px; height: 25px; padding-bottom: 1px; margin-left: 21px; margin-bottom: 9px; margin-right: 5px;' : 'filter: sepia(90%); filter: contrast(80%); width: 24px; height: 25px; padding-bottom: 1px; margin-right: 13px; margin-bottom: 13px; margin-left: 3px;'}") %>
