@@ -59,14 +59,15 @@ export default class extends Controller {
       const characterY = character.y * gridHeight;
 
 
-      this.ctx.strokeStyle = "#fa7602";
-      this.ctx.drawImage(characterIcon[i], characterX, characterY, characterWidth, characterHeight);
-
+      this.ctx.strokeStyle = "rgba(0, 0, 0, 0)";
 
       this.ctx.beginPath();
-      this.ctx.moveTo(characterX, characterY + gridHeight);
-      this.ctx.lineTo(characterX + gridWidth, characterY + gridHeight);
+      this.ctx.arc(characterX + gridWidth / 2, characterY + gridHeight / 2, gridWidth / 2, 0, 2 * Math.PI);
+      this.ctx.lineWidth = 3;
+      this.ctx.strokeStyle = "red";
       this.ctx.stroke();
+
+      this.ctx.drawImage(characterIcon[i], characterX, characterY, characterWidth, characterHeight);
     }
 
     const scrollContainer = this.scrollContainerTarget;
@@ -74,6 +75,7 @@ export default class extends Controller {
     const scrollX = characterX - scrollContainer.offsetWidth / 2;
     scrollContainer.scrollTo(scrollX, 0);
   };
+
 
 
   // private
