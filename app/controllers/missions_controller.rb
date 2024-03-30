@@ -1,7 +1,6 @@
 class MissionsController < ApplicationController
-
   def index
-    @missions = current_user.missions
+    @missions = current_user.missions + @partner.missions
   end
 
   def new
